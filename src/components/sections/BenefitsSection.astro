@@ -1,0 +1,93 @@
+---
+// Inspired by ChatPRD.ai benefits section - adapted for realtor partnership site
+const benefits = [
+  {
+    icon: '📋',
+    iconBg: 'bg-pink-50',
+    iconBorder: 'border-pink-200',
+    textColor: 'text-pink-600',
+    title: 'Payment at Closing Available',
+    description: 'Remove financial barriers for your clients. We offer flexible payment options including payment at closing to help deals move forward smoothly.'
+  },
+  {
+    icon: '⚡',
+    iconBg: 'bg-rose-50',
+    iconBorder: 'border-rose-200',
+    textColor: 'text-rose-600',
+    title: 'Fast Turnaround for Deadlines',
+    description: 'We understand real estate timelines. Get inspections completed quickly and installations scheduled to meet your closing dates.'
+  },
+  {
+    icon: '📈',
+    iconBg: 'bg-orange-50',
+    iconBorder: 'border-orange-200',
+    textColor: 'text-orange-600',
+    title: 'Increase Property Value',
+    description: 'Quality roof improvements can increase appraisal values. Help your sellers get top dollar with strategic roof upgrades.'
+  },
+  {
+    icon: '🤝',
+    iconBg: 'bg-sky-50',
+    iconBorder: 'border-sky-200',
+    textColor: 'text-sky-600',
+    title: 'Write Us Into Contracts',
+    description: "Protect your buyer's interests by writing Maverick Exteriors into your purchase agreements with our proven contract language."
+  },
+  {
+    icon: '🎨',
+    iconBg: 'bg-indigo-50',
+    iconBorder: 'border-indigo-200',
+    textColor: 'text-indigo-600',
+    title: '3D Design Visualizations',
+    description: 'Help sellers choose attractive roofing options with 3D renderings showing multiple color choices on their actual home.'
+  },
+  {
+    icon: '🏆',
+    iconBg: 'bg-purple-50',
+    iconBorder: 'border-purple-200',
+    textColor: 'text-purple-600',
+    title: '30+ Years in Kansas City',
+    description: 'Local expertise you can trust. We understand Kansas City weather, building codes, and the local real estate market.'
+  }
+];
+---
+
+<section class="bg-gray-50 py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left side - Headline (inspired by ChatPRD) -->
+      <div class="px-4 md:px-0">
+        <div class="max-w-lg mx-auto md:mx-0">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            We help you unlock your team's{' '}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
+              best deals
+            </span>
+          </h2>
+          <p class="mt-6 text-lg text-gray-600">
+            Partner with Kansas City's most trusted roofing contractor and give your clients the expert service they deserve.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right side - Benefits cards (inspired by ChatPRD) -->
+      <div class="space-y-4">
+        {benefits.map((benefit) => (
+          <div class={`flex items-start gap-4 p-4 rounded-xl border ${benefit.iconBg} ${benefit.iconBorder} ${benefit.textColor} hover:shadow-md transition-shadow`}>
+            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-lg flex items-center justify-center text-2xl border border-gray-200 shadow-sm">
+              {benefit.icon}
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-gray-900 font-semibold text-base mb-1">
+                {benefit.title}
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {benefit.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

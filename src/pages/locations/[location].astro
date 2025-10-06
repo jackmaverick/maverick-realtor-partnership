@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import locations from '../../data/locations.json';
+
+export async function getStaticPaths() {
+  return locations.map((location) => ({
+    params: { location: location.slug },
+    props: { location },
+  }));
+}
+
+const { location } = Astro.props;
+---
+
+<BaseLayout
+  title={`Roofing Services in ${location.name}, ${location.state}`}
+  description={`Professional roofing services for realtors in ${location.name}, ${location.state}. ${location.roofsCompleted}+ roofs completed. Fast inspections, payment at closing available.`}
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-primary-50 to-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Expert Roofing Services in {location.name}, {location.state}
+        </h1>
+        <p class="text-xl text-gray-600 mb-6">
+          Serving real estate professionals in {location.name} with fast inspections, competitive pricing, and 30+ years of roofing expertise.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <CTAButton href="/contact" variant="primary" size="lg">
+            Request Inspection
+          </CTAButton>
+          <CTAButton href="tel:9132686052" variant="outline" size="lg">
+            Call (913) 268-6052
+          </CTAButton>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-12 bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary-600 mb-2">{location.roofsCompleted}+</div>
+          <div class="text-sm text-gray-600">Roofs Completed</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary-600 mb-2">30+</div>
+          <div class="text-sm text-gray-600">Years Experience</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary-600 mb-2">{location.medianHomeValue}</div>
+          <div class="text-sm text-gray-600">Median Home Value</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl font-bold text-primary-600 mb-2">A+</div>
+          <div class="text-sm text-gray-600">BBB Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Location -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">
+            Why {location.name} Realtors Choose Maverick Exteriors
+          </h2>
+          <div class="prose prose-lg text-gray-600">
+            <p>{location.description}</p>
+
+            <p>
+              For over 30 years, Maverick Exteriors has been the trusted roofing partner for real estate professionals throughout {location.name}. We understand the unique challenges that realtors face when navigating roof issues during real estate transactions, and we've built our services specifically to support your needs.
+            </p>
+
+            <p>
+              Whether you're representing a buyer who needs a fast, accurate roof inspection to meet closing deadlines, or you're working with a seller who wants to maximize their home's value with a new roof, we have the expertise and flexibility to help you succeed.
+            </p>
+
+            <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Our {location.name} Realtor Services Include:</h3>
+            <ul class="space-y-2">
+              <li><strong>Payment at Closing:</strong> Help your buyers manage their budget by deferring roof costs until closing day</li>
+              <li><strong>Fast Turnaround Inspections:</strong> Get detailed roof assessments within days, not weeks, to keep transactions on schedule</li>
+              <li><strong>Price Matching Guarantee:</strong> We'll match any comparable bid from licensed contractors</li>
+              <li><strong>Extended Warranties:</strong> Offer buyers peace of mind with 10-15 year labor warranties</li>
+              <li><strong>3D Design Visualizations:</strong> Help sellers choose the perfect roof color and style</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 mb-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Climate & Roofing in {location.name}</h3>
+            <p class="text-gray-600 mb-6">{location.climate}</p>
+
+            <h4 class="text-lg font-semibold text-gray-900 mb-3">Common Roofing Issues We Address:</h4>
+            <ul class="space-y-2">
+              {location.commonIssues.map((issue) => (
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-gray-700">{issue}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="bg-primary-50 rounded-2xl p-8 border border-primary-100">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Popular {location.name} Neighborhoods</h3>
+            <p class="text-gray-600 mb-4">We proudly serve realtors and homeowners throughout {location.name}, including:</p>
+            <div class="flex flex-wrap gap-2">
+              {location.neighborhoods.map((neighborhood) => (
+                <span class="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-primary-200">
+                  {neighborhood}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Realtor Benefits -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          How We Help {location.name} Realtors Close More Deals
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Our services are specifically designed to support real estate professionals and keep your transactions moving forward.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Fast Response Times</h3>
+          <p class="text-gray-600">
+            We understand real estate timelines. Get roof inspections scheduled within 48 hours and reports delivered in days, not weeks.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Flexible Payment Options</h3>
+          <p class="text-gray-600">
+            Payment at closing available for buyers who need budget flexibility during the home purchase process.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-sm">
+          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Price Matching Promise</h3>
+          <p class="text-gray-600">
+            Show us a comparable bid from a licensed contractor and we'll match it. No negotiation needed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Content -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <h2>Expert Roofing for {location.name} Real Estate Transactions</h2>
+        <p>
+          When you're managing real estate transactions in {location.name}, having a reliable roofing partner can make the difference between a smooth closing and a deal that falls apart. Maverick Exteriors has been serving {location.name} realtors for over three decades, and we understand exactly what you need to keep your transactions moving forward.
+        </p>
+
+        <h3>Understanding {location.name}'s Roofing Market</h3>
+        <p>
+          With a median home value of {location.medianHomeValue}, {location.name} represents a significant investment for your clients. The roofing component of these homes is critical to both property value and buyer confidence. Our team has completed over {location.roofsCompleted} roofs in {location.name}, giving us deep expertise in the specific challenges and opportunities this market presents.
+        </p>
+
+        <h3>Services Designed for Real Estate Professionals</h3>
+        <p>
+          Unlike general roofing contractors, we've built our business model specifically to support realtors. This means we understand that your timeline is different, your needs are unique, and your success depends on our ability to deliver quickly and professionally.
+        </p>
+
+        <h3>Supporting Both Buyer's and Seller's Agents</h3>
+        <p>
+          Whether you're representing a buyer who's concerned about the condition of a roof, or a seller who wants to maximize their listing's appeal, we have the services and experience to help. From fast pre-listing inspections to payment-at-closing options for buyers, we've thought through every scenario you might encounter.
+        </p>
+
+        <h3>Ready to Partner?</h3>
+        <p>
+          Join the hundreds of {location.name} realtors who trust Maverick Exteriors for their roofing needs. Contact us today to schedule an inspection or learn more about our realtor partnership program.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24 bg-primary-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Serving {location.name} Realtors Since 1992
+      </h2>
+      <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+        Request a property inspection or schedule a partnership meeting today.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <CTAButton href="/contact" variant="primary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+          Request Inspection in {location.name}
+        </CTAButton>
+        <CTAButton href="tel:9132686052" variant="outline" size="lg" class="border-white text-white hover:bg-primary-700">
+          Call (913) 268-6052
+        </CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

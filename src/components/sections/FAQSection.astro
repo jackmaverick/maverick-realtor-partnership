@@ -1,0 +1,83 @@
+---
+// Inspired by ChatPRD.ai FAQ section with multi-column layout
+const faqColumns = [
+  [
+    {
+      question: "How does payment at closing work?",
+      answer: "We can structure payment so your client pays at closing through their settlement statement. This removes the financing barrier and helps deals move forward smoothly."
+    },
+    {
+      question: "How fast can you complete inspections?",
+      answer: "We typically complete roof inspections within 24-48 hours of your request. For urgent closing deadlines, we offer same-day or next-day inspection services."
+    },
+    {
+      question: "What areas do you serve?",
+      answer: "We serve all of Kansas City metro including Johnson County, Wyandotte County, and surrounding areas. We're licensed and insured in both Kansas and Missouri."
+    }
+  ],
+  [
+    {
+      question: "How do I write you into a contract?",
+      answer: "We provide proven contract language for buyer's agents to include in purchase agreements. This protects your client and ensures they get quality roofing work at fair prices."
+    },
+    {
+      question: "Do you offer price matching?",
+      answer: "Yes! If your client has competing bids, we'll match or beat any legitimate quote for comparable materials and workmanship. We believe in earning your business through value."
+    }
+  ],
+  [
+    {
+      question: "What is your partnership program?",
+      answer: "We offer tiered partnership benefits based on referral volume. Benefits include priority scheduling, dedicated points of contact, and exclusive pricing for your clients."
+    },
+    {
+      question: "How long have you been working with realtors?",
+      answer: "We've been partnering with Kansas City realtors for 30+ years. We understand real estate timelines, inspection contingencies, and how to help deals close smoothly."
+    }
+  ]
+];
+---
+
+<section class="relative bg-gray-50 py-20 md:py-32 overflow-hidden">
+  <!-- Background image with overlay (inspired by ChatPRD) -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-lg text-gray-700 leading-8">
+        Have more questions or just want to talk partnerships? Call us at{' '}
+        <a href="tel:9132686052" class="text-indigo-600 font-semibold hover:underline">
+          (913) 268-6052
+        </a>
+        {' '}or{' '}
+        <a href="/contact" class="text-indigo-600 font-semibold hover:underline">
+          schedule a meeting
+        </a>.
+      </p>
+    </div>
+
+    <!-- Multi-column FAQ layout (inspired by ChatPRD) -->
+    <ul role="list" class="grid grid-cols-1 md:grid-cols-3 gap-8 list-none p-0">
+      {faqColumns.map((column) => (
+        <li class="text-left">
+          <ul role="list" class="flex flex-col gap-8 p-0 list-none">
+            {column.map((faq) => (
+              <li>
+                <h3 class="text-xl font-bold text-gray-900 leading-7 mb-4">
+                  {faq.question}
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  {faq.answer}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

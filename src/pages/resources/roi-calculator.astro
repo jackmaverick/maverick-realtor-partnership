@@ -1,0 +1,245 @@
+---
+// ROI Calculator - ChatPRD inspired interactive resource
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="ROI Calculator | Maverick Exteriors"
+  description="Calculate how much a new roof can increase your listing's appraisal value."
+>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-violet-200 via-purple-200 to-pink-200"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-violet-300/40 via-transparent to-purple-300/40"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/resources" class="inline-flex items-center text-violet-600 hover:text-violet-700 font-semibold mb-8 group">
+        <span class="group-hover:-translate-x-1 transition-transform">←</span>
+        <span class="ml-2">Back to Resources</span>
+      </a>
+
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 border border-violet-200 rounded-full mb-6">
+        <span class="text-2xl">📊</span>
+        <span class="text-violet-700 font-semibold text-sm">Popular Tool</span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+        Roof Replacement{' '}
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+          ROI Calculator
+        </span>
+      </h1>
+
+      <p class="text-xl text-gray-700 mb-8">
+        Show your sellers exactly how much value a new roof can add to their home's appraisal. Based on Kansas City market data.
+      </p>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-violet-50 to-pink-50 border-2 border-violet-200 rounded-3xl p-8 md:p-12">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Input Side -->
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Property Details</h2>
+
+            <div class="space-y-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Current Home Value</label>
+                <div class="relative">
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <input
+                    type="number"
+                    id="homeValue"
+                    value="350000"
+                    class="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:outline-none font-semibold text-lg"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Age of Current Roof</label>
+                <select
+                  id="roofAge"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:outline-none font-semibold"
+                >
+                  <option value="15">15-20 years</option>
+                  <option value="12">10-15 years</option>
+                  <option value="8">5-10 years</option>
+                  <option value="3">Less than 5 years</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Roof Condition</label>
+                <select
+                  id="roofCondition"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:outline-none font-semibold"
+                >
+                  <option value="poor">Poor (visible damage)</option>
+                  <option value="fair">Fair (aging, minor issues)</option>
+                  <option value="good">Good (normal wear)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Estimated Roof Cost</label>
+                <div class="relative">
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                  <input
+                    type="number"
+                    id="roofCost"
+                    value="15000"
+                    class="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:outline-none font-semibold text-lg"
+                  />
+                </div>
+                <p class="text-sm text-gray-500 mt-2">Average KC roof: $12,000 - $18,000</p>
+              </div>
+
+              <button
+                onclick="calculateROI()"
+                class="w-full py-4 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold text-lg rounded-lg hover:from-violet-700 hover:to-purple-700 transition-all shadow-lg"
+              >
+                Calculate ROI
+              </button>
+            </div>
+          </div>
+
+          <!-- Results Side -->
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Estimated Impact</h2>
+
+            <div id="results" class="space-y-6">
+              <!-- Results will be populated by JavaScript -->
+              <div class="bg-white border-2 border-violet-200 rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-gray-600 font-medium">Appraisal Value Increase</span>
+                  <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-lg flex items-center justify-center text-2xl">
+                    📈
+                  </div>
+                </div>
+                <div id="valueIncrease" class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
+                  $10,500
+                </div>
+                <p class="text-sm text-gray-500 mt-2">+3.0% property value</p>
+              </div>
+
+              <div class="bg-white border-2 border-pink-200 rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-gray-600 font-medium">Net Return on Investment</span>
+                  <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-500 text-white rounded-lg flex items-center justify-center text-2xl">
+                    💰
+                  </div>
+                </div>
+                <div id="netROI" class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-600">
+                  70%
+                </div>
+                <p class="text-sm text-gray-500 mt-2">Return on $15,000 investment</p>
+              </div>
+
+              <div class="bg-white border-2 border-orange-200 rounded-2xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="text-gray-600 font-medium">Days on Market Impact</span>
+                  <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-rose-500 text-white rounded-lg flex items-center justify-center text-2xl">
+                    ⚡
+                  </div>
+                </div>
+                <div id="domImpact" class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-rose-600">
+                  -12 days
+                </div>
+                <p class="text-sm text-gray-500 mt-2">Faster sale with new roof</p>
+              </div>
+            </div>
+
+            <div class="mt-6 p-4 bg-violet-100 border border-violet-200 rounded-lg">
+              <p class="text-sm text-gray-700">
+                <strong>💡 Note:</strong> Calculations based on Kansas City metro area data. Actual results vary by neighborhood, home style, and market conditions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why This Matters Section -->
+      <div class="mt-16 grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-2xl text-3xl mb-4 shadow-lg">
+            🏆
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">#1 ROI Home Improvement</h3>
+          <p class="text-gray-600">
+            Roof replacement consistently ranks as one of the highest ROI improvements for home sellers.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-400 to-purple-500 text-white rounded-2xl text-3xl mb-4 shadow-lg">
+            💵
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Appraisers Notice</h3>
+          <p class="text-gray-600">
+            A new roof directly impacts appraisal value, often increasing the appraised value by $8,000-$15,000.
+          </p>
+        </div>
+
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 text-white rounded-2xl text-3xl mb-4 shadow-lg">
+            ⏱️
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Faster Sales</h3>
+          <p class="text-gray-600">
+            Homes with new roofs sell 10-15 days faster on average than comparable homes with old roofs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-violet-600 to-purple-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Get a Custom ROI Analysis
+      </h2>
+      <p class="text-xl text-white/90 mb-8">
+        We can provide a detailed ROI analysis specific to your listing, including neighborhood comps and market data.
+      </p>
+      <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg hover:bg-violet-50 transition-colors shadow-xl">
+        Request Analysis
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function calculateROI() {
+    const homeValue = parseFloat(document.getElementById('homeValue').value) || 350000;
+    const roofAge = parseFloat(document.getElementById('roofAge').value) || 15;
+    const roofCondition = document.getElementById('roofCondition').value || 'fair';
+    const roofCost = parseFloat(document.getElementById('roofCost').value) || 15000;
+
+    // Calculate value increase (varies by condition and age)
+    let increasePercentage = 0.03; // Base 3%
+
+    if (roofCondition === 'poor') increasePercentage = 0.035;
+    if (roofAge >= 15) increasePercentage += 0.005;
+
+    const valueIncrease = homeValue * increasePercentage;
+    const netROI = ((valueIncrease - roofCost) / roofCost) * 100;
+    const domReduction = roofAge >= 15 ? -12 : (roofAge >= 10 ? -8 : -5);
+
+    // Update UI
+    document.getElementById('valueIncrease').textContent =
+      `$${Math.round(valueIncrease).toLocaleString()}`;
+    document.getElementById('netROI').textContent =
+      `${Math.round(netROI)}%`;
+    document.getElementById('domImpact').textContent =
+      `${domReduction} days`;
+  }
+
+  // Calculate on page load
+  document.addEventListener('DOMContentLoaded', calculateROI);
+</script>

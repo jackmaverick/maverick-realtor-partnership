@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "leawood",
+    "name": "Leawood",
+    "state": "KS",
+    "medianHomeValue": "$485,000",
+    "description": "Leawood is one of Kansas City's most affluent suburbs, known for its excellent schools, upscale shopping at Town Center Plaza, and beautiful residential neighborhoods.",
+    "roofsCompleted": 150,
+    "commonIssues": ["Hail damage from severe storms", "Aging architectural shingles", "Ice dam formation in winter"],
+    "climate": "Leawood experiences all four seasons with hot, humid summers and cold winters. The area is prone to severe thunderstorms and occasional hail, making quality roofing essential.",
+    "neighborhoods": ["Hallbrook", "Mission Farms", "Park Place"]
+  },
+  {
+    "slug": "overland-park",
+    "name": "Overland Park",
+    "state": "KS",
+    "medianHomeValue": "$350,000",
+    "description": "Overland Park is Kansas City's second-largest city and offers a perfect blend of suburban comfort with urban amenities, excellent schools, and thriving business districts.",
+    "roofsCompleted": 320,
+    "commonIssues": ["Storm damage from tornadoes and hail", "Wind uplift on older roofs", "Improper ventilation"],
+    "climate": "Overland Park's continental climate brings temperature extremes and frequent severe weather, requiring durable roofing materials and proper installation.",
+    "neighborhoods": ["Blue Valley", "Corporate Woods", "South Overland Park"]
+  },
+  {
+    "slug": "prairie-village",
+    "name": "Prairie Village",
+    "state": "KS",
+    "medianHomeValue": "$425,000",
+    "description": "Prairie Village is a charming, tree-lined community with mid-century homes, walkable neighborhoods, and a strong sense of community pride.",
+    "roofsCompleted": 95,
+    "commonIssues": ["Aging roofs on mid-century homes", "Tree damage from overhanging branches", "Moss and algae growth"],
+    "climate": "The mature tree canopy in Prairie Village provides shade but can contribute to moisture retention and organic growth on roofs.",
+    "neighborhoods": ["Corinth", "Somerset", "Mission Hills borders"]
+  },
+  {
+    "slug": "mission-hills",
+    "name": "Mission Hills",
+    "state": "KS",
+    "medianHomeValue": "$950,000",
+    "description": "Mission Hills is Kansas City's premier luxury community, featuring stunning estates, rolling hills, and some of the metro's most prestigious addresses.",
+    "roofsCompleted": 75,
+    "commonIssues": ["Complex roof systems on custom homes", "Premium material requirements", "Slate and tile maintenance"],
+    "climate": "High-end homes in Mission Hills often feature specialty roofing materials that require expert installation and maintenance.",
+    "neighborhoods": ["Country Club District", "Fairway borders"]
+  },
+  {
+    "slug": "lenexa",
+    "name": "Lenexa",
+    "state": "KS",
+    "medianHomeValue": "$340,000",
+    "description": "Lenexa has transformed from a small town to a thriving suburb with award-winning parks, a growing business sector, and diverse housing options.",
+    "roofsCompleted": 210,
+    "commonIssues": ["New construction defects", "Hail damage", "Inadequate attic ventilation"],
+    "climate": "Lenexa's newer subdivisions feature modern roofing systems, but quality installation is crucial for long-term performance.",
+    "neighborhoods": ["Millbrook", "City Center", "Canyon Creek"]
+  },
+  {
+    "slug": "olathe",
+    "name": "Olathe",
+    "state": "KS",
+    "medianHomeValue": "$325,000",
+    "description": "Olathe is one of the fastest-growing cities in Kansas, offering excellent schools, abundant recreational opportunities, and a thriving downtown.",
+    "roofsCompleted": 280,
+    "commonIssues": ["Rapid growth construction issues", "Storm damage", "Warranty claims on new roofs"],
+    "climate": "Olathe's location makes it vulnerable to severe weather, including tornadoes and large hail.",
+    "neighborhoods": ["Stoneridge", "Cedar Creek", "Heritage Park"]
+  }
+]

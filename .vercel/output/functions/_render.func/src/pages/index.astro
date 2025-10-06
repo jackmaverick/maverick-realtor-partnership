@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+---
+
+<BaseLayout
+  title="Home"
+  description="Maverick Exteriors - Kansas City's trusted roofing partner for real estate professionals. 30+ years serving buyer's and seller's agents."
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-gray-50 to-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Your Trusted Roofing Partner for <span class="text-primary-600">Real Estate Success</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          Serving Kansas City buyer's and seller's agents with fast inspections, payment at closing, and 30+ years of roofing expertise.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <CTAButton href="/contact" variant="primary" size="lg">
+            Schedule Partnership Meeting
+          </CTAButton>
+          <CTAButton href="/services" variant="outline" size="lg">
+            Explore Services
+          </CTAButton>
+        </div>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="mt-16">
+        <TrustBadges />
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual Column Section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Buyer's Agents -->
+        <div class="p-8 bg-primary-50 rounded-2xl border border-primary-100">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">For Buyer's Agents</h2>
+          <p class="text-gray-600 mb-6">
+            Help your clients make informed decisions with fast, thorough roof inspections and flexible payment options.
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-primary-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Payment at closing available</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-primary-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Write us into contracts</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-primary-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Fast turnaround for closing deadlines</span>
+            </li>
+          </ul>
+          <CTAButton href="/services#buyers" variant="primary">
+            Learn More
+          </CTAButton>
+        </div>
+
+        <!-- Seller's Agents -->
+        <div class="p-8 bg-accent-50 rounded-2xl border border-accent-100">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">For Seller's Agents</h2>
+          <p class="text-gray-600 mb-6">
+            Increase listing values and close deals faster with pre-listing inspections and roof improvements.
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Increase appraisal value</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Pre-listing roof inspections</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent-600 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">3D design visualizations</span>
+            </li>
+          </ul>
+          <CTAButton href="/services#sellers" variant="secondary">
+            Learn More
+          </CTAButton>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-24 bg-primary-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Ready to Partner with Kansas City's Trusted Roofer?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+        Join 500+ realtors who trust Maverick Exteriors for their roofing needs.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <CTAButton href="/contact" variant="primary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+          Schedule Meeting
+        </CTAButton>
+        <CTAButton href="tel:9132686052" variant="outline" size="lg" class="border-white text-white hover:bg-primary-700">
+          Call (913) 268-6052
+        </CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

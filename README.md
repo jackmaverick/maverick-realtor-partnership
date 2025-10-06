@@ -1,43 +1,103 @@
-# Astro Starter Kit: Minimal
+# Realtor Partnership Website
 
-```sh
-npm create astro@latest -- --template minimal
+A modern, SEO-optimized website built for Maverick Exteriors to serve real estate professionals in the Kansas City metro area.
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Development server: **http://localhost:4321/**
 
-## 🚀 Project Structure
+## 📁 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
-├── public/
+├── public/                 # Static assets
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/        # Reusable components
+│   │   ├── forms/        # ContactForm
+│   │   ├── sections/     # DualColumnSection
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   ├── CTAButton.astro
+│   │   └── TrustBadges.astro
+│   ├── data/             # locations.json
+│   ├── layouts/          # BaseLayout.astro
+│   ├── pages/            # Routes
+│   │   ├── api/         # Form handlers
+│   │   ├── locations/   # Dynamic pages
+│   │   ├── index.astro  # Homepage
+│   │   ├── services.astro
+│   │   ├── about.astro
+│   │   └── contact.astro
+│   ├── styles/          # global.css
+│   └── utils/           # seo.ts, analytics.ts
+├── astro.config.mjs
+├── tailwind.config.mjs
+└── DESIGN-SYSTEM.md
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 📄 Pages
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Homepage** (`/`) - Hero, dual-column buyer/seller sections, CTAs
+- **Services** (`/services`) - Detailed realtor services, contract guidance
+- **Locations** (`/locations`) - 6 high-value KC neighborhoods with SEO content
+- **About** (`/about`) - Company story, partnership program tiers
+- **Contact** (`/contact`) - Three form types (partnership, inspection, general)
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🎨 Design System
 
-## 🧞 Commands
+- **Colors**: Primary blue (#3b82f6), accent purple
+- **Typography**: Inter font
+- **Mobile-First**: Responsive on all devices
+- **Components**: CTAButton, TrustBadges, forms, sections
 
-All commands are run from the root of the project, from a terminal:
+See [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) for details.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 🔧 Key Features
 
-## 👀 Want to learn more?
+✅ **SEO-Optimized**: Dynamic meta tags, sitemaps, structured data
+✅ **Location Pages**: 6 cities with 800+ words each
+✅ **Forms**: Partnership, inspection, general inquiry
+✅ **API Routes**: `/api/partnership`, `/api/inspection`, `/api/general`
+✅ **Mobile-First**: Touch-friendly, click-to-call
+✅ **Fast**: Astro's zero-JS approach, Vercel edge deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🚢 Deployment to Vercel
+
+1. Push to GitHub
+2. Import in Vercel dashboard
+3. Set framework to **Astro**
+4. Deploy!
+
+## 📊 Next Steps (TODO)
+
+- [ ] Add environment variables for API keys
+- [ ] Integrate JobNimbus CRM
+- [ ] Set up email notifications (SendGrid/Resend)
+- [ ] Add Google Analytics 4
+- [ ] Add Microsoft Clarity for heatmaps
+- [ ] Upload real images (replace placeholders)
+- [ ] Configure custom domain
+
+## 📞 Contact
+
+**Maverick Exteriors**
+Phone: (913) 268-6052
+Kansas City, Kansas
+
+---
+
+Built with [Astro](https://astro.build) + [Tailwind CSS](https://tailwindcss.com)

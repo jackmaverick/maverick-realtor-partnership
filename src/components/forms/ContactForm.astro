@@ -1,0 +1,219 @@
+---
+interface Props {
+  formType?: 'partnership' | 'inspection' | 'general';
+}
+
+const { formType = 'general' } = Astro.props;
+
+const formTitle = {
+  partnership: 'Partnership Inquiry',
+  inspection: 'Request Property Inspection',
+  general: 'Contact Us',
+}[formType];
+---
+
+<form id={`${formType}-form`} class="space-y-6">
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+        Full Name <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+        placeholder="John Smith"
+      />
+    </div>
+
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+        Email Address <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+        placeholder="john@example.com"
+      />
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+        Phone Number <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+        placeholder="(913) 268-6052"
+      />
+    </div>
+
+    {formType === 'partnership' && (
+      <div>
+        <label for="agentType" class="block text-sm font-medium text-gray-700 mb-2">
+          Agent Type <span class="text-red-500">*</span>
+        </label>
+        <select
+          id="agentType"
+          name="agentType"
+          required
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+        >
+          <option value="">Select...</option>
+          <option value="buyers">Buyer's Agent</option>
+          <option value="sellers">Seller's Agent</option>
+          <option value="both">Both</option>
+        </select>
+      </div>
+    )}
+
+    {formType === 'inspection' && (
+      <div>
+        <label for="propertyAddress" class="block text-sm font-medium text-gray-700 mb-2">
+          Property Address
+        </label>
+        <input
+          type="text"
+          id="propertyAddress"
+          name="propertyAddress"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+          placeholder="123 Main St, Kansas City, KS"
+        />
+      </div>
+    )}
+
+    {formType === 'general' && (
+      <div>
+        <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+          Subject
+        </label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+          placeholder="How can we help?"
+        />
+      </div>
+    )}
+  </div>
+
+  {formType === 'partnership' && (
+    <div>
+      <label for="brokerage" class="block text-sm font-medium text-gray-700 mb-2">
+        Brokerage
+      </label>
+      <input
+        type="text"
+        id="brokerage"
+        name="brokerage"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+        placeholder="Your Brokerage Name"
+      />
+    </div>
+  )}
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+      Message <span class="text-red-500">*</span>
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      required
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none"
+      placeholder="Tell us about your needs..."
+    ></textarea>
+  </div>
+
+  <!-- Honeypot field for spam prevention -->
+  <input type="text" name="honeypot" style="display:none" />
+
+  <div>
+    <button
+      type="submit"
+      class="w-full sm:w-auto px-8 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Submit {formTitle}
+    </button>
+  </div>
+
+  <!-- Success/Error Messages -->
+  <div id={`${formType}-success`} class="hidden p-4 bg-green-50 border border-green-200 rounded-lg">
+    <div class="flex">
+      <svg class="h-5 w-5 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+      <p class="text-sm text-green-800">Thank you! We'll be in touch shortly.</p>
+    </div>
+  </div>
+
+  <div id={`${formType}-error`} class="hidden p-4 bg-red-50 border border-red-200 rounded-lg">
+    <div class="flex">
+      <svg class="h-5 w-5 text-red-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+      <p class="text-sm text-red-800">Something went wrong. Please try calling us at (913) 268-6052.</p>
+    </div>
+  </div>
+</form>
+
+<script define:vars={{ formType }}>
+  const form = document.getElementById(`${formType}-form`);
+  const successMsg = document.getElementById(`${formType}-success`);
+  const errorMsg = document.getElementById(`${formType}-error`);
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const button = form.querySelector('button[type="submit"]');
+
+    // Check honeypot
+    if (formData.get('honeypot')) {
+      return;
+    }
+
+    // Disable button
+    button.disabled = true;
+    button.textContent = 'Submitting...';
+
+    try {
+      const response = await fetch(`/api/${formType}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMsg.classList.remove('hidden');
+        errorMsg.classList.add('hidden');
+        button.textContent = 'Submitted!';
+        setTimeout(() => {
+          button.disabled = false;
+          button.textContent = `Submit ${formType.charAt(0).toUpperCase() + formType.slice(1)}`;
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      errorMsg.classList.remove('hidden');
+      successMsg.classList.add('hidden');
+      button.disabled = false;
+      button.textContent = 'Try Again';
+    }
+  });
+</script>

@@ -1,0 +1,85 @@
+---
+// Inspired by ChatPRD.ai testimonials section - adapted for realtor partnerships
+const testimonials = [
+  {
+    quote: "Maverick Exteriors has been a game-changer for my buyer clients. The payment at closing option has saved multiple deals that would have fallen through due to roof financing issues.",
+    author: "Jennifer K.",
+    role: "Buyer's Agent",
+    brokerage: "Realty One Group",
+    initial: "J",
+    avatarGradient: "from-pink-500 to-rose-600"
+  },
+  {
+    quote: "I've increased my listing values by an average of $15K by partnering with Maverick for pre-listing roof improvements. Their 3D visualizations help sellers choose colors buyers love.",
+    author: "Michael T.",
+    role: "Seller's Agent",
+    brokerage: "Keller Williams",
+    initial: "M",
+    avatarGradient: "from-indigo-500 to-purple-600"
+  },
+  {
+    quote: "As a new agent, having Maverick as my roofing partner gives me credibility with clients. They're fast, professional, and understand real estate timelines. I write them into every contract.",
+    author: "Sarah L.",
+    role: "Buyer's & Seller's Agent",
+    brokerage: "ReeceNichols",
+    initial: "S",
+    avatarGradient: "from-rose-500 to-orange-600"
+  }
+];
+---
+
+<section class="py-16 md:py-24 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+  <!-- Background overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br from-violet-100/70 to-transparent"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold text-indigo-900 mb-4">
+        Realtors Love Maverick Exteriors
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-4">
+        Join 500+ Kansas City realtors who trust Maverick Exteriors as their roofing partner.
+      </p>
+      <a href="/testimonials" class="text-indigo-600 font-semibold hover:text-indigo-700 hover:underline">
+        Read all reviews →
+      </a>
+    </div>
+
+    <!-- Testimonial Cards (inspired by ChatPRD design) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-6 border border-gray-200">
+          <!-- Stars (inspired by ChatPRD) -->
+          <div class="flex justify-center mb-4 text-yellow-400 text-sm">
+            ★★★★★
+          </div>
+
+          <!-- Quote -->
+          <blockquote class="text-gray-900 text-sm md:text-base leading-relaxed text-center mb-6">
+            "{testimonial.quote}"
+          </blockquote>
+
+          <!-- Gradient divider (inspired by ChatPRD) -->
+          <div class="h-px bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300 mb-6"></div>
+
+          <!-- Author info -->
+          <div class="flex flex-col items-center text-center">
+            <div class={`w-12 h-12 bg-gradient-to-br ${testimonial.avatarGradient} text-white rounded-full flex items-center justify-center font-bold text-lg mb-3 shadow-md`}>
+              {testimonial.initial}
+            </div>
+            <div class="text-gray-900 font-semibold text-sm">
+              {testimonial.author}
+            </div>
+            <div class="text-gray-600 text-sm">
+              {testimonial.role}
+            </div>
+            <div class="text-gray-500 text-xs mt-1">
+              {testimonial.brokerage}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

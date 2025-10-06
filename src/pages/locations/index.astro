@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTAButton from '../../components/CTAButton.astro';
+import locations from '../../data/locations.json';
+---
+
+<BaseLayout
+  title="Service Areas"
+  description="Maverick Exteriors serves realtors throughout the Kansas City metro area. View our service locations and request an inspection in your area."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-primary-50 to-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Serving Realtors Throughout Kansas City
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+        For over 30 years, we've been the trusted roofing partner for real estate professionals across the Kansas City metro area.
+      </p>
+      <CTAButton href="/contact" variant="primary" size="lg">
+        Request Inspection
+      </CTAButton>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Service Areas</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Click on any location to learn more about our services in that area and view local market insights.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {locations.map((location) => (
+          <a
+            href={`/locations/${location.slug}`}
+            class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-primary-300 transition-all"
+          >
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900">{location.name}, {location.state}</h3>
+                <p class="text-sm text-gray-500 mt-1">Median Home Value: {location.medianHomeValue}</p>
+              </div>
+              <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              {location.description}
+            </p>
+            <div class="flex items-center text-sm text-primary-600 font-medium">
+              <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {location.roofsCompleted}+ Roofs Completed
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage Map Placeholder -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Full Kansas City Metro Coverage</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          We serve the entire Kansas City metropolitan area on both sides of the state line.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-12 border border-gray-200 text-center">
+        <svg class="w-16 h-16 text-primary-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Covering Kansas City Metro</h3>
+        <p class="text-gray-600 mb-6">
+          From Leawood to Lee's Summit, Mission Hills to Olathe, we're your trusted roofing partner.
+        </p>
+        <CTAButton href="/contact" variant="primary">
+          Check If We Serve Your Area
+        </CTAButton>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24 bg-primary-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Ready to Get Started?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+        Request a property inspection in your service area today.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <CTAButton href="/contact" variant="primary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+          Request Inspection
+        </CTAButton>
+        <CTAButton href="tel:9132686052" variant="outline" size="lg" class="border-white text-white hover:bg-primary-700">
+          Call (913) 268-6052
+        </CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

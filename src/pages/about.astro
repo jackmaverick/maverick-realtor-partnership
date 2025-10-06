@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButton from '../components/CTAButton.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+---
+
+<BaseLayout
+  title="About Us"
+  description="Maverick Exteriors has been Kansas City's trusted roofing partner for 30+ years. Learn about our realtor partnership program and commitment to excellence."
+>
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-primary-50 to-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          30+ Years Serving Kansas City Realtors
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          Built on a foundation of integrity, quality workmanship, and understanding the unique needs of real estate professionals.
+        </p>
+        <div class="mt-8">
+          <TrustBadges />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+          <div class="prose prose-lg text-gray-600">
+            <p>
+              Since 1992, Maverick Exteriors has been providing exceptional roofing services to the Kansas City metropolitan area. What started as a small roofing company has grown into one of the region's most trusted names in exterior services, with a special focus on supporting real estate professionals.
+            </p>
+            <p>
+              Over three decades, we've completed thousands of roofing projects and built partnerships with hundreds of realtors across both sides of the state line. We understand that when you're managing a real estate transaction, time is money, and reliability is everything.
+            </p>
+            <p>
+              That's why we've designed our entire business model around the unique needs of buyer's agents and seller's agents. From payment at closing options to lightning-fast inspection turnarounds, we've thought through every scenario you might encounter during a transaction.
+            </p>
+          </div>
+        </div>
+        <div class="bg-gray-100 rounded-2xl aspect-video flex items-center justify-center">
+          <div class="text-center p-8">
+            <svg class="w-16 h-16 text-primary-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            <p class="text-gray-600">Company photo placeholder</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Realtors Choose Us -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Why Realtors Choose Maverick Exteriors
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          We're not just roofers—we're your strategic partners in real estate success.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Transaction Expertise</h3>
+          <p class="text-gray-600">
+            We understand real estate timelines, contingencies, and the importance of clear communication with all parties involved.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Fast Response Times</h3>
+          <p class="text-gray-600">
+            We know you can't wait weeks for inspections. Our team prioritizes realtor requests and delivers quick turnarounds.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg p-8 shadow-sm">
+          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Insurance Claim Expertise</h3>
+          <p class="text-gray-600">
+            With decades of experience navigating insurance claims, we help your clients maximize their coverage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Program -->
+  <section id="partnership" class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Realtor Partnership Program
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Join our tiered partnership program and receive exclusive benefits based on your referral volume.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Bronze Tier -->
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border-2 border-amber-200">
+          <div class="text-center mb-6">
+            <div class="inline-flex items-center justify-center h-16 w-16 bg-amber-100 rounded-full mb-4">
+              <svg class="h-8 w-8 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Bronze Partner</h3>
+            <p class="text-sm text-gray-600 mt-2">1-5 referrals/year</p>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-amber-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Priority scheduling</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-amber-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Direct contact line</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-amber-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Quarterly check-ins</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Silver Tier -->
+        <div class="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border-2 border-gray-300 relative">
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+            <span class="bg-primary-600 text-white px-3 py-1 rounded-full text-xs font-semibold">POPULAR</span>
+          </div>
+          <div class="text-center mb-6">
+            <div class="inline-flex items-center justify-center h-16 w-16 bg-gray-200 rounded-full mb-4">
+              <svg class="h-8 w-8 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Silver Partner</h3>
+            <p class="text-sm text-gray-600 mt-2">6-15 referrals/year</p>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-gray-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">All Bronze benefits</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-gray-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Dedicated account manager</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-gray-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Same-day response guarantee</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-gray-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Co-marketing materials</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Gold Tier -->
+        <div class="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-8 border-2 border-yellow-400">
+          <div class="text-center mb-6">
+            <div class="inline-flex items-center justify-center h-16 w-16 bg-yellow-100 rounded-full mb-4">
+              <svg class="h-8 w-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Gold Partner</h3>
+            <p class="text-sm text-gray-600 mt-2">16+ referrals/year</p>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-yellow-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">All Silver benefits</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-yellow-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Featured on website</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-yellow-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">Exclusive pricing benefits</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-yellow-600 mr-2 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-gray-700">VIP event invitations</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <CTAButton href="/contact" variant="primary" size="lg">
+          Join Partnership Program
+        </CTAButton>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24 bg-primary-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Ready to Partner with Us?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+        Schedule a partnership meeting to learn how we can support your real estate success.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <CTAButton href="/contact" variant="primary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+          Schedule Meeting
+        </CTAButton>
+        <CTAButton href="tel:9132686052" variant="outline" size="lg" class="border-white text-white hover:bg-primary-700">
+          Call (913) 268-6052
+        </CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
