@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://realtors.maverickexteriors.com', // Update with actual domain
-  output: 'server', // Server mode for API routes
+  output: 'static', // Static site generation
   adapter: vercel(),
   integrations: [sitemap()],
   vite: {
