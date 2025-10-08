@@ -1,6 +1,5 @@
 ---
 const navigation = [
-  { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   {
     name: 'Resources',
@@ -25,101 +24,121 @@ const currentPath = Astro.url.pathname;
 
 <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
-      <!-- Logo -->
-      <div class="flex-shrink-0">
-        <a href="/" class="flex items-center">
-          <span class="text-2xl font-bold text-primary-600">Maverick</span>
-          <span class="text-2xl font-bold text-gray-900 ml-1">Exteriors</span>
+    <!-- Desktop Header -->
+    <div class="hidden md:flex md:items-center md:justify-between h-16">
+      <!-- Left side: Logo, Company Name, and Navigation -->
+      <div class="flex items-center space-x-8">
+        <!-- Logo and Company Name -->
+        <a href="/" class="flex items-center space-x-3">
+          <img src="/maverick-logo.png" alt="Maverick Exteriors Logo" class="h-10 w-auto" />
+          <div class="flex items-center">
+            <span class="text-2xl font-bold text-primary-600">Maverick</span>
+            <span class="text-2xl font-bold text-gray-900 ml-1">Exteriors</span>
+          </div>
         </a>
-      </div>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex md:items-center md:space-x-8">
-        {navigation.map((item) => (
-          item.dropdown ? (
-            <div class="relative group">
-              <button
-                class={`text-sm font-medium transition-colors flex items-center ${
-                  currentPath.startsWith(item.href)
+        <!-- Navigation Menu -->
+        <div class="flex items-center space-x-8">
+          {navigation.map((item) => (
+            item.dropdown ? (
+              <div class="relative group">
+                <button
+                  class={`text-sm font-medium transition-colors flex items-center ${
+                    currentPath.startsWith(item.href)
+                      ? 'text-primary-600'
+                      : 'text-gray-700 hover:text-primary-600'
+                  }`}
+                >
+                  {item.name}
+                  <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div class="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <div class="py-1">
+                      {item.dropdown.map((subItem) => (
+                        <a
+                          href={subItem.href}
+                          class={`block px-4 py-2 text-sm ${
+                            currentPath === subItem.href
+                              ? 'bg-primary-50 text-primary-600'
+                              : 'text-gray-700 hover:bg-gray-50 hover:text-primary-600'
+                          }`}
+                        >
+                          {subItem.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <a
+                href={item.href}
+                class={`text-sm font-medium transition-colors ${
+                  currentPath === item.href
                     ? 'text-primary-600'
                     : 'text-gray-700 hover:text-primary-600'
                 }`}
               >
                 {item.name}
-                <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div class="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div class="rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-                  <div class="py-1">
-                    {item.dropdown.map((subItem) => (
-                      <a
-                        href={subItem.href}
-                        class={`block px-4 py-2 text-sm ${
-                          currentPath === subItem.href
-                            ? 'bg-primary-50 text-primary-600'
-                            : 'text-gray-700 hover:bg-gray-50 hover:text-primary-600'
-                        }`}
-                      >
-                        {subItem.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <a
-              href={item.href}
-              class={`text-sm font-medium transition-colors ${
-                currentPath === item.href
-                  ? 'text-primary-600'
-                  : 'text-gray-700 hover:text-primary-600'
-              }`}
-            >
-              {item.name}
-            </a>
-          )
-        ))}
+              </a>
+            )
+          ))}
+        </div>
       </div>
 
-      <!-- CTA Button -->
-      <div class="hidden md:block">
+      <!-- Right side: CTA Button with divider -->
+      <div class="flex items-center">
+        <div class="h-8 w-px bg-gray-300 mr-6"></div>
         <a
-          href="tel:9132686052"
-          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+          href="/contact"
+          class="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors shadow-sm"
         >
-          Call: (913) 268-6052
+          Get Inspection
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
         </a>
       </div>
+    </div>
 
-      <!-- Mobile menu button -->
-      <div class="md:hidden">
+    <!-- Mobile Header -->
+    <div class="flex md:hidden items-center justify-between h-16">
+      <!-- Left side: Logo, Company Name, and Hamburger -->
+      <div class="flex items-center space-x-3">
+        <a href="/" class="flex items-center space-x-2">
+          <img src="/maverick-logo.png" alt="Maverick Exteriors Logo" class="h-8 w-auto" />
+          <div class="flex items-center">
+            <span class="text-xl font-bold text-primary-600">Maverick</span>
+            <span class="text-xl font-bold text-gray-900 ml-1">Exteriors</span>
+          </div>
+        </a>
+
         <button
           type="button"
           id="mobile-menu-button"
-          class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+          class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100"
           aria-expanded="false"
         >
           <span class="sr-only">Open main menu</span>
-          <!-- Hamburger icon -->
-          <svg
-            class="block h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </button>
       </div>
+
+      <!-- Right side: CTA Button -->
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white bg-primary-600 rounded-lg"
+      >
+        Get Inspection
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
     </div>
 
     <!-- Mobile menu -->
