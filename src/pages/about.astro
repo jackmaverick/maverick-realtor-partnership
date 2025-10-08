@@ -8,18 +8,21 @@ import TrustBadges from '../components/TrustBadges.astro';
   title="About Us"
   description="Maverick Exteriors has been Kansas City's trusted roofing partner for 30+ years. Learn about our realtor partnership program and commitment to excellence."
 >
-  <!-- Hero -->
-  <section class="bg-gradient-to-b from-primary-50 to-white py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-          30+ Years Serving Kansas City Realtors
-        </h1>
-        <p class="text-xl text-gray-600 mb-8">
-          Built on a foundation of integrity, quality workmanship, and understanding the unique needs of real estate professionals.
-        </p>
-        <div class="mt-8">
-          <TrustBadges />
+  <!-- Hero - ChatPRD Style -->
+  <section class="bg-white pt-4 pb-2 md:pt-6 md:pb-3">
+    <div class="px-6 sm:px-8 lg:px-12">
+      <div class="relative overflow-hidden rounded-3xl">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-400"></div>
+        <div class="relative max-w-4xl mx-auto my-10 md:my-16 bg-white rounded-3xl px-8 py-12 md:px-12 md:py-16 text-center shadow-xl">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            30+ Years Serving Kansas City Realtors
+          </h1>
+          <p class="text-xl text-gray-600 mb-8">
+            Built on a foundation of integrity, quality workmanship, and understanding the unique needs of real estate professionals.
+          </p>
+          <div class="mt-8">
+            <TrustBadges />
+          </div>
         </div>
       </div>
     </div>
@@ -69,8 +72,8 @@ import TrustBadges from '../components/TrustBadges.astro';
 
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-white rounded-lg p-8 shadow-sm">
-          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="h-12 w-12 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
@@ -81,8 +84,8 @@ import TrustBadges from '../components/TrustBadges.astro';
         </div>
 
         <div class="bg-white rounded-lg p-8 shadow-sm">
-          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="h-12 w-12 bg-gradient-to-br from-violet-100 to-purple-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
@@ -93,8 +96,8 @@ import TrustBadges from '../components/TrustBadges.astro';
         </div>
 
         <div class="bg-white rounded-lg p-8 shadow-sm">
-          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="h-12 w-12 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
@@ -156,7 +159,7 @@ import TrustBadges from '../components/TrustBadges.astro';
         <!-- Silver Tier -->
         <div class="bg-gradient-to-br from-gray-50 to-slate-50 rounded-2xl p-8 border-2 border-gray-300 relative">
           <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
-            <span class="bg-primary-600 text-white px-3 py-1 rounded-full text-xs font-semibold">POPULAR</span>
+            <span class="bg-gradient-to-r from-violet-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">POPULAR</span>
           </div>
           <div class="text-center mb-6">
             <div class="inline-flex items-center justify-center h-16 w-16 bg-gray-200 rounded-full mb-4">
@@ -236,29 +239,34 @@ import TrustBadges from '../components/TrustBadges.astro';
       </div>
 
       <div class="mt-12 text-center">
-        <CTAButton href="/contact" variant="primary" size="lg">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 text-white font-semibold text-lg rounded-lg hover:from-violet-700 hover:via-purple-700 hover:to-pink-700 transition-all shadow-lg">
           Join Partnership Program
-        </CTAButton>
+          <span>→</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-16 md:py-24 bg-primary-600">
+  <section class="py-16 md:py-24 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
         Ready to Partner with Us?
       </h2>
-      <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+      <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
         Schedule a partnership meeting to learn how we can support your real estate success.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <CTAButton href="/contact" variant="primary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg hover:bg-violet-50 transition-colors shadow-xl">
           Schedule Meeting
-        </CTAButton>
-        <CTAButton href="tel:9132686052" variant="outline" size="lg" class="border-white text-white hover:bg-primary-700">
+          <span>→</span>
+        </a>
+        <a href="tel:9132686052" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-lg border-2 border-white/30 hover:bg-white/20 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
           Call (913) 268-6052
-        </CTAButton>
+        </a>
       </div>
     </div>
   </section>
