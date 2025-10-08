@@ -76,20 +76,20 @@ const { location } = Astro.props;
             <p>{location.description}</p>
 
             <p>
-              For over 30 years, Maverick Exteriors has been the trusted roofing partner for real estate professionals throughout {location.name}. We understand the unique challenges that realtors face when navigating roof issues during real estate transactions, and we've built our services specifically to support your needs.
+              For over 30 years, RealtorRoof has been the trusted <a href={`/locations/${location.slug}/roof-replacement`} class="text-violet-600 hover:text-violet-700 font-semibold underline">roofing partner</a> for real estate professionals throughout {location.name}, {location.state}. We understand the unique challenges that realtors face when navigating roof issues during real estate transactions, and we've built our <a href={`/locations/${location.slug}/roof-inspections`} class="text-violet-600 hover:text-violet-700 font-semibold underline">inspection</a> and <a href={`/locations/${location.slug}/roof-repair`} class="text-violet-600 hover:text-violet-700 font-semibold underline">repair services</a> specifically to support your needs in {location.name}.
             </p>
 
             <p>
-              Whether you're representing a buyer who needs a fast, accurate roof inspection to meet closing deadlines, or you're working with a seller who wants to maximize their home's value with a new roof, we have the expertise and flexibility to help you succeed.
+              Whether you're representing a buyer who needs a fast, accurate <a href={`/locations/${location.slug}/roof-inspections`} class="text-violet-600 hover:text-violet-700 font-semibold underline">roof inspection in {location.name}</a> to meet closing deadlines, or you're working with a seller who wants to maximize their home's value with a <a href={`/locations/${location.slug}/roof-replacement`} class="text-violet-600 hover:text-violet-700 font-semibold underline">new roof replacement</a>, we have the expertise and flexibility to help you close more deals in {location.name}.
             </p>
 
-            <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Our {location.name} Realtor Services Include:</h3>
-            <ul class="space-y-2">
-              <li><strong>Payment at Closing:</strong> Help your buyers manage their budget by deferring roof costs until closing day</li>
-              <li><strong>Fast Turnaround Inspections:</strong> Get detailed roof assessments within days, not weeks, to keep transactions on schedule</li>
-              <li><strong>Price Matching Guarantee:</strong> We'll match any comparable bid from licensed contractors</li>
-              <li><strong>Extended Warranties:</strong> Offer buyers peace of mind with 10-15 year labor warranties</li>
-              <li><strong>3D Design Visualizations:</strong> Help sellers choose the perfect roof color and style</li>
+            <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Our {location.name} Roofing Services for Realtors:</h3>
+            <ul class="space-y-3">
+              <li><strong><a href={`/locations/${location.slug}/roof-inspections`} class="text-violet-600 hover:text-violet-700 underline">Roof Inspections in {location.name}</a>:</strong> 24-48 hour turnaround for detailed roof assessments that keep your real estate transactions on track</li>
+              <li><strong><a href={`/locations/${location.slug}/roof-replacement`} class="text-violet-600 hover:text-violet-700 underline">Roof Replacement Services</a>:</strong> Payment at closing options available to help your {location.name} buyers manage their budget during the home purchase process</li>
+              <li><strong><a href={`/locations/${location.slug}/roof-repair`} class="text-violet-600 hover:text-violet-700 underline">Roof Repairs in {location.name}</a>:</strong> Fast scheduling to address inspection issues and meet closing deadlines for your clients</li>
+              <li><strong><a href={`/locations/${location.slug}/insurance-claims`} class="text-violet-600 hover:text-violet-700 underline">Insurance Claims Assistance</a>:</strong> We work directly with adjusters to navigate the complex world of roof insurance coverage in {location.name}</li>
+              <li><strong><a href={`/locations/${location.slug}/pre-listing-services`} class="text-violet-600 hover:text-violet-700 underline">Pre-Listing Roof Services</a>:</strong> Help {location.name} sellers maximize property value with proactive roof assessments and improvements</li>
             </ul>
           </div>
         </div>
@@ -241,19 +241,33 @@ const { location } = Astro.props;
           With a median home value of {location.medianHomeValue}, {location.name} represents a significant investment for your clients. The roofing component of these homes is critical to both property value and buyer confidence. Our team has completed over {location.roofsCompleted} roofs in {location.name}, giving us deep expertise in the specific challenges and opportunities this market presents.
         </p>
 
-        <h3>Services Designed for Real Estate Professionals</h3>
+        <h3>Comprehensive Roofing Services in {location.name}, {location.state}</h3>
         <p>
-          Unlike general roofing contractors, we've built our business model specifically to support realtors. This means we understand that your timeline is different, your needs are unique, and your success depends on our ability to deliver quickly and professionally.
+          Unlike general roofing contractors, we've built our business model specifically to support realtors in {location.name}. From <a href={`/locations/${location.slug}/roof-inspections`} class="text-violet-600 hover:text-violet-700 font-semibold underline">fast roof inspections</a> to <a href={`/locations/${location.slug}/roof-replacement`} class="text-violet-600 hover:text-violet-700 font-semibold underline">complete roof replacements</a>, we offer the full range of roofing services that {location.name} real estate professionals need. We also specialize in <a href={`/locations/${location.slug}/insurance-claims`} class="text-violet-600 hover:text-violet-700 font-semibold underline">insurance claims assistance</a>, helping your clients navigate the increasingly complex world of roof coverage and depreciation.
         </p>
 
-        <h3>Supporting Both Buyer's and Seller's Agents</h3>
+        <h3>Supporting Both Buyer's and Seller's Agents in {location.name}</h3>
         <p>
-          Whether you're representing a buyer who's concerned about the condition of a roof, or a seller who wants to maximize their listing's appeal, we have the services and experience to help. From fast pre-listing inspections to payment-at-closing options for buyers, we've thought through every scenario you might encounter.
+          Whether you're representing a buyer who's concerned about roof condition, or a seller who wants to maximize their {location.name} listing's appeal, we have the services and experience to help. Our <a href={`/locations/${location.slug}/pre-listing-services`} class="text-violet-600 hover:text-violet-700 font-semibold underline">pre-listing roof services</a> help sellers identify and address issues before listing, while our payment-at-closing options make it easy for buyers to afford necessary <a href={`/locations/${location.slug}/roof-repair`} class="text-violet-600 hover:text-violet-700 font-semibold underline">roof repairs</a> or replacements in {location.name}.
         </p>
 
-        <h3>Ready to Partner?</h3>
+        <h3>Serving {location.name} and Nearby Communities</h3>
         <p>
-          Join the hundreds of {location.name} realtors who trust Maverick Exteriors for their roofing needs. Contact us today to schedule an inspection or learn more about our realtor partnership program.
+          In addition to serving {location.name}, we also provide roofing services for realtors throughout the Kansas City metro area. Learn more about our services in {locations.filter(loc => loc.slug !== location.slug).slice(0, 5).map((loc, index, array) => {
+            const isLast = index === array.length - 1;
+            const isSecondLast = index === array.length - 2;
+            return (
+              <>
+                <a href={`/locations/${loc.slug}`} class="text-violet-600 hover:text-violet-700 font-semibold underline">{loc.name}</a>
+                {isSecondLast ? ' and ' : (isLast ? '.' : ', ')}
+              </>
+            );
+          })}
+        </p>
+
+        <h3>Ready to Partner with {location.name}'s Trusted Roofing Company?</h3>
+        <p>
+          Join the hundreds of {location.name} realtors who trust RealtorRoof for their roofing needs. Contact us today to schedule a <a href={`/locations/${location.slug}/roof-inspections`} class="text-violet-600 hover:text-violet-700 font-semibold underline">roof inspection in {location.name}</a> or learn more about our realtor partnership program. Call (913) 268-6052 or request a free estimate online.
         </p>
       </div>
     </div>
