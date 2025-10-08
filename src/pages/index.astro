@@ -7,66 +7,171 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Realtor Partnership | Maverick Exteriors"
   description="Kansas City's trusted roofing partner for real estate professionals"
 >
-  <!-- Hero Section - ChatPRD style with gradient background -->
-  <section class="relative bg-white py-20 md:py-32 overflow-hidden">
-    <!-- Vibrant gradient background -->
-    <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-violet-100 via-pink-50 to-orange-50"></div>
-      <!-- Gradient blob effect -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-violet-200/40 to-pink-200/40 rounded-full blur-3xl"></div>
-    </div>
-
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-100 to-pink-100 border border-violet-200 rounded-full mb-8">
-        <span class="text-2xl">✨</span>
-        <span class="text-violet-700 font-semibold text-sm">Trusted by 500+ Kansas City Realtors</span>
-      </div>
-
-      <!-- Main Headline -->
-      <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-        The Roofing Partner
-        <br />
-        That Helps{' '}
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500">
-          Deals Close
-        </span>
-      </h1>
-
-      <p class="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">
-        Fast inspections, payment at closing, and 30+ years serving Kansas City buyer's and seller's agents.
-      </p>
-
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <!-- Primary CTA with gradient + glow -->
-        <div class="relative">
-          <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-pink-600 rounded-lg blur opacity-25"></div>
-          <a href="/contact" class="relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-600 to-indigo-700 text-white font-semibold text-lg rounded-lg hover:from-violet-700 hover:to-indigo-800 transition-all shadow-lg">
-            Schedule Partnership Meeting
-            <span>→</span>
-          </a>
+  <!-- Hero Section - ChatPRD style with colorful container -->
+  <section class="bg-white pt-4 pb-2 md:pt-6 md:pb-3">
+    <div class="px-6 sm:px-8 lg:px-12">
+      <!-- Outer colorful container with gradient background photo -->
+      <div class="relative overflow-hidden rounded-3xl">
+        <!-- Gradient background (acts as photo placeholder) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-violet-500 via-pink-500 to-orange-400">
+          <!-- Future photo will replace gradient: -->
+          <!-- <img src="/hero-photo.jpg" class="w-full h-full object-cover" alt="Hero" /> -->
         </div>
 
-        <!-- Secondary CTA -->
-        <a href="tel:9132686052" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg border-2 border-violet-300 hover:bg-violet-50 transition-colors">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
-          (913) 268-6052
-        </a>
+        <!-- Inner white card with content - centered and narrower -->
+        <div class="relative max-w-4xl mx-auto my-10 md:my-16 bg-white rounded-3xl px-8 py-12 md:px-12 md:py-16 text-center shadow-xl">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-100 to-pink-100 border border-violet-200 rounded-full mb-6">
+            <span class="text-2xl">✨</span>
+            <span class="text-violet-700 font-semibold text-sm">Trusted by 500+ Kansas City Realtors</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-5 leading-tight">
+            The Roofing Partner
+            <br />
+            That Helps{' '}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500">
+              Deals Close
+            </span>
+          </h1>
+
+          <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+            Fast inspections, payment at closing, and 30+ years serving Kansas City buyer's and seller's agents.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <!-- Primary CTA with gradient + glow -->
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-pink-600 rounded-lg blur opacity-25"></div>
+              <a href="/contact" class="relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-600 to-indigo-700 text-white font-semibold text-lg rounded-lg hover:from-violet-700 hover:to-indigo-800 transition-all shadow-lg">
+                Schedule Partnership Meeting
+                <span>→</span>
+              </a>
+            </div>
+
+            <!-- Secondary CTA -->
+            <a href="tel:9132686052" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg border-2 border-violet-300 hover:bg-violet-50 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              (913) 268-6052
+            </a>
+          </div>
+
+          <!-- Trust indicators -->
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+            <div class="flex items-center gap-2">
+              <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+              <span class="font-semibold">4.9 star rating</span>
+            </div>
+            <span>|</span>
+            <div>30+ years in Kansas City</div>
+            <span>|</span>
+            <div>500+ realtor partnerships</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section - ChatPRD style -->
+  <section class="bg-white pt-0 pb-8 md:pt-0 md:pb-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Line 1: Main trust statement - visible before scroll -->
+      <div class="text-center mb-12">
+        <p class="text-xl md:text-2xl text-gray-800 font-medium leading-relaxed">
+          Trusted by <span class="font-bold text-violet-600">500+ Kansas City realtors</span> to close
+          <span class="font-bold text-violet-600">10,000+ real estate deals</span>, from first-time buyers to luxury homes
+        </p>
       </div>
 
-      <!-- Trust indicators -->
-      <div class="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+      <!-- Line 2: Stats and ratings -->
+      <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-gray-700 mb-12 text-sm md:text-base">
         <div class="flex items-center gap-2">
-          <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+          <span class="text-yellow-400 text-lg">⭐⭐⭐⭐⭐</span>
           <span class="font-semibold">4.9 star rating</span>
         </div>
-        <span>|</span>
-        <div>30+ years in Kansas City</div>
-        <span>|</span>
-        <div>500+ realtor partnerships</div>
+        <span class="text-gray-400">|</span>
+        <div class="font-semibold">#1 Roofing Partner for KC Realtors</div>
+        <span class="text-gray-400">|</span>
+        <div class="font-semibold">30+ Years in Business</div>
+      </div>
+
+      <!-- Line 3: Partner logos placeholder -->
+      <div class="border-t border-gray-200 pt-8">
+        <p class="text-center text-sm text-gray-500 mb-6 uppercase tracking-wide font-semibold">
+          Partnered with Kansas City's Top Brokerages
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <!-- Placeholder for actual logos - replace with real logo images -->
+          <div class="text-gray-400 font-semibold text-lg px-6 py-3 bg-gray-50 rounded-lg">RE/MAX</div>
+          <div class="text-gray-400 font-semibold text-lg px-6 py-3 bg-gray-50 rounded-lg">Keller Williams</div>
+          <div class="text-gray-400 font-semibold text-lg px-6 py-3 bg-gray-50 rounded-lg">Coldwell Banker</div>
+          <div class="text-gray-400 font-semibold text-lg px-6 py-3 bg-gray-50 rounded-lg">Berkshire Hathaway</div>
+          <div class="text-gray-400 font-semibold text-lg px-6 py-3 bg-gray-50 rounded-lg">Reece Nichols</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- We Make You Look Good - 4 Cards -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          We Make You Look Good to Your Clients
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Professional service, transparent pricing, and reliable communication that reflects well on you.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1: Reliable Response -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+          <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 shadow-md">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Reliable & Responsive</h3>
+          <p class="text-gray-600">We show up when we say we will. 24-48 hour inspections keep your deals on track.</p>
+        </div>
+
+        <!-- Card 2: Transparent Pricing -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+          <div class="w-14 h-14 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 shadow-md">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Transparent Pricing</h3>
+          <p class="text-gray-600">Clear estimates help you budget pre-listing repairs and set accurate client expectations.</p>
+        </div>
+
+        <!-- Card 3: Professional Communication -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+          <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center mb-4 shadow-md">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Professional Standards</h3>
+          <p class="text-gray-600">Clear communication, English-speaking crews, and service that matches your professionalism.</p>
+        </div>
+
+        <!-- Card 4: Educational Resources -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+          <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-4 shadow-md">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Client Education Tools</h3>
+          <p class="text-gray-600">Resources that help your clients understand roofing, insurance claims, and timelines.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -191,25 +296,186 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- Trusted by Kansas City Realtors - Testimonials -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Trusted by Kansas City Realtors
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Real results from real customers. Professional service, quality work, and reliable partnerships.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 - Integrity Focus -->
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border border-blue-100">
+          <div class="text-blue-600 text-5xl mb-4">"</div>
+          <p class="text-gray-800 text-lg mb-6 leading-relaxed">
+            They did the job in 2 days time, cleanup was perfect. I still recommend them 3 years later. <span class="font-bold text-blue-600">They work with integrity.</span>
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+              M
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">Verified Customer</div>
+              <div class="text-sm text-gray-600">Kansas City, KS</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 - Quality Focus -->
+        <div class="bg-gradient-to-br from-violet-50 to-purple-50 rounded-2xl p-8 border border-violet-100">
+          <div class="text-violet-600 text-5xl mb-4">"</div>
+          <p class="text-gray-800 text-lg mb-6 leading-relaxed">
+            They had two crews, so it went out quick. <span class="font-bold text-violet-600">Everything was clean</span>, and they didn't destroy the shrubbery.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-violet-600 rounded-full flex items-center justify-center text-white font-bold">
+              R
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">Verified Customer</div>
+              <div class="text-sm text-gray-600">Kansas City, MO</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 - Communication Focus -->
+        <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 border border-pink-100">
+          <div class="text-pink-600 text-5xl mb-4">"</div>
+          <p class="text-gray-800 text-lg mb-6 leading-relaxed">
+            Their price was reasonable and they had plenty of personnel. <span class="font-bold text-pink-600">All the guys could speak English</span> so it's easy.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center text-white font-bold">
+              J
+            </div>
+            <div>
+              <div class="font-semibold text-gray-900">Verified Customer</div>
+              <div class="text-sm text-gray-600">Overland Park, KS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes RealtorRoof Different - 6 Benefits -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          What Makes RealtorRoof Different
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We understand real estate timelines, client expectations, and what it takes to make you look good. Here's how we take problems off your plate.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Benefit 1: Transparent Pricing -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-violet-500">
+          <div class="w-16 h-16 bg-gradient-to-br from-violet-100 to-violet-200 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Transparent Pricing</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Clear, upfront estimates help you budget pre-listing repairs and set accurate client expectations. No surprises, no hidden fees.
+          </p>
+        </div>
+
+        <!-- Benefit 2: Educational Resources -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-pink-500">
+          <div class="w-16 h-16 bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Client Education Tools</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Guides, checklists, and resources that help your clients understand roofing, insurance claims, and timelines—making you the expert.
+          </p>
+        </div>
+
+        <!-- Benefit 3: Professional Communication -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-blue-500">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Professional Standards</h3>
+          <p class="text-gray-600 leading-relaxed">
+            English-speaking crews, clear communication, and service quality that matches your professionalism. We reflect well on you.
+          </p>
+        </div>
+
+        <!-- Benefit 4: Insurance Expertise -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-orange-500">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">Insurance Complexity Handled</h3>
+          <p class="text-gray-600 leading-relaxed">
+            We navigate insurance claims, policy changes, and coverage limitations so you and your clients don't have to become roofing experts.
+          </p>
+        </div>
+
+        <!-- Benefit 5: Take Problems Off Your Plate -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-cyan-500">
+          <div class="w-16 h-16 bg-gradient-to-br from-cyan-100 to-cyan-200 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">One Less Thing to Worry About</h3>
+          <p class="text-gray-600 leading-relaxed">
+            From inspection to installation to cleanup, we handle everything. You stay focused on closing deals while we take care of the roof.
+          </p>
+        </div>
+
+        <!-- Benefit 6: First-Time Buyer Support -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-t-4 border-emerald-500">
+          <div class="w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">First-Time Buyer Friendly</h3>
+          <p class="text-gray-600 leading-relaxed">
+            We explain everything in plain language, answer questions patiently, and make nervous buyers feel confident—making your job easier.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section with gradient -->
   <section class="py-20 md:py-32 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        Ready to Partner?
+        Ready to Close More Deals?
       </h2>
       <p class="text-xl text-white/90 mb-10">
-        Join 500+ Kansas City realtors who trust Maverick Exteriors.
+        Join 500+ Kansas City realtors who trust us to take care of their clients and reflect well on their reputation.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg hover:bg-violet-50 transition-colors shadow-xl">
-          Schedule Meeting
+          Schedule Partnership Meeting
           <span>→</span>
         </a>
         <a href="tel:9132686052" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-lg border-2 border-white/30 hover:bg-white/20 transition-colors">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
-          Call Now
+          Call Now: (913) 268-6052
         </a>
       </div>
     </div>
