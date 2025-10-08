@@ -1,0 +1,174 @@
+[
+  {
+    "slug": "roof-inspections",
+    "name": "Roof Inspections",
+    "shortDescription": "Fast, thorough roof assessments that keep real estate deals moving forward",
+    "icon": "🔍",
+    "description": "Professional roof inspections completed within 24-48 hours, providing detailed reports on roof condition, remaining lifespan, and any issues that need attention. Perfect for realtors managing buyer due diligence or sellers preparing for listing.",
+    "benefits": [
+      "24-48 hour turnaround time",
+      "Detailed written reports with photos",
+      "Unbiased condition assessment",
+      "Accurate cost estimates for repairs",
+      "Compatible with real estate timelines"
+    ],
+    "faqs": [
+      {
+        "question": "How quickly can you schedule a roof inspection?",
+        "answer": "We typically schedule roof inspections within 24-48 hours of your request. For urgent situations where closing deadlines are tight, we can often accommodate same-day or next-day inspections."
+      },
+      {
+        "question": "What's included in a roof inspection report?",
+        "answer": "Our comprehensive reports include: overall roof condition assessment, estimated remaining lifespan, photos of any damage or concerns, measurements and material types, recommended repairs with cost estimates, and whether the roof meets typical lender requirements."
+      },
+      {
+        "question": "Do you work with home inspectors?",
+        "answer": "Yes! We frequently collaborate with home inspectors and can coordinate scheduling. We also partner with Arrowhead Inspections who use EagleView AI technology for the most detailed drone-based roof assessments available."
+      },
+      {
+        "question": "What if the inspection reveals problems?",
+        "answer": "We provide clear, actionable recommendations with accurate cost estimates. If repairs are needed, we can typically schedule them quickly to meet closing deadlines. We also offer payment at closing options to help buyers manage costs."
+      }
+    ]
+  },
+  {
+    "slug": "roof-replacement",
+    "name": "Roof Replacement",
+    "shortDescription": "Complete roof replacements with flexible timing and payment options for realtors",
+    "icon": "🏠",
+    "description": "Full roof replacement services designed specifically for real estate transactions. We offer payment at closing for buyers, fast scheduling to meet closing dates, and extended warranties that add value to your listings.",
+    "benefits": [
+      "Payment at closing available",
+      "Can schedule around closing dates",
+      "10-15 year labor warranties",
+      "15+ year manufacturer warranties",
+      "Price matching guarantee"
+    ],
+    "faqs": [
+      {
+        "question": "Can buyers pay for a new roof at closing?",
+        "answer": "Yes! We offer payment at closing options to help buyers manage their budget during the home purchase process. This is one of our most popular services for buyer's agents."
+      },
+      {
+        "question": "How long does a roof replacement take?",
+        "answer": "Most residential roof replacements are completed in 1-3 days, depending on size and complexity. We work efficiently to minimize disruption and can coordinate timing with your closing schedule."
+      },
+      {
+        "question": "What roofing materials do you offer?",
+        "answer": "We install all major roofing materials including architectural shingles (most popular), 3-tab shingles, metal roofing, and specialty materials for luxury homes. We'll help you and your clients choose the best option for their budget and home style."
+      },
+      {
+        "question": "Do you offer warranties that transfer to new owners?",
+        "answer": "Yes! Our labor warranties (10-15 years) and manufacturer warranties (15+ years) are fully transferable, which adds value for sellers and peace of mind for buyers. This is a great selling point for listings."
+      },
+      {
+        "question": "Will a new roof increase appraisal value?",
+        "answer": "Typically yes. A new roof can add $8,000-$15,000+ to a home's appraised value, depending on the market and home value. We can provide documentation for appraisers showing the roof replacement cost and warranty details."
+      }
+    ]
+  },
+  {
+    "slug": "roof-repair",
+    "name": "Roof Repair",
+    "shortDescription": "Quick, professional roof repairs to address inspection issues and keep deals on track",
+    "icon": "🔧",
+    "description": "Targeted roof repairs that address specific issues identified during home inspections or pre-listing assessments. Fast turnaround keeps transactions moving, with options for both minor fixes and more extensive repairs.",
+    "benefits": [
+      "Fast scheduling to meet closing deadlines",
+      "Clear pricing on repair estimates",
+      "Photo documentation before/after",
+      "Work with inspection reports",
+      "Warranty on repair work"
+    ],
+    "faqs": [
+      {
+        "question": "Can you complete repairs before a closing deadline?",
+        "answer": "In most cases, yes. We prioritize real estate transaction repairs and can typically schedule work within a few days. Most repairs are completed in 1-2 days, keeping your closing on track."
+      },
+      {
+        "question": "How do you price roof repairs?",
+        "answer": "We provide transparent, upfront pricing based on the specific repairs needed. Our estimates break down labor and materials clearly, with no hidden fees. We also offer our price matching guarantee on repair work."
+      },
+      {
+        "question": "What if a home inspector identifies multiple roof issues?",
+        "answer": "We'll review the inspection report, assess all identified issues, and provide a comprehensive estimate covering everything. We can prioritize critical repairs versus cosmetic issues to help with negotiation."
+      },
+      {
+        "question": "Do repairs come with a warranty?",
+        "answer": "Yes! All repair work includes a warranty on both labor and materials. The warranty length varies by repair type, but we stand behind our work and will address any issues that arise."
+      }
+    ]
+  },
+  {
+    "slug": "insurance-claims",
+    "name": "Insurance Claims Assistance",
+    "shortDescription": "Expert guidance navigating insurance claims for storm damage and roof coverage",
+    "icon": "🛡️",
+    "description": "Comprehensive support for insurance claims related to roof damage. We help realtors and their clients navigate the increasingly complex world of roof insurance coverage, including ACV vs RCV policies, age-related depreciation, and storm damage claims.",
+    "benefits": [
+      "Free insurance claim consultation",
+      "Work directly with adjusters",
+      "Documentation for claims",
+      "ACV vs RCV policy guidance",
+      "Storm damage expertise"
+    ],
+    "faqs": [
+      {
+        "question": "How do you help with insurance claims?",
+        "answer": "We provide documentation of damage, work directly with insurance adjusters during inspections, help homeowners understand their coverage (ACV vs RCV), and ensure claims are filed correctly. Our 30+ years of experience means we know what adjusters look for."
+      },
+      {
+        "question": "What's the difference between ACV and RCV coverage?",
+        "answer": "Actual Cash Value (ACV) pays for roof replacement minus depreciation based on age. Replacement Cost Value (RCV) pays for full replacement regardless of age. Many insurance companies now limit coverage for roofs 10-15+ years old, paying only ACV. We help clients understand these limitations."
+      },
+      {
+        "question": "Can you detect storm damage that sellers might not know about?",
+        "answer": "Yes! Our inspections often identify hail damage, wind damage, or other storm-related issues that homeowners aren't aware of. This can be valuable for sellers who may have insurance coverage available for repairs or replacement."
+      },
+      {
+        "question": "What if insurance denies a claim?",
+        "answer": "We can provide additional documentation and work with you to understand why the claim was denied. In some cases, we can help identify coverage that was missed or provide evidence to support an appeal."
+      },
+      {
+        "question": "Do you charge for insurance claim consultations?",
+        "answer": "No! Insurance claim consultations are free. We only charge if you choose to hire us for the actual roof work. This makes it risk-free for you to get expert guidance on your client's insurance situation."
+      }
+    ]
+  },
+  {
+    "slug": "pre-listing-services",
+    "name": "Pre-Listing Roof Services",
+    "shortDescription": "Proactive roof assessments and improvements to maximize listing value",
+    "icon": "📈",
+    "description": "Strategic roof services for seller's agents looking to maximize listing value and avoid deal-killing surprises. Includes pre-listing inspections, condition assessments, cosmetic improvements, and full replacements when needed to achieve optimal ROI.",
+    "benefits": [
+      "Identify issues before listing",
+      "Increase appraisal value",
+      "3D design visualizations",
+      "ROI guidance for sellers",
+      "Avoid inspection surprises"
+    ],
+    "faqs": [
+      {
+        "question": "When should sellers get a pre-listing roof inspection?",
+        "answer": "Ideally 2-4 weeks before listing. This gives time to address any issues found and document repairs for buyer confidence. For homes with roofs 15+ years old or visible issues, earlier inspection is recommended."
+      },
+      {
+        "question": "Should sellers replace a roof before listing?",
+        "answer": "It depends on roof condition, local market, and home value. A new roof can add $8,000-$15,000+ to appraisal value and help homes sell faster. We provide ROI analysis to help sellers make informed decisions."
+      },
+      {
+        "question": "What are 3D design visualizations?",
+        "answer": "Our 3D design service lets sellers see their home with different roof colors and styles before making a decision. This is especially valuable for luxury listings where aesthetic choices impact buyer perception."
+      },
+      {
+        "question": "Can you make cosmetic improvements without full replacement?",
+        "answer": "Yes! For structurally sound roofs with cosmetic issues, we can often clean, repair, or improve appearance without full replacement. We'll recommend the most cost-effective approach to maximize listing appeal."
+      },
+      {
+        "question": "How does a roof certification help with listing?",
+        "answer": "A professional roof certification provides buyers confidence and can reduce inspection negotiation. It documents roof condition, expected lifespan, and any recent work. This is particularly valuable for luxury listings and homes with newer roofs."
+      }
+    ]
+  }
+]

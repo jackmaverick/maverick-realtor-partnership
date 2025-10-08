@@ -23,17 +23,17 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <nav class="w-full px-4 sm:px-6 lg:px-8">
     <!-- Desktop Header -->
-    <div class="hidden md:flex md:items-center md:justify-between h-16">
+    <div class="hidden md:flex md:items-center md:justify-between h-16 max-w-full">
       <!-- Left side: Logo, Company Name, and Navigation -->
       <div class="flex items-center space-x-8">
         <!-- Logo and Company Name -->
         <a href="/" class="flex items-center space-x-3">
-          <img src="/maverick-logo.png" alt="Maverick Exteriors Logo" class="h-10 w-auto" />
+          <img src="/maverick-logo.png" alt="RealtorRoof Logo" class="h-10 w-auto" />
           <div class="flex items-center">
-            <span class="text-2xl font-bold text-primary-600">Maverick</span>
-            <span class="text-2xl font-bold text-gray-900 ml-1">Exteriors</span>
+            <span class="text-2xl font-bold text-primary-600">Realtor</span>
+            <span class="text-2xl font-bold text-gray-900">Roof</span>
           </div>
         </a>
 
@@ -90,11 +90,11 @@ const currentPath = Astro.url.pathname;
       </div>
 
       <!-- Right side: CTA Button with divider -->
-      <div class="flex items-center">
+      <div class="flex items-center ml-auto">
         <div class="h-8 w-px bg-gray-300 mr-6"></div>
         <a
           href="/contact"
-          class="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors shadow-sm"
+          class="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors shadow-sm"
         >
           Get Inspection
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,10 +109,10 @@ const currentPath = Astro.url.pathname;
       <!-- Left side: Logo, Company Name, and Hamburger -->
       <div class="flex items-center space-x-3">
         <a href="/" class="flex items-center space-x-2">
-          <img src="/maverick-logo.png" alt="Maverick Exteriors Logo" class="h-8 w-auto" />
+          <img src="/maverick-logo.png" alt="RealtorRoof Logo" class="h-8 w-auto" />
           <div class="flex items-center">
-            <span class="text-xl font-bold text-primary-600">Maverick</span>
-            <span class="text-xl font-bold text-gray-900 ml-1">Exteriors</span>
+            <span class="text-xl font-bold text-primary-600">Realtor</span>
+            <span class="text-xl font-bold text-gray-900">Roof</span>
           </div>
         </a>
 
@@ -132,7 +132,7 @@ const currentPath = Astro.url.pathname;
       <!-- Right side: CTA Button -->
       <a
         href="/contact"
-        class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white bg-primary-600 rounded-lg"
+        class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg"
       >
         Get Inspection
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

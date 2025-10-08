@@ -64,5 +64,38 @@
     "commonIssues": ["Rapid growth construction issues", "Storm damage", "Warranty claims on new roofs"],
     "climate": "Olathe's location makes it vulnerable to severe weather, including tornadoes and large hail.",
     "neighborhoods": ["Stoneridge", "Cedar Creek", "Heritage Park"]
+  },
+  {
+    "slug": "lees-summit",
+    "name": "Lee's Summit",
+    "state": "MO",
+    "medianHomeValue": "$365,000",
+    "description": "Lee's Summit is one of Kansas City's largest and most desirable suburbs, known for its excellent schools, historic downtown, and family-friendly amenities.",
+    "roofsCompleted": 245,
+    "commonIssues": ["Hail damage from severe thunderstorms", "Wind damage from straight-line winds", "Ice dam formation in winter"],
+    "climate": "Lee's Summit experiences the full range of Midwest weather, with hot, humid summers and cold winters. Severe storms are common during spring and early summer.",
+    "neighborhoods": ["Summit Woods", "Raintree", "Lakewood"]
+  },
+  {
+    "slug": "liberty",
+    "name": "Liberty",
+    "state": "MO",
+    "medianHomeValue": "$310,000",
+    "description": "Liberty is a thriving community north of Kansas City with a rich history, excellent schools, and a perfect blend of small-town charm and modern convenience.",
+    "roofsCompleted": 180,
+    "commonIssues": ["Storm damage from tornadoes and hail", "Aging roofs on historic homes", "Wind uplift damage"],
+    "climate": "Located north of Kansas City, Liberty experiences severe weather including tornadoes, hail, and damaging winds. Quality roofing is essential for property protection.",
+    "neighborhoods": ["Ridgewood", "Liberty Triangle", "Settlers Ridge"]
+  },
+  {
+    "slug": "kansas-city-mo",
+    "name": "Kansas City",
+    "state": "MO",
+    "medianHomeValue": "$295,000",
+    "description": "Kansas City, Missouri is the heart of the metro area, featuring diverse neighborhoods from historic districts to modern developments, world-class amenities, and a thriving cultural scene.",
+    "roofsCompleted": 450,
+    "commonIssues": ["Urban weather exposure", "Historic home roof complexity", "Storm damage from severe weather"],
+    "climate": "As the metro's urban center, Kansas City experiences the full force of Midwest weather patterns, with frequent severe storms, temperature extremes, and occasional ice storms.",
+    "neighborhoods": ["Brookside", "Waldo", "Plaza", "Northland", "River Market"]
   }
 ]

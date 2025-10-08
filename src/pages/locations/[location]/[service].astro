@@ -1,0 +1,319 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import locations from '../../../data/locations.json';
+import services from '../../../data/services.json';
+
+export async function getStaticPaths() {
+  const paths = [];
+
+  locations.forEach((location) => {
+    services.forEach((service) => {
+      paths.push({
+        params: {
+          location: location.slug,
+          service: service.slug
+        },
+        props: { location, service },
+      });
+    });
+  });
+
+  return paths;
+}
+
+const { location, service } = Astro.props;
+---
+
+<BaseLayout
+  title={`${service.name} in ${location.name}, ${location.state} | RealtorRoof`}
+  description={`Professional ${service.name.toLowerCase()} services for realtors in ${location.name}, ${location.state}. ${service.shortDescription}. Fast response, transparent pricing.`}
+>
+  <!-- Hero Section - ChatPRD Style with Gradient -->
+  <section class="bg-white pt-4 pb-2 md:pt-6 md:pb-3">
+    <div class="px-6 sm:px-8 lg:px-12">
+      <div class="relative overflow-hidden rounded-3xl">
+        <!-- Gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-violet-500 via-pink-500 to-orange-400"></div>
+
+        <!-- Inner white card with content -->
+        <div class="relative max-w-5xl mx-auto my-10 md:my-16 bg-white rounded-3xl px-8 py-12 md:px-12 md:py-16 shadow-xl">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-100 to-pink-100 border border-violet-200 rounded-full mb-6">
+            <span class="text-2xl">{service.icon}</span>
+            <span class="text-violet-700 font-semibold text-sm">{location.name}, {location.state}</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-5 leading-tight">
+            {service.name} in {location.name}, {location.state}
+          </h1>
+
+          <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl">
+            {service.description}
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 items-center">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-pink-600 rounded-lg blur opacity-25"></div>
+              <a href="/contact" class="relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-600 to-indigo-700 text-white font-semibold text-lg rounded-lg hover:from-violet-700 hover:to-indigo-800 transition-all shadow-lg">
+                Get Free Estimate
+                <span>→</span>
+              </a>
+            </div>
+
+            <a href="tel:9132686052" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg border-2 border-violet-300 hover:bg-violet-50 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              (913) 268-6052
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="py-8 bg-white border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-violet-600 mb-1">{location.roofsCompleted}+</div>
+          <div class="text-sm text-gray-600">Roofs Completed</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-pink-600 mb-1">24-48hr</div>
+          <div class="text-sm text-gray-600">Response Time</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-orange-600 mb-1">30+</div>
+          <div class="text-sm text-gray-600">Years Experience</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-indigo-600 mb-1">A+</div>
+          <div class="text-sm text-gray-600">BBB Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Benefits -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Why Choose RealtorRoof for {service.name} in {location.name}
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We understand real estate timelines and the unique needs of {location.name} realtors
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {service.benefits.map((benefit, index) => {
+          const colors = [
+            { bg: 'from-violet-100 to-violet-200', text: 'text-violet-600', border: 'border-violet-500' },
+            { bg: 'from-pink-100 to-pink-200', text: 'text-pink-600', border: 'border-pink-500' },
+            { bg: 'from-orange-100 to-orange-200', text: 'text-orange-600', border: 'border-orange-500' },
+            { bg: 'from-blue-100 to-blue-200', text: 'text-blue-600', border: 'border-blue-500' },
+            { bg: 'from-indigo-100 to-indigo-200', text: 'text-indigo-600', border: 'border-indigo-500' },
+          ];
+          const color = colors[index % colors.length];
+
+          return (
+            <div class={`bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border-t-4 ${color.border}`}>
+              <div class={`w-14 h-14 bg-gradient-to-br ${color.bg} rounded-2xl flex items-center justify-center mb-4`}>
+                <svg class={`w-7 h-7 ${color.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">{benefit}</h3>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Context -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            {service.name} Expertise in {location.name}
+          </h2>
+
+          <div class="prose prose-lg text-gray-600 mb-8">
+            <p>
+              With {location.roofsCompleted}+ completed projects in {location.name}, we understand the specific roofing challenges that {location.state === 'MO' ? 'Missouri' : 'Kansas'} properties face. {location.climate}
+            </p>
+
+            <p>
+              Whether you're a buyer's agent helping clients navigate roof concerns or a seller's agent looking to maximize property value, our {service.name.toLowerCase()} services are designed specifically for real estate professionals in {location.name}.
+            </p>
+          </div>
+
+          <div class="bg-gradient-to-br from-violet-50 to-pink-50 rounded-2xl p-6 border border-violet-100">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Common {location.name} Roofing Issues:</h3>
+            <ul class="space-y-3">
+              {location.commonIssues.map((issue) => (
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-violet-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="text-gray-700">{issue}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border border-blue-100 mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">About {location.name}</h3>
+            <p class="text-gray-700 mb-4">{location.description}</p>
+
+            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-blue-200">
+              <div>
+                <div class="text-sm text-gray-600 mb-1">Median Home Value</div>
+                <div class="text-xl font-bold text-blue-600">{location.medianHomeValue}</div>
+              </div>
+              <div>
+                <div class="text-sm text-gray-600 mb-1">Roofs Completed</div>
+                <div class="text-xl font-bold text-blue-600">{location.roofsCompleted}+</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border-2 border-gray-200">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Serving {location.name} Neighborhoods:</h3>
+            <div class="flex flex-wrap gap-2">
+              {location.neighborhoods.map((neighborhood) => (
+                <span class="px-3 py-1 bg-violet-100 text-violet-700 rounded-full text-sm font-medium border border-violet-200">
+                  {neighborhood}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-lg text-gray-600">
+          Common questions about {service.name.toLowerCase()} in {location.name}, {location.state}
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {service.faqs.map((faq, index) => (
+          <details class="group bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+            <summary class="flex justify-between items-center cursor-pointer p-6 hover:bg-gray-50 transition-colors">
+              <h3 class="text-lg font-semibold text-gray-900 pr-8">{faq.question}</h3>
+              <svg class="w-5 h-5 text-violet-600 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-gray-600 leading-relaxed">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Content -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-lg max-w-none">
+        <h2>Professional {service.name} for {location.name} Real Estate Professionals</h2>
+        <p>
+          When you need reliable {service.name.toLowerCase()} in {location.name}, {location.state}, RealtorRoof delivers the expertise and responsiveness that real estate professionals depend on. Our team has completed over {location.roofsCompleted} roofing projects throughout {location.name}, giving us deep knowledge of the specific challenges that properties in this area face.
+        </p>
+
+        <h3>Why {location.name} Realtors Choose RealtorRoof</h3>
+        <p>
+          With a median home value of {location.medianHomeValue}, {location.name} represents a significant investment for your clients. The roofing component is critical to both property value and buyer confidence. Our {service.name.toLowerCase()} services are specifically designed to support real estate transactions, with flexible scheduling, transparent pricing, and the fast turnaround times you need to keep deals moving forward.
+        </p>
+
+        <h3>Understanding {location.name}'s Roofing Climate</h3>
+        <p>
+          {location.climate} This makes professional {service.name.toLowerCase()} essential for protecting property value and ensuring buyer confidence. Our expertise in {location.name} means we know exactly what to look for and how to address the most common issues efficiently.
+        </p>
+
+        <h3>Serving All {location.name} Neighborhoods</h3>
+        <p>
+          From {location.neighborhoods[0]} to {location.neighborhoods[location.neighborhoods.length - 1]}, we proudly serve realtors and their clients throughout {location.name}. Our local presence and 30+ years of Kansas City experience mean we can respond quickly and deliver quality results that reflect well on you and your business.
+        </p>
+
+        <h3>Ready to Get Started?</h3>
+        <p>
+          Contact RealtorRoof today for {service.name.toLowerCase()} in {location.name}, {location.state}. We offer free estimates, flexible scheduling, and the responsive service that keeps your real estate transactions on track. Call (913) 268-6052 or request a quote online.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Business Profile Embed Placeholder -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
+        <p class="text-lg text-gray-600">Serving {location.name} and the entire Kansas City metro area</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 text-center">
+        <svg class="w-16 h-16 text-violet-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Maverick Exteriors</h3>
+        <p class="text-gray-600 mb-4">Kansas City, Kansas</p>
+        <p class="text-gray-600 mb-6">
+          {/* Google Business Profile map will be embedded here */}
+          Proudly serving {location.name}, {location.state} since 1992
+        </p>
+        <a href="tel:9132686052" class="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          (913) 268-6052
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 md:py-32 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Get Your Free {service.name} Estimate
+      </h2>
+      <p class="text-xl text-white/90 mb-10">
+        Serving {location.name} realtors with reliable {service.name.toLowerCase()} since 1992
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg hover:bg-violet-50 transition-colors shadow-xl">
+          Request Free Estimate
+          <span>→</span>
+        </a>
+        <a href="tel:9132686052" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-lg border-2 border-white/30 hover:bg-white/20 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Call: (913) 268-6052
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

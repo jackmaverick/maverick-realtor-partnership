@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTAButton from '../../components/CTAButton.astro';
 import locations from '../../data/locations.json';
+import services from '../../data/services.json';
 
 export async function getStaticPaths() {
   return locations.map((location) => ({
@@ -127,8 +128,55 @@ const { location } = Astro.props;
     </div>
   </section>
 
-  <!-- Realtor Benefits -->
+  <!-- Services Available in This Location -->
   <section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Our Services in {location.name}, {location.state}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Click any service to learn more about our {location.name}-specific offerings
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => {
+          const colors = [
+            { gradient: 'from-violet-500 to-purple-600', hover: 'hover:from-violet-600 hover:to-purple-700', text: 'text-violet-100' },
+            { gradient: 'from-pink-500 to-rose-600', hover: 'hover:from-pink-600 hover:to-rose-700', text: 'text-pink-100' },
+            { gradient: 'from-blue-500 to-cyan-600', hover: 'hover:from-blue-600 hover:to-cyan-700', text: 'text-blue-100' },
+            { gradient: 'from-orange-500 to-amber-600', hover: 'hover:from-orange-600 hover:to-amber-700', text: 'text-orange-100' },
+            { gradient: 'from-indigo-500 to-blue-600', hover: 'hover:from-indigo-600 hover:to-blue-700', text: 'text-indigo-100' },
+          ];
+          const colorIndex = services.indexOf(service) % colors.length;
+          const color = colors[colorIndex];
+
+          return (
+            <a
+              href={`/locations/${location.slug}/${service.slug}`}
+              class={`group block bg-gradient-to-br ${color.gradient} ${color.hover} rounded-2xl p-6 shadow-lg transition-all`}
+            >
+              <div class="text-4xl mb-4">{service.icon}</div>
+              <h3 class="text-xl font-bold text-white mb-2">{service.name}</h3>
+              <p class={`${color.text} text-sm mb-4 leading-relaxed`}>
+                {service.shortDescription}
+              </p>
+              <div class="flex items-center text-white font-semibold">
+                Learn More
+                <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Realtor Benefits -->
+  <section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -140,9 +188,9 @@ const { location } = Astro.props;
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg p-6 shadow-sm">
-          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="h-12 w-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
@@ -152,9 +200,9 @@ const { location } = Astro.props;
           </p>
         </div>
 
-        <div class="bg-white rounded-lg p-6 shadow-sm">
-          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="h-12 w-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-pink-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
@@ -164,9 +212,9 @@ const { location } = Astro.props;
           </p>
         </div>
 
-        <div class="bg-white rounded-lg p-6 shadow-sm">
-          <div class="h-12 w-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+          <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
