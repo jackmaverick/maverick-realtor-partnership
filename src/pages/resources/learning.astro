@@ -1,0 +1,314 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const learningCategories = [
+  {
+    title: 'Roofing Fundamentals',
+    icon: '🏠',
+    gradient: 'from-blue-400 to-cyan-500',
+    resources: [
+      {
+        title: 'Types of Roofing Materials',
+        description: 'Understand shingles, metal, tile, and flat roofing systems',
+        format: 'PDF Guide',
+        duration: '10 min read'
+      },
+      {
+        title: 'Roof Anatomy 101',
+        description: 'Learn key components: decking, underlayment, flashing, ventilation',
+        format: 'Video',
+        duration: '8 min'
+      },
+      {
+        title: 'Expected Roof Lifespans',
+        description: 'Material longevity and factors affecting durability',
+        format: 'Infographic',
+        duration: '5 min read'
+      }
+    ]
+  },
+  {
+    title: 'Insurance & Claims',
+    icon: '📋',
+    gradient: 'from-violet-400 to-purple-500',
+    resources: [
+      {
+        title: 'ACV vs RCV Explained',
+        description: 'Critical differences between Actual Cash Value and Replacement Cost Value',
+        format: 'Video',
+        duration: '12 min'
+      },
+      {
+        title: 'Storm Damage Documentation',
+        description: 'How to properly photograph and document roof damage for claims',
+        format: 'Checklist',
+        duration: '7 min read'
+      },
+      {
+        title: 'Working with Insurance Adjusters',
+        description: 'Best practices for client preparation and communication',
+        format: 'PDF Guide',
+        duration: '15 min read'
+      }
+    ]
+  },
+  {
+    title: 'Property Value Impact',
+    icon: '📈',
+    gradient: 'from-pink-400 to-rose-500',
+    resources: [
+      {
+        title: 'Roof Age & Appraisal Values',
+        description: 'Data-driven insights on how roof condition affects home valuations',
+        format: 'Research Report',
+        duration: '20 min read'
+      },
+      {
+        title: 'Pre-Listing Roof Strategies',
+        description: 'When to recommend repairs vs replacement vs disclosure',
+        format: 'Decision Tree',
+        duration: '6 min read'
+      },
+      {
+        title: 'Negotiation Leverage Points',
+        description: 'Using roof condition in buyer/seller negotiations',
+        format: 'Case Studies',
+        duration: '12 min read'
+      }
+    ]
+  },
+  {
+    title: 'Client Communication',
+    icon: '💬',
+    gradient: 'from-orange-400 to-amber-500',
+    resources: [
+      {
+        title: 'Explaining Roof Issues to Buyers',
+        description: 'Scripts and visual aids for common roof concerns',
+        format: 'Templates',
+        duration: '10 min read'
+      },
+      {
+        title: 'Setting Realistic Expectations',
+        description: 'Timeline and cost guidance for common roof projects',
+        format: 'PDF Guide',
+        duration: '8 min read'
+      },
+      {
+        title: 'Emergency Response Protocols',
+        description: 'What to tell clients during severe weather events',
+        format: 'Checklist',
+        duration: '5 min read'
+      }
+    ]
+  },
+  {
+    title: 'Inspection Insights',
+    icon: '🔍',
+    gradient: 'from-green-400 to-emerald-500',
+    resources: [
+      {
+        title: 'Red Flags Realtors Should Spot',
+        description: 'Visual identification of common roofing problems',
+        format: 'Photo Gallery',
+        duration: '15 min'
+      },
+      {
+        title: 'Understanding Inspection Reports',
+        description: 'Decoding technical language and severity ratings',
+        format: 'Video',
+        duration: '10 min'
+      },
+      {
+        title: 'When to Call a Professional',
+        description: 'Distinguishing minor issues from major concerns',
+        format: 'Decision Guide',
+        duration: '7 min read'
+      }
+    ]
+  },
+  {
+    title: 'Seasonal Considerations',
+    icon: '🌤️',
+    gradient: 'from-indigo-400 to-blue-500',
+    resources: [
+      {
+        title: 'Spring Storm Season Prep',
+        description: 'Helping clients prepare for Kansas City\'s severe weather',
+        format: 'PDF Guide',
+        duration: '9 min read'
+      },
+      {
+        title: 'Winter Ice Dam Prevention',
+        description: 'Understanding and preventing cold-weather roof damage',
+        format: 'Infographic',
+        duration: '5 min read'
+      },
+      {
+        title: 'Fall Maintenance Checklist',
+        description: 'Pre-winter roof care recommendations for homeowners',
+        format: 'Checklist',
+        duration: '6 min read'
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Learning Resources | Maverick Exteriors"
+  description="Comprehensive roofing education library for Kansas City realtors - guides, videos, and tools."
+>
+  <!-- Hero Section -->
+  <section class="relative py-20 md:py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-200 via-blue-200 to-violet-200"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-emerald-300/40 via-transparent to-blue-300/40"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-100 to-blue-100 border border-emerald-200 rounded-full mb-6">
+          <span class="text-2xl">📚</span>
+          <span class="text-emerald-700 font-semibold text-sm">Educational Library</span>
+        </div>
+
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          Master Roofing Knowledge{' '}
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-blue-600">
+            to Better Serve Clients
+          </span>
+        </h1>
+
+        <p class="text-xl text-gray-700 mb-8">
+          Free guides, videos, checklists, and tools to deepen your roofing expertise and provide exceptional client service.
+        </p>
+
+        <div class="flex flex-wrap gap-4 justify-center text-sm">
+          <div class="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md">
+            <span class="text-2xl">📄</span>
+            <span class="font-semibold text-gray-700">25+ PDF Guides</span>
+          </div>
+          <div class="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md">
+            <span class="text-2xl">🎥</span>
+            <span class="font-semibold text-gray-700">12 Video Tutorials</span>
+          </div>
+          <div class="flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-full shadow-md">
+            <span class="text-2xl">✅</span>
+            <span class="font-semibold text-gray-700">15 Checklists</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Categories -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+        {learningCategories.map((category) => (
+          <div>
+            <!-- Category Header -->
+            <div class="flex items-center gap-4 mb-8">
+              <div class={`flex items-center justify-center w-16 h-16 bg-gradient-to-br ${category.gradient} text-white text-3xl rounded-xl shadow-lg`}>
+                {category.icon}
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900">
+                {category.title}
+              </h2>
+            </div>
+
+            <!-- Resources Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {category.resources.map((resource) => (
+                <a href="#" class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
+                  <div class={`h-2 bg-gradient-to-r ${category.gradient}`}></div>
+
+                  <div class="p-6">
+                    <div class="flex items-center justify-between mb-3">
+                      <span class={`inline-block px-3 py-1 bg-gradient-to-r ${category.gradient} bg-opacity-10 text-xs font-bold rounded-full`}>
+                        {resource.format}
+                      </span>
+                      <span class="text-sm text-gray-500">{resource.duration}</span>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-600 group-hover:to-blue-600 transition-all">
+                      {resource.title}
+                    </h3>
+
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                      {resource.description}
+                    </p>
+
+                    <div class="flex items-center gap-1 text-emerald-600 font-semibold text-sm group-hover:gap-2 transition-all">
+                      <span>Access resource</span>
+                      <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Reference Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Quick Reference Tools
+        </h2>
+        <p class="text-lg text-gray-600">
+          Downloadable one-pagers for fast answers during client conversations
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { title: 'Material Comparison Chart', icon: '📊', gradient: 'from-blue-400 to-cyan-500' },
+          { title: 'Emergency Contact Card', icon: '📞', gradient: 'from-violet-400 to-purple-500' },
+          { title: 'Warranty Quick Guide', icon: '🛡️', gradient: 'from-pink-400 to-rose-500' },
+          { title: 'Cost Estimation Sheet', icon: '💰', gradient: 'from-green-400 to-emerald-500' }
+        ].map((tool) => (
+          <a href="#" class="group bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-200">
+            <div class={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br ${tool.gradient} text-white text-2xl rounded-lg mb-4 shadow-md`}>
+              {tool.icon}
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
+              {tool.title}
+            </h3>
+            <div class="flex items-center text-emerald-600 font-semibold text-sm group-hover:gap-1 transition-all">
+              <span>Download PDF</span>
+              <span class="group-hover:translate-x-1 transition-transform">↓</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 md:py-32 bg-gradient-to-r from-emerald-600 to-blue-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Custom Training Available
+      </h2>
+      <p class="text-xl text-white/90 mb-10">
+        Need in-office training for your team? We offer customized educational sessions tailored to your brokerage.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-emerald-700 font-semibold text-lg rounded-lg hover:bg-emerald-50 transition-colors shadow-xl">
+          Schedule Training
+          <span>→</span>
+        </a>
+        <a href="tel:9132686052" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-lg border-2 border-white/30 hover:bg-white/20 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          (913) 268-6052
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

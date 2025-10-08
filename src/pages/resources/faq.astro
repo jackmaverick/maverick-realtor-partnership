@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqCategories = [
+  {
+    title: 'Partnership Program',
+    icon: '🤝',
+    gradient: 'from-violet-400 to-purple-500',
+    faqs: [
+      {
+        question: 'How does the tiered partnership program work?',
+        answer: 'Our partnership program has three tiers based on annual referral volume: Bronze (1-5 referrals), Silver (6-15 referrals), and Gold (16+ referrals). Each tier unlocks additional benefits like priority scheduling, enhanced warranties for your clients, and exclusive training access.'
+      },
+      {
+        question: 'Is there any cost to join the partnership program?',
+        answer: 'No, our partnership program is completely free. We believe in building relationships through mutual success, not membership fees. Simply refer your first client to get started.'
+      },
+      {
+        question: 'What qualifies as a "referral" for partnership tier status?',
+        answer: 'A qualified referral is any client you send to us that results in a completed inspection or consultation, regardless of whether they proceed with a full project. We track referrals on a rolling 12-month basis.'
+      },
+      {
+        question: 'Can I track my referral status and partnership tier?',
+        answer: 'Yes! Each partner receives access to a personalized dashboard where you can view referral history, current tier status, and exclusive resources. You\'ll also receive quarterly reports via email.'
+      }
+    ]
+  },
+  {
+    title: 'Services & Capabilities',
+    icon: '🏗️',
+    gradient: 'from-blue-400 to-cyan-500',
+    faqs: [
+      {
+        question: 'What types of roofing projects do you handle?',
+        answer: 'We specialize in residential roofing including full replacements, storm damage repairs, insurance claim work, and preventive maintenance. We work with asphalt shingles, metal roofing, flat roofs, and tile systems across the Kansas City metro area.'
+      },
+      {
+        question: 'How quickly can you provide an inspection for my client?',
+        answer: 'For our partner realtors, we typically schedule inspections within 24-48 hours of your request. During peak storm season (spring), this may extend to 3-4 days, but partners always receive priority scheduling over general inquiries.'
+      },
+      {
+        question: 'Do you provide pre-listing roof certifications?',
+        answer: 'Yes! We offer comprehensive roof certifications that can increase buyer confidence and potentially speed up closing. These inspections include a detailed condition report and a limited warranty that transfers to the new homeowner.'
+      },
+      {
+        question: 'What areas do you serve in the Kansas City region?',
+        answer: 'We serve the entire Kansas City metro area, including Johnson County (Overland Park, Olathe, Leawood, Lenexa), Wyandotte County (Kansas City KS), Jackson County (Kansas City MO, Lee\'s Summit, Blue Springs), Clay County (Liberty, Gladstone), and surrounding communities within 50 miles.'
+      }
+    ]
+  },
+  {
+    title: 'Pricing & Estimates',
+    icon: '💰',
+    gradient: 'from-green-400 to-emerald-500',
+    faqs: [
+      {
+        question: 'Are inspections and estimates free?',
+        answer: 'Yes, we provide complimentary roof inspections and detailed estimates at no charge. For realtors in our partnership program, we also offer free pre-listing assessments to help you evaluate properties before taking on new listings.'
+      },
+      {
+        question: 'How do you price roof replacement projects?',
+        answer: 'Pricing depends on roof size (square footage), material selection, complexity (pitch, valleys, penetrations), and any necessary structural repairs. We provide transparent, itemized estimates so clients understand exactly what they\'re paying for. Typical Kansas City homes range from $8,000-$25,000 for full replacements.'
+      },
+      {
+        question: 'Do you work with insurance claims?',
+        answer: 'Absolutely. Insurance claim work is one of our specialties. We have dedicated staff who work with adjusters, help clients navigate the claim process, and ensure proper documentation. We never require payment until the insurance settlement is finalized.'
+      },
+      {
+        question: 'Can you provide rough estimates for realtors to share with clients?',
+        answer: 'Yes, for partner realtors, we can provide ballpark ranges based on basic property information (square footage, roof type, approximate age). This helps with buyer/seller negotiations before scheduling a formal inspection.'
+      }
+    ]
+  },
+  {
+    title: 'Timeline & Process',
+    icon: '📅',
+    gradient: 'from-orange-400 to-amber-500',
+    faqs: [
+      {
+        question: 'How long does a typical roof replacement take?',
+        answer: 'Most residential roof replacements are completed in 1-3 days, depending on size and complexity. We provide a detailed timeline before starting work and communicate daily progress. Weather delays are the most common reason for extensions.'
+      },
+      {
+        question: 'What is your inspection-to-estimate turnaround time?',
+        answer: 'Partner realtors receive detailed inspection reports and estimates within 24 hours of the initial visit. For urgent closing situations, we can provide preliminary findings on-site and formal documentation within hours.'
+      },
+      {
+        question: 'Can you accommodate tight closing timelines?',
+        answer: 'Yes. We understand real estate timelines are often inflexible. For partner realtors, we maintain priority scheduling slots specifically for urgent closing situations. If your buyer needs roof work completed before closing, let us know the deadline and we\'ll do everything possible to accommodate.'
+      },
+      {
+        question: 'What happens if weather delays the project?',
+        answer: 'We monitor weather forecasts closely and communicate proactively if delays are likely. Our crews work efficiently during good weather windows, and we maintain open communication with both realtors and homeowners throughout the process. We never compromise quality to meet arbitrary timelines.'
+      }
+    ]
+  },
+  {
+    title: 'Insurance & Claims',
+    icon: '📋',
+    gradient: 'from-pink-400 to-rose-500',
+    faqs: [
+      {
+        question: 'How do you handle insurance claim work?',
+        answer: 'We manage the entire claim process: initial damage assessment, meeting with adjusters, supplemental documentation if needed, and final billing coordination. Clients typically only pay their deductible, and we bill the insurance company directly for approved work.'
+      },
+      {
+        question: 'What if the insurance company denies the claim?',
+        answer: 'We work with clients to appeal denials when we believe legitimate storm damage exists. Our documentation is thorough and we have strong relationships with local adjusters. If a claim is legitimately denied, we provide honest guidance on whether the homeowner should proceed with out-of-pocket repairs.'
+      },
+      {
+        question: 'Do you work with all insurance companies?',
+        answer: 'Yes, we work with all major insurance carriers including State Farm, Farmers, Allstate, American Family, Liberty Mutual, and others. We\'re familiar with each company\'s claim procedures and documentation requirements.'
+      },
+      {
+        question: 'Can you help explain ACV vs RCV policies to clients?',
+        answer: 'Absolutely. This is one of the most confusing aspects for homeowners, especially with older roofs. We provide simple explanations and visual comparisons to help clients understand their coverage, potential out-of-pocket costs, and financing options if needed.'
+      }
+    ]
+  },
+  {
+    title: 'Quality & Warranties',
+    icon: '🛡️',
+    gradient: 'from-indigo-400 to-blue-500',
+    faqs: [
+      {
+        question: 'What warranties do you provide?',
+        answer: 'We offer a 10-year workmanship warranty on all installations, covering labor and installation quality. Manufacturer material warranties range from 25-50 years depending on product selection. For partner realtor clients, we extend workmanship warranties to 12 years at no additional cost.'
+      },
+      {
+        question: 'Are you licensed and insured?',
+        answer: 'Yes, Maverick Exteriors is fully licensed, bonded, and insured with comprehensive general liability and workers compensation coverage. We provide proof of insurance certificates upon request for real estate transactions.'
+      },
+      {
+        question: 'How do you ensure quality control?',
+        answer: 'Every project is overseen by an experienced crew leader and inspected by our quality control team before final completion. We also conduct post-installation inspections at 30 days and 1 year to ensure long-term performance.'
+      },
+      {
+        question: 'What if issues arise after project completion?',
+        answer: 'We stand behind our work. If any installation-related issues occur, we respond quickly to assess and resolve them at no charge under our workmanship warranty. Our goal is 100% client satisfaction, which is why 85% of our business comes from referrals and repeat customers.'
+      }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Frequently Asked Questions | Maverick Exteriors"
+  description="Answers to common questions about our realtor partnership program, services, and processes."
+>
+  <!-- Hero Section -->
+  <section class="relative py-20 md:py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-violet-200 via-blue-200 to-pink-200"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-violet-300/40 via-transparent to-pink-300/40"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-100 to-pink-100 border border-violet-200 rounded-full mb-6">
+          <span class="text-2xl">❓</span>
+          <span class="text-violet-700 font-semibold text-sm">Questions & Answers</span>
+        </div>
+
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          Frequently Asked{' '}
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-pink-600">
+            Questions
+          </span>
+        </h1>
+
+        <p class="text-xl text-gray-700 mb-8">
+          Everything you need to know about partnering with Maverick Exteriors and serving your clients better.
+        </p>
+
+        <div class="max-w-2xl mx-auto">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search frequently asked questions..."
+              class="w-full px-6 py-4 pr-12 rounded-lg border-2 border-gray-200 focus:border-violet-400 focus:outline-none text-gray-900 placeholder-gray-500"
+            />
+            <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Categories -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+        {faqCategories.map((category) => (
+          <div>
+            <!-- Category Header -->
+            <div class="flex items-center gap-4 mb-8">
+              <div class={`flex items-center justify-center w-14 h-14 bg-gradient-to-br ${category.gradient} text-white text-2xl rounded-xl shadow-lg`}>
+                {category.icon}
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900">
+                {category.title}
+              </h2>
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="space-y-4">
+              {category.faqs.map((faq, index) => (
+                <details class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100">
+                  <summary class="cursor-pointer list-none px-6 py-5 flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-gray-900 pr-4 group-open:text-violet-600 transition-colors">
+                      {faq.question}
+                    </h3>
+                    <svg
+                      class="w-6 h-6 text-gray-400 group-open:text-violet-600 group-open:rotate-180 transition-transform duration-300 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div class="px-6 pb-5">
+                    <div class={`h-0.5 bg-gradient-to-r ${category.gradient} mb-4 opacity-20`}></div>
+                    <p class="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          By the Numbers
+        </h2>
+        <p class="text-lg text-gray-600">
+          Trusted by Kansas City realtors for over 30 years
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {[
+          { number: '30+', label: 'Years in Business', icon: '🏆', gradient: 'from-blue-400 to-cyan-500' },
+          { number: '500+', label: 'Realtor Partners', icon: '🤝', gradient: 'from-violet-400 to-purple-500' },
+          { number: '5,000+', label: 'Roofs Installed', icon: '🏠', gradient: 'from-pink-400 to-rose-500' },
+          { number: '24-48hr', label: 'Inspection Response', icon: '⚡', gradient: 'from-green-400 to-emerald-500' }
+        ].map((stat) => (
+          <div class="text-center">
+            <div class={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.gradient} text-white text-3xl rounded-xl shadow-lg mb-4`}>
+              {stat.icon}
+            </div>
+            <div class={`text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${stat.gradient} mb-2`}>
+              {stat.number}
+            </div>
+            <div class="text-gray-600 font-medium">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Still Have Questions CTA -->
+  <section class="py-20 md:py-32 bg-gradient-to-r from-violet-600 to-pink-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Still Have Questions?
+      </h2>
+      <p class="text-xl text-white/90 mb-10">
+        We're here to help. Reach out to our realtor partnership team and we'll get you answers fast.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg hover:bg-violet-50 transition-colors shadow-xl">
+          Contact Us
+          <span>→</span>
+        </a>
+        <a href="tel:9132686052" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-lg border-2 border-white/30 hover:bg-white/20 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          (913) 268-6052
+        </a>
+      </div>
+      <p class="text-white/70 text-sm mt-6">
+        Or email us at <a href="mailto:realtors@maverickexteriors.com" class="underline hover:text-white transition-colors">realtors@maverickexteriors.com</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Simple FAQ search functionality
+  document.querySelector('input[type="text"]')?.addEventListener('input', (e) => {
+    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+    const allFaqDetails = document.querySelectorAll('details');
+
+    allFaqDetails.forEach((details) => {
+      const question = details.querySelector('h3')?.textContent?.toLowerCase() || '';
+      const answer = details.querySelector('p')?.textContent?.toLowerCase() || '';
+
+      if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+        (details as HTMLElement).style.display = 'block';
+        if (searchTerm.length > 2) {
+          details.setAttribute('open', '');
+        }
+      } else if (searchTerm.length > 0) {
+        (details as HTMLElement).style.display = 'none';
+      } else {
+        (details as HTMLElement).style.display = 'block';
+        details.removeAttribute('open');
+      }
+    });
+  });
+</script>
