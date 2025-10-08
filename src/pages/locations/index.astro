@@ -1,30 +1,63 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import CTAButton from '../../components/CTAButton.astro';
 import locations from '../../data/locations.json';
 ---
 
 <BaseLayout
-  title="Service Areas"
-  description="Maverick Exteriors serves realtors throughout the Kansas City metro area. View our service locations and request an inspection in your area."
+  title="Service Areas | RealtorRoof Kansas City"
+  description="RealtorRoof serves realtors throughout the Kansas City metro area. View our service locations and request an inspection in your area."
 >
-  <!-- Hero -->
-  <section class="bg-gradient-to-b from-primary-50 to-white py-16 md:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Serving Realtors Throughout Kansas City
-      </h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-        For over 30 years, we've been the trusted roofing partner for real estate professionals across the Kansas City metro area.
-      </p>
-      <CTAButton href="/contact" variant="primary" size="lg">
-        Request Inspection
-      </CTAButton>
+  <!-- Hero Section - ChatPRD Style -->
+  <section class="bg-white pt-4 pb-2 md:pt-6 md:pb-3">
+    <div class="px-6 sm:px-8 lg:px-12">
+      <div class="relative overflow-hidden rounded-3xl">
+        <!-- Gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-violet-500 via-pink-500 to-orange-400"></div>
+
+        <!-- Inner white card -->
+        <div class="relative max-w-4xl mx-auto my-10 md:my-16 bg-white rounded-3xl px-8 py-12 md:px-12 md:py-16 text-center shadow-xl">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-100 to-pink-100 border border-violet-200 rounded-full mb-6">
+            <span class="text-2xl">📍</span>
+            <span class="text-violet-700 font-semibold text-sm">9 Kansas City Metro Locations</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-5 leading-tight">
+            Serving Realtors{' '}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-pink-500 to-orange-500">
+              Throughout Kansas City
+            </span>
+          </h1>
+
+          <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+            For over 30 years, we've been the trusted roofing partner for real estate professionals across the Kansas City metro area.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-pink-600 rounded-lg blur opacity-25"></div>
+              <a href="/contact" class="relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-600 to-indigo-700 text-white font-semibold text-lg rounded-lg hover:from-violet-700 hover:to-indigo-800 transition-all shadow-lg">
+                Request Inspection
+                <span>→</span>
+              </a>
+            </div>
+
+            <a href="tel:9132686052" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg border-2 border-violet-300 hover:bg-violet-50 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              (913) 268-6052
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Service Areas -->
-  <section class="py-16 md:py-24 bg-white">
+  <!-- Service Areas - Vibrant Cards -->
+  <section class="py-16 md:py-24 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Service Areas</h2>
@@ -34,37 +67,70 @@ import locations from '../../data/locations.json';
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {locations.map((location) => (
-          <a
-            href={`/locations/${location.slug}`}
-            class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-primary-300 transition-all"
-          >
-            <div class="flex justify-between items-start mb-4">
-              <div>
-                <h3 class="text-xl font-semibold text-gray-900">{location.name}, {location.state}</h3>
-                <p class="text-sm text-gray-500 mt-1">Median Home Value: {location.medianHomeValue}</p>
+        {locations.map((location, index) => {
+          const gradients = [
+            'from-violet-500 to-purple-600',
+            'from-pink-500 to-rose-600',
+            'from-blue-500 to-cyan-600',
+            'from-orange-500 to-amber-600',
+            'from-indigo-500 to-blue-600',
+            'from-emerald-500 to-teal-600',
+            'from-fuchsia-500 to-pink-600',
+            'from-cyan-500 to-blue-600',
+            'from-amber-500 to-orange-600',
+          ];
+          const gradient = gradients[index % gradients.length];
+
+          return (
+            <a
+              href={`/locations/${location.slug}`}
+              class="group block relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border border-gray-200 hover:border-transparent"
+            >
+              {/* Gradient top bar */}
+              <div class={`h-2 bg-gradient-to-r ${gradient}`}></div>
+
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-violet-600 transition-colors">
+                      {location.name}, {location.state}
+                    </h3>
+                    <p class="text-sm text-gray-500 mt-1">
+                      Median: {location.medianHomeValue}
+                    </p>
+                  </div>
+                  <div class={`w-10 h-10 rounded-lg bg-gradient-to-br ${gradient} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform`}>
+                    <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+
+                <p class="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">
+                  {location.description}
+                </p>
+
+                <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <div class="flex items-center text-sm font-semibold text-gray-700">
+                    <svg class="w-4 h-4 mr-1 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {location.roofsCompleted}+ Projects
+                  </div>
+                  <span class="text-violet-600 font-semibold text-sm group-hover:translate-x-1 transition-transform inline-block">
+                    View Services →
+                  </span>
+                </div>
               </div>
-              <svg class="w-5 h-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-              {location.description}
-            </p>
-            <div class="flex items-center text-sm text-primary-600 font-medium">
-              <svg class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              {location.roofsCompleted}+ Roofs Completed
-            </div>
-          </a>
-        ))}
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>
 
   <!-- Coverage Map Placeholder -->
-  <section class="py-16 md:py-24 bg-gray-50">
+  <section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Full Kansas City Metro Coverage</h2>
@@ -73,38 +139,50 @@ import locations from '../../data/locations.json';
         </p>
       </div>
 
-      <div class="bg-white rounded-2xl p-12 border border-gray-200 text-center">
-        <svg class="w-16 h-16 text-primary-600 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-        <h3 class="text-2xl font-bold text-gray-900 mb-2">Covering Kansas City Metro</h3>
-        <p class="text-gray-600 mb-6">
-          From Leawood to Lee's Summit, Mission Hills to Olathe, we're your trusted roofing partner.
-        </p>
-        <CTAButton href="/contact" variant="primary">
-          Check If We Serve Your Area
-        </CTAButton>
+      <div class="relative overflow-hidden rounded-3xl">
+        <!-- Gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500"></div>
+
+        <div class="relative p-12 text-center">
+          <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <svg class="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="text-3xl font-bold text-white mb-4">Covering Kansas City Metro</h3>
+          <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            From Leawood to Lee's Summit, Mission Hills to Liberty, we're your trusted roofing partner across all 9 service areas.
+          </p>
+          <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-cyan-700 font-semibold text-lg rounded-lg hover:bg-cyan-50 transition-colors shadow-xl">
+            Check If We Serve Your Area
+            <span>→</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-16 md:py-24 bg-primary-600">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+  <!-- Final CTA -->
+  <section class="py-20 md:py-32 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
         Ready to Get Started?
       </h2>
-      <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+      <p class="text-xl text-white/90 mb-10">
         Request a property inspection in your service area today.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <CTAButton href="/contact" variant="primary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg hover:bg-violet-50 transition-colors shadow-xl">
           Request Inspection
-        </CTAButton>
-        <CTAButton href="tel:9132686052" variant="outline" size="lg" class="border-white text-white hover:bg-primary-700">
-          Call (913) 268-6052
-        </CTAButton>
+          <span>→</span>
+        </a>
+        <a href="tel:9132686052" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg rounded-lg border-2 border-white/30 hover:bg-white/20 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Call: (913) 268-6052
+        </a>
       </div>
     </div>
   </section>
