@@ -174,6 +174,32 @@ const formTitle = {
   const successMsg = document.getElementById(`${formType}-success`);
   const errorMsg = document.getElementById(`${formType}-error`);
 
+  // Track form submission with GA4
+  function trackFormSubmission(formType) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'form_submit', {
+        event_category: 'engagement',
+        form_type: formType,
+        value: formType === 'partnership' ? 100 : formType === 'inspection' ? 75 : 50,
+      });
+
+      // Track specific conversion events
+      if (formType === 'partnership') {
+        window.gtag('event', 'partnership_inquiry', {
+          event_category: 'conversion',
+          event_label: 'Partnership Form',
+          value: 100,
+        });
+      } else if (formType === 'inspection') {
+        window.gtag('event', 'inspection_request', {
+          event_category: 'conversion',
+          event_label: 'Inspection Form',
+          value: 75,
+        });
+      }
+    }
+  }
+
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
@@ -202,6 +228,10 @@ const formTitle = {
         successMsg.classList.remove('hidden');
         errorMsg.classList.add('hidden');
         button.textContent = 'Submitted!';
+
+        // Track successful form submission
+        trackFormSubmission(formType);
+
         setTimeout(() => {
           button.disabled = false;
           button.textContent = `Submit ${formType.charAt(0).toUpperCase() + formType.slice(1)}`;

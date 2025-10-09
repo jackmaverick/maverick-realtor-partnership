@@ -39,6 +39,22 @@ const seoMeta = generateSEOMeta(Astro.props);
     <!-- Preconnect for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Analytics 4 -->
+    {import.meta.env.PUBLIC_GA4_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA4_ID}`}></script>
+        <script is:inline define:vars={{ ga4Id: import.meta.env.PUBLIC_GA4_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', ga4Id, {
+            send_page_view: true,
+            cookie_flags: 'SameSite=None;Secure'
+          });
+        </script>
+      </>
+    )}
   </head>
   <body>
     <Header />
