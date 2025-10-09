@@ -123,7 +123,7 @@ function generateAutoReplyHTML(formData: FormSubmission): string {
           <div style="margin-top: 30px; padding: 20px; background-color: #dbeafe; border-left: 4px solid #1e3a8a; border-radius: 4px;">
             <p style="margin: 0 0 15px 0; font-weight: 600; color: #1e3a8a;">Need immediate assistance?</p>
             <p style="margin: 0; font-size: 14px;">
-              📞 Call us: <a href="tel:9132686052" style="color: #1e3a8a; text-decoration: none; font-weight: 600;">(913) 268-6052</a><br>
+              📞 Call us: <a href="tel:9132988759" style="color: #1e3a8a; text-decoration: none; font-weight: 600;">(913) 298-8759</a><br>
               ✉️ Email: <a href="mailto:jack@maverickexteriorskc.com" style="color: #1e3a8a; text-decoration: none;">jack@maverickexteriorskc.com</a>
             </p>
           </div>
@@ -142,7 +142,7 @@ function generateAutoReplyHTML(formData: FormSubmission): string {
 
         <div style="margin-top: 20px; padding: 20px; text-align: center; color: #6b7280; font-size: 12px;">
           <p style="margin: 0;">© ${new Date().getFullYear()} Realtor Roof | Powered by Maverick Exteriors</p>
-          <p style="margin: 5px 0 0 0;">Kansas City, Kansas | (913) 268-6052</p>
+          <p style="margin: 5px 0 0 0;">Kansas City, Kansas | (913) 298-8759</p>
         </div>
       </body>
     </html>

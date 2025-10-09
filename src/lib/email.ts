@@ -92,7 +92,7 @@ function generateEmailHTML(formData: FormSubmission): string {
 
         <div style="margin-top: 20px; padding: 15px; text-align: center; color: #6b7280; font-size: 12px;">
           <p>This notification was sent from the Realtor Partnership Website</p>
-          <p style="margin: 5px 0;">Maverick Exteriors | (913) 268-6052</p>
+          <p style="margin: 5px 0;">Maverick Exteriors | (913) 298-8759</p>
         </div>
       </body>
     </html>

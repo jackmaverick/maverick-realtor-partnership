@@ -95,7 +95,7 @@ See [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) for details.
 ## 📞 Contact
 
 **Maverick Exteriors**
-Phone: (913) 268-6052
+Phone: (913) 298-8759
 Kansas City, Kansas
 
 ---

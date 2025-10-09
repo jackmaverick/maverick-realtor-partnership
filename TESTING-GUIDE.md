@@ -77,7 +77,7 @@ Check the submitter's inbox for:
 - **Content:** Professional HTML email with:
   - Personalized greeting (uses first name)
   - Form-specific message
-  - Contact info: (913) 268-6052
+  - Contact info: (913) 298-8759
   - "Powered by Maverick Exteriors" branding
 
 ### Team Notification Email
