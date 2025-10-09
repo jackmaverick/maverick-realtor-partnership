@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { sendFormNotification } from '../../lib/email';
 import { createJobNimbusContact } from '../../lib/jobnimbus';
+import { appendToGoogleSheets } from '../../lib/googlesheets';
+import { sendAutoReplyEmail } from '../../lib/gmail';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -41,14 +43,24 @@ export const POST: APIRoute = async ({ request }) => {
       subject: data.subject || 'General Inquiry',
       message,
       submittedAt: new Date().toISOString(),
-      source: 'Realtor Partnership Website',
+      source: 'Realtor Roof Website',
     };
 
     console.log('General contact form submission:', formData);
 
-    // Send email notification (non-blocking)
+    // Send email notification to team (non-blocking)
     sendFormNotification(formData).catch(err =>
       console.error('Email notification failed:', err)
+    );
+
+    // Send auto-reply to submitter (non-blocking)
+    sendAutoReplyEmail(formData).catch(err =>
+      console.error('Auto-reply email failed:', err)
+    );
+
+    // Save to Google Sheets (non-blocking)
+    appendToGoogleSheets(formData).catch(err =>
+      console.error('Google Sheets append failed:', err)
     );
 
     // Create JobNimbus contact (non-blocking)

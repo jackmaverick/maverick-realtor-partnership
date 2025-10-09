@@ -18,7 +18,7 @@ export function generateSEOMeta(props: SEOProps) {
   } = props;
 
   const siteUrl = 'https://realtors.maverickexteriors.com'; // Update with actual domain
-  const fullTitle = `${title} | Maverick Exteriors - Kansas City Roofing for Realtors`;
+  const fullTitle = `${title} | Realtor Roof - Kansas City Roofing for Realtors`;
   const canonicalUrl = canonical || siteUrl;
   const imageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 
@@ -41,5 +41,5 @@ export function generateSEOMeta(props: SEOProps) {
 
 export const defaultSEO: SEOProps = {
   title: 'Home',
-  description: 'Maverick Exteriors - Kansas City\'s trusted roofing partner for real estate professionals. Serving buyer\'s and seller\'s agents with fast inspections, payment at closing, and 30+ years of experience.',
+  description: 'Realtor Roof - Partnered with Maverick Exteriors, Kansas City\'s trusted roofing partner for real estate professionals. Serving buyer\'s and seller\'s agents with fast inspections, payment at closing, and 30+ years of experience.',
 };

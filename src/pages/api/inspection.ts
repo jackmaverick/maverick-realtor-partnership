@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { sendFormNotification } from '../../lib/email';
 import { createJobNimbusContact } from '../../lib/jobnimbus';
+import { appendToGoogleSheets } from '../../lib/googlesheets';
+import { sendAutoReplyEmail } from '../../lib/gmail';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -41,15 +43,25 @@ export const POST: APIRoute = async ({ request }) => {
       propertyAddress: data.propertyAddress || 'Not provided',
       message,
       submittedAt: new Date().toISOString(),
-      source: 'Realtor Partnership Website',
+      source: 'Realtor Roof Website',
       priority: 'HIGH', // Inspection requests are high priority
     };
 
     console.log('Inspection request form submission:', formData);
 
-    // Send email notification (non-blocking)
+    // Send email notification to team (non-blocking)
     sendFormNotification(formData).catch(err =>
       console.error('Email notification failed:', err)
+    );
+
+    // Send auto-reply to submitter (non-blocking)
+    sendAutoReplyEmail(formData).catch(err =>
+      console.error('Auto-reply email failed:', err)
+    );
+
+    // Save to Google Sheets (non-blocking)
+    appendToGoogleSheets(formData).catch(err =>
+      console.error('Google Sheets append failed:', err)
     );
 
     // Create JobNimbus contact with HIGH priority (non-blocking)
