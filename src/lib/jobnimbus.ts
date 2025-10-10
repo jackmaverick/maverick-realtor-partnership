@@ -32,7 +32,7 @@ export interface JobNimbusJob {
 export async function createJobNimbusContact(formData: FormSubmission): Promise<boolean> {
   try {
     // Check if JobNimbus API credentials are configured
-    const apiKey = import.meta.env.JOBNIMBUS_API_KEY;
+    const apiKey = process.env.JOBNIMBUS_API_KEY || import.meta.env.JOBNIMBUS_API_KEY;
 
     if (!apiKey) {
       console.warn('JobNimbus API key not configured. CRM integration skipped.');

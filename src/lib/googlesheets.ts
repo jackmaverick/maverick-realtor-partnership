@@ -8,8 +8,8 @@ import type { FormSubmission } from './email';
 export async function appendToGoogleSheets(formData: FormSubmission): Promise<boolean> {
   try {
     // Check if Google Sheets credentials are configured
-    const credentials = import.meta.env.GOOGLE_SHEETS_CREDENTIALS;
-    const spreadsheetId = import.meta.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+    const credentials = process.env.GOOGLE_SHEETS_CREDENTIALS || import.meta.env.GOOGLE_SHEETS_CREDENTIALS;
+    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID || import.meta.env.GOOGLE_SHEETS_SPREADSHEET_ID;
 
     if (!credentials || !spreadsheetId) {
       console.warn('Google Sheets credentials not configured. Skipping sheets integration.');
@@ -67,8 +67,8 @@ export async function appendToGoogleSheets(formData: FormSubmission): Promise<bo
  */
 export async function initializeGoogleSheets(): Promise<boolean> {
   try {
-    const credentials = import.meta.env.GOOGLE_SHEETS_CREDENTIALS;
-    const spreadsheetId = import.meta.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+    const credentials = process.env.GOOGLE_SHEETS_CREDENTIALS || import.meta.env.GOOGLE_SHEETS_CREDENTIALS;
+    const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID || import.meta.env.GOOGLE_SHEETS_SPREADSHEET_ID;
 
     if (!credentials || !spreadsheetId) {
       console.warn('Google Sheets credentials not configured.');

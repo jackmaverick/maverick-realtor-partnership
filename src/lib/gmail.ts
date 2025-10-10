@@ -7,8 +7,8 @@ import type { FormSubmission } from './email';
 export async function sendAutoReplyEmail(formData: FormSubmission): Promise<boolean> {
   try {
     // Check if Gmail credentials are configured
-    const gmailUser = import.meta.env.GMAIL_USER;
-    const gmailPassword = import.meta.env.GMAIL_APP_PASSWORD;
+    const gmailUser = process.env.GMAIL_USER || import.meta.env.GMAIL_USER;
+    const gmailPassword = process.env.GMAIL_APP_PASSWORD || import.meta.env.GMAIL_APP_PASSWORD;
 
     if (!gmailUser || !gmailPassword) {
       console.warn('Gmail credentials not configured. Auto-reply skipped.');

@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 
 // Initialize Resend with API key or placeholder (required for build)
-const resend = new Resend(import.meta.env.RESEND_API_KEY || 'placeholder_key');
+const resend = new Resend(process.env.RESEND_API_KEY || import.meta.env.RESEND_API_KEY || 'placeholder_key');
 
 export interface FormSubmission {
   formType: string;
@@ -16,7 +16,8 @@ export interface FormSubmission {
 export async function sendFormNotification(formData: FormSubmission): Promise<boolean> {
   try {
     // Check if Resend API key is configured
-    if (!import.meta.env.RESEND_API_KEY) {
+    const apiKey = process.env.RESEND_API_KEY || import.meta.env.RESEND_API_KEY;
+    if (!apiKey) {
       console.warn('RESEND_API_KEY not configured. Email notification skipped.');
       return false;
     }
