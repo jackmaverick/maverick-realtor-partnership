@@ -27,33 +27,67 @@ export async function appendToGoogleSheets(formData: FormSubmission): Promise<bo
 
     const sheets = google.sheets({ version: 'v4', auth });
 
-    // Prepare row data
-    const rowData = [
-      formData.submittedAt,
-      formData.formType,
-      formData.name,
-      formData.email,
-      formData.phone,
-      formData.agentType || '',
-      formData.brokerage || '',
-      formData.propertyAddress || '',
-      formData.subject || '',
-      formData.message,
-      formData.source || 'Realtor Roof Website',
-      formData.priority || 'NORMAL',
-    ];
+    // Determine which tab to use based on form type
+    let sheetName: string;
+    let rowData: any[];
 
-    // Append to the sheet
+    switch (formData.formType) {
+      case 'Partnership Inquiry':
+        sheetName = 'Partnership Inquiries';
+        rowData = [
+          formData.submittedAt,
+          formData.name,
+          formData.email,
+          formData.phone,
+          formData.agentType || '',
+          formData.brokerage || '',
+          formData.message,
+          formData.source || 'Realtor Roof Website',
+          formData.priority || 'NORMAL',
+        ];
+        break;
+
+      case 'Property Inspection Request':
+        sheetName = 'Inspection Requests';
+        rowData = [
+          formData.submittedAt,
+          formData.name,
+          formData.email,
+          formData.phone,
+          formData.propertyAddress || '',
+          formData.message,
+          formData.source || 'Realtor Roof Website',
+          formData.priority || 'NORMAL',
+        ];
+        break;
+
+      case 'General Contact':
+      default:
+        sheetName = 'General Contact';
+        rowData = [
+          formData.submittedAt,
+          formData.name,
+          formData.email,
+          formData.phone,
+          formData.subject || '',
+          formData.message,
+          formData.source || 'Realtor Roof Website',
+          formData.priority || 'NORMAL',
+        ];
+        break;
+    }
+
+    // Append to the appropriate sheet tab
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: 'Form Submissions!A:L', // Will create sheet if it doesn't exist
+      range: `${sheetName}!A:Z`,
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values: [rowData],
       },
     });
 
-    console.log('Form submission appended to Google Sheets');
+    console.log(`Form submission appended to Google Sheets tab: ${sheetName}`);
     return true;
   } catch (error) {
     console.error('Failed to append to Google Sheets:', error);
