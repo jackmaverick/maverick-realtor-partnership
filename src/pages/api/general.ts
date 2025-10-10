@@ -4,6 +4,8 @@ import { createJobNimbusContact } from '../../lib/jobnimbus';
 import { appendToGoogleSheets } from '../../lib/googlesheets';
 import { sendAutoReplyEmail } from '../../lib/gmail';
 
+export const prerender = false;
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await request.json();
