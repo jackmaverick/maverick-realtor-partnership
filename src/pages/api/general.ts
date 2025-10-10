@@ -50,19 +50,27 @@ export const POST: APIRoute = async ({ request }) => {
 
     console.log('General contact form submission:', formData);
 
+    // Save to Google Sheets (blocking to catch errors)
+    try {
+      console.log('Attempting to save to Google Sheets...');
+      const sheetsResult = await appendToGoogleSheets(formData);
+      console.log('Google Sheets result:', sheetsResult);
+    } catch (err) {
+      console.error('Google Sheets append failed:', err);
+    }
+
+    // Send auto-reply to submitter (blocking to catch errors)
+    try {
+      console.log('Attempting to send auto-reply email...');
+      const emailResult = await sendAutoReplyEmail(formData);
+      console.log('Auto-reply result:', emailResult);
+    } catch (err) {
+      console.error('Auto-reply email failed:', err);
+    }
+
     // Send email notification to team (non-blocking)
     sendFormNotification(formData).catch(err =>
       console.error('Email notification failed:', err)
-    );
-
-    // Send auto-reply to submitter (non-blocking)
-    sendAutoReplyEmail(formData).catch(err =>
-      console.error('Auto-reply email failed:', err)
-    );
-
-    // Save to Google Sheets (non-blocking)
-    appendToGoogleSheets(formData).catch(err =>
-      console.error('Google Sheets append failed:', err)
     );
 
     // Create JobNimbus contact (non-blocking)

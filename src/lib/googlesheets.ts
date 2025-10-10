@@ -11,6 +11,10 @@ export async function appendToGoogleSheets(formData: FormSubmission): Promise<bo
     const credentials = process.env.GOOGLE_SHEETS_CREDENTIALS || import.meta.env.GOOGLE_SHEETS_CREDENTIALS;
     const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID || import.meta.env.GOOGLE_SHEETS_SPREADSHEET_ID;
 
+    console.log('Google Sheets - Checking credentials...');
+    console.log('Has credentials:', !!credentials);
+    console.log('Has spreadsheetId:', !!spreadsheetId);
+
     if (!credentials || !spreadsheetId) {
       console.warn('Google Sheets credentials not configured. Skipping sheets integration.');
       return false;
@@ -91,6 +95,10 @@ export async function appendToGoogleSheets(formData: FormSubmission): Promise<bo
     return true;
   } catch (error) {
     console.error('Failed to append to Google Sheets:', error);
+    if (error instanceof Error) {
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+    }
     return false;
   }
 }
