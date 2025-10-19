@@ -77,10 +77,12 @@ See [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) for details.
 
 ## 🚢 Deployment to Vercel
 
-1. Push to GitHub
-2. Import in Vercel dashboard
-3. Set framework to **Astro**
-4. Deploy!
+1. Commit your changes in this `website/` repo.
+2. Push to `main` (remote is `https://github.com/jackmaverick/maverick-realtor-partnership.git`).
+3. Vercel auto-builds and deploys the latest commit.
+4. Hard-refresh the live site to verify the update.
+
+> 🔁 **Tip:** The root project also tracks everything at `git@github.com:jackmaverick/maverick-exteriors.git`. Push there too whenever you want the umbrella repo to stay current.
 
 ## 📊 Next Steps (TODO)
 
