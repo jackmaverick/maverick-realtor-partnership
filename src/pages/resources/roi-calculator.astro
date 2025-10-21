@@ -65,24 +65,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 class="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-lg font-semibold focus:border-blue-500 focus:outline-none"
               />
               <p class="mt-2 text-sm text-gray-500">
-                Not sure? Enter home square footage below—divide total square feet by 100—or call us and we’ll measure it for you.
-              </p>
-            </div>
-
-            <div>
-              <label for="homeSqFt" class="mb-2 block text-sm font-semibold text-gray-700">
-                Optional: Total Home Square Footage
-              </label>
-              <input
-                type="number"
-                id="homeSqFt"
-                min="500"
-                step="50"
-                placeholder="e.g. 2,800"
-                class="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-lg font-semibold focus:border-blue-500 focus:outline-none"
-              />
-              <p class="mt-2 text-sm text-gray-500">
-                We’ll convert this to squares automatically. Roof geometry can add 10-20%—we’ll refine it once we pull the measurement report.
+                Not sure of the squares? Call us and we’ll run a measurement report so you have the exact number to plug in.
               </p>
             </div>
 
@@ -181,18 +164,22 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
 
       <div class="mt-10 flex flex-col gap-4 rounded-2xl border border-blue-200 bg-white p-6 md:flex-row md:items-center md:justify-between">
-        <div>
+        <div class="space-y-2">
           <p class="text-lg font-semibold text-gray-900">Ready for exact numbers?</p>
           <p class="text-sm text-gray-600">
-            Call with the property address and we’ll deliver a full measurement report, photos, and pricing matrix the same day.
+            Call with the property address plus your email or cell number and we’ll send a detailed measurement report, photos, and a pricing matrix the same day.
+          </p>
+          <p class="text-sm text-gray-600">
+            Once we have the report, we’ll give you the exact square count so you can plug it back into this calculator or talk through pricing live.
           </p>
         </div>
-        <div class="flex gap-4">
+        <div class="flex flex-col gap-3 md:flex-row md:items-center">
           <a
             href="tel:9132988759"
-            class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:from-blue-700 hover:to-indigo-700"
+            class="inline-flex w-full flex-col items-center gap-1 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-sm font-semibold text-white shadow-lg transition hover:from-blue-700 hover:to-indigo-700 md:w-auto md:items-start"
           >
-            Call Now • (913) 298-8759
+            <span>Call Now</span>
+            <span class="text-base font-bold">(913) 298-8759</span>
           </a>
           <a
             href="/contact"
@@ -270,7 +257,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   };
 
   const squaresInput = document.getElementById('totalSquares');
-  const sqftInput = document.getElementById('homeSqFt');
   const realtorToggle = document.getElementById('useRealtorPricing');
   const systemRadios = document.querySelectorAll('input[name="roofSystem"]');
 
@@ -307,34 +293,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     standardTotalEl.textContent = roundCurrency(standardTotal);
   }
 
-  function syncSquaresFromSqFt() {
-    const sqft = parseFloat(sqftInput.value);
-    if (!sqft || sqft <= 0) return;
-    const estimatedSquares = sqft / 100;
-    squaresInput.value = (Math.round(estimatedSquares * 10) / 10).toString();
-    updateResults();
-  }
-
-  function syncSqFtFromSquares() {
-    const squares = parseFloat(squaresInput.value);
-    if (!squares || squares <= 0) return;
-    sqftInput.value = Math.round(squares * 100).toString();
-  }
-
   squaresInput.addEventListener('input', () => {
-    syncSqFtFromSquares();
     updateResults();
-  });
-
-  sqftInput.addEventListener('input', () => {
-    syncSquaresFromSqFt();
   });
 
   realtorToggle.addEventListener('change', updateResults);
   systemRadios.forEach((radio) => radio.addEventListener('change', updateResults));
 
   document.addEventListener('DOMContentLoaded', () => {
-    syncSqFtFromSquares();
     updateResults();
   });
 </script>
