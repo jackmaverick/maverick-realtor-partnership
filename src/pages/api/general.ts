@@ -1,8 +1,5 @@
 import type { APIRoute } from 'astro';
-import { sendFormNotification } from '../../lib/email';
 import { createJobNimbusContact } from '../../lib/jobnimbus';
-import { appendToGoogleSheets } from '../../lib/googlesheets';
-import { sendAutoReplyEmail } from '../../lib/gmail';
 
 export const prerender = false;
 
@@ -50,33 +47,16 @@ export const POST: APIRoute = async ({ request }) => {
 
     console.log('General contact form submission:', formData);
 
-    // Save to Google Sheets (blocking to catch errors)
-    try {
-      console.log('Attempting to save to Google Sheets...');
-      const sheetsResult = await appendToGoogleSheets(formData);
-      console.log('Google Sheets result:', sheetsResult);
-    } catch (err) {
-      console.error('Google Sheets append failed:', err);
+    // Create JobNimbus contact for general inquiries
+    const jobNimbusResult = await createJobNimbusContact(formData);
+
+    if (!jobNimbusResult) {
+      console.error('JobNimbus contact creation failed for general inquiry');
+      return new Response(
+        JSON.stringify({ error: 'Unable to record your message at this time.' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
     }
-
-    // Send auto-reply to submitter (blocking to catch errors)
-    try {
-      console.log('Attempting to send auto-reply email...');
-      const emailResult = await sendAutoReplyEmail(formData);
-      console.log('Auto-reply result:', emailResult);
-    } catch (err) {
-      console.error('Auto-reply email failed:', err);
-    }
-
-    // Send email notification to team (non-blocking)
-    sendFormNotification(formData).catch(err =>
-      console.error('Email notification failed:', err)
-    );
-
-    // Create JobNimbus contact (non-blocking)
-    createJobNimbusContact(formData).catch(err =>
-      console.error('JobNimbus integration failed:', err)
-    );
 
     return new Response(
       JSON.stringify({ success: true, message: 'Form submitted successfully' }),

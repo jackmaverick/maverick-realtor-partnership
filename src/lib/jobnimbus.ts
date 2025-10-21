@@ -22,6 +22,7 @@ export interface JobNimbusJob {
   contact_id?: string;
   related?: string[];
   description?: string;
+  workflow?: string;
   [key: string]: any;
 }
 
@@ -32,7 +33,14 @@ export interface JobNimbusJob {
 export async function createJobNimbusContact(formData: FormSubmission): Promise<boolean> {
   try {
     // Check if JobNimbus API credentials are configured
-    const apiKey = process.env.JOBNIMBUS_API_KEY || import.meta.env.JOBNIMBUS_API_KEY;
+    const apiKey =
+      process.env.JOBNIMBUS_API_KEY || (typeof import.meta !== 'undefined' ? import.meta.env.JOBNIMBUS_API_KEY : undefined);
+    const workflowId =
+      process.env.JOBNIMBUS_REALTOR_WORKFLOW_ID ||
+      (typeof import.meta !== 'undefined' ? import.meta.env.JOBNIMBUS_REALTOR_WORKFLOW_ID : undefined);
+    const taskAssigneeId =
+      process.env.JOBNIMBUS_TASK_ASSIGNEE_ID ||
+      (typeof import.meta !== 'undefined' ? import.meta.env.JOBNIMBUS_TASK_ASSIGNEE_ID : undefined);
 
     if (!apiKey) {
       console.warn('JobNimbus API key not configured. CRM integration skipped.');
@@ -73,6 +81,10 @@ export async function createJobNimbusContact(formData: FormSubmission): Promise<
       description: formData.message,
     };
 
+    if (formData.source) {
+      contactData.source_name = formData.source;
+    }
+
     // Add additional fields based on form type
     if (formData.brokerage) {
       contactData.company = formData.brokerage;
@@ -99,12 +111,17 @@ export async function createJobNimbusContact(formData: FormSubmission): Promise<
 
     // If this is an inspection request with an address, create a job
     if (formData.formType === 'Property Inspection Request' && formData.propertyAddress) {
-      await createJobNimbusJob(contact.jnid, formData);
+      await createJobNimbusJob(contact.jnid, formData, workflowId);
     }
 
     // If this is a partnership inquiry, create a task for follow-up
     if (formData.formType === 'Partnership Inquiry') {
-      await createJobNimbusTask(contact.jnid, formData);
+      await createJobNimbusTask(contact.jnid, formData, taskAssigneeId);
+    }
+
+    // Create a follow-up task for inspection/general as well (optional automation trigger)
+    if (formData.formType !== 'Partnership Inquiry') {
+      await createJobNimbusTask(contact.jnid, formData, taskAssigneeId);
     }
 
     return true;
@@ -117,10 +134,15 @@ export async function createJobNimbusContact(formData: FormSubmission): Promise<
 /**
  * Create a job in JobNimbus for inspection requests
  */
-async function createJobNimbusJob(contactId: string, formData: FormSubmission): Promise<void> {
+async function createJobNimbusJob(contactId: string, formData: FormSubmission, workflowId?: string): Promise<void> {
   try {
-    const apiKey = import.meta.env.JOBNIMBUS_API_KEY;
+    const apiKey =
+      process.env.JOBNIMBUS_API_KEY || (typeof import.meta !== 'undefined' ? import.meta.env.JOBNIMBUS_API_KEY : undefined);
 
+    if (!apiKey) {
+      console.warn('JobNimbus API key not configured. Job creation skipped.');
+      return;
+    }
     // Parse address if provided
     const address = formData.propertyAddress || '';
 
@@ -131,6 +153,10 @@ async function createJobNimbusJob(contactId: string, formData: FormSubmission): 
       related: [contactId],
       description: `Property Inspection Request\n\nRequested by: ${formData.name}\nMessage: ${formData.message}`,
     };
+
+    if (workflowId) {
+      jobData.workflow = workflowId;
+    }
 
     const response = await fetch('https://app.jobnimbus.com/api1/jobs', {
       method: 'POST',
@@ -162,8 +188,11 @@ async function createJobNimbusJob(contactId: string, formData: FormSubmission): 
  */
 async function addJobToWorkflow(jobId: string): Promise<void> {
   try {
-    const apiKey = import.meta.env.JOBNIMBUS_API_KEY;
-    const workflowId = import.meta.env.JOBNIMBUS_REALTOR_WORKFLOW_ID;
+    const apiKey =
+      process.env.JOBNIMBUS_API_KEY || (typeof import.meta !== 'undefined' ? import.meta.env.JOBNIMBUS_API_KEY : undefined);
+    const workflowId =
+      process.env.JOBNIMBUS_REALTOR_WORKFLOW_ID ||
+      (typeof import.meta !== 'undefined' ? import.meta.env.JOBNIMBUS_REALTOR_WORKFLOW_ID : undefined);
 
     if (!workflowId) {
       console.warn('JobNimbus realtor workflow ID not configured. Skipping workflow assignment.');
@@ -196,9 +225,15 @@ async function addJobToWorkflow(jobId: string): Promise<void> {
 /**
  * Create a follow-up task in JobNimbus
  */
-async function createJobNimbusTask(contactId: string, formData: FormSubmission): Promise<void> {
+async function createJobNimbusTask(contactId: string, formData: FormSubmission, assigneeId?: string): Promise<void> {
   try {
-    const apiKey = import.meta.env.JOBNIMBUS_API_KEY;
+    const apiKey =
+      process.env.JOBNIMBUS_API_KEY || (typeof import.meta !== 'undefined' ? import.meta.env.JOBNIMBUS_API_KEY : undefined);
+
+    if (!apiKey) {
+      console.warn('JobNimbus API key not configured. Task creation skipped.');
+      return;
+    }
 
     const taskData = {
       contact_id: contactId,
@@ -207,6 +242,10 @@ async function createJobNimbusTask(contactId: string, formData: FormSubmission):
       due_date: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // Due tomorrow
       status: 'Open',
     };
+
+    if (assigneeId) {
+      (taskData as any).assigned_to = assigneeId;
+    }
 
     await fetch('https://app.jobnimbus.com/api1/tasks', {
       method: 'POST',

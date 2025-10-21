@@ -84,6 +84,25 @@ See [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) for details.
 
 > 🔁 **Tip:** The root project also tracks everything at `git@github.com:jackmaverick/maverick-exteriors.git`. Push there too whenever you want the umbrella repo to stay current.
 
+## 🧩 Form + CRM Configuration
+
+The contact, partnership, and inspection forms now push leads **directly into JobNimbus**—no Google Sheets or Gmail dependencies.
+
+Set these environment variables in Vercel (and in your local `.env.local` if you want to test locally):
+
+| Variable | Purpose |
+| --- | --- |
+| `JOBNIMBUS_API_KEY` | Personal access token for the JobNimbus API |
+| `JOBNIMBUS_REALTOR_WORKFLOW_ID` *(optional)* | Workflow UUID/ID to auto-assign new inspection jobs |
+| `JOBNIMBUS_TASK_ASSIGNEE_ID` *(optional)* | User ID to assign follow-up tasks (useful for automation/notifications) |
+
+When a form is submitted:
+- a JobNimbus contact is created with realtor-specific tags (`realtor-website`, form type, agent type, priority)
+- inspection requests create a JobNimbus job (with address if provided) and are added to the realtor workflow if `JOBNIMBUS_REALTOR_WORKFLOW_ID` is set
+- partnership inquiries get an automatic follow-up task (so you can trigger JobNimbus automations to email the lead and notify internal stakeholders)
+
+Use JobNimbus Automations (Settings → Automations) to send the confirmation email and internal notifications when a contact or task with the `realtor-website` tag is created.
+
 ## 📊 Next Steps (TODO)
 
 - [ ] Add environment variables for API keys
