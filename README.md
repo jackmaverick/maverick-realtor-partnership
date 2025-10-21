@@ -108,10 +108,29 @@ Use JobNimbus Automations (Settings → Automations) to send the confirmation em
 - [ ] Add environment variables for API keys
 - [ ] Integrate JobNimbus CRM
 - [ ] Set up email notifications (SendGrid/Resend)
-- [ ] Add Google Analytics 4
-- [ ] Add Microsoft Clarity for heatmaps
+- [x] Add Google Analytics 4 *(set `PUBLIC_GA4_ID` in `.env` or Vercel)*
+- [x] Add Microsoft Clarity for heatmaps *(set `PUBLIC_CLARITY_ID`)*
 - [ ] Upload real images (replace placeholders)
 - [ ] Configure custom domain
+
+### Analytics Configuration
+
+Set these environment variables locally (`.env.local`) and in Vercel:
+
+| Variable | Purpose |
+| --- | --- |
+| `PUBLIC_GA4_ID` | GA4 measurement ID (`G-XXXXXXX`) used for site-wide analytics |
+| `PUBLIC_CLARITY_ID` | Microsoft Clarity project ID for session recordings/heatmaps |
+
+Key interactions tracked automatically once the IDs are present:
+
+- Hero, header, footer, and other CTAs with `data-analytics-cta`
+- Click-to-call links (`tel:`) and email links (`mailto:`)
+- Form submissions (partnership, inspection, general inquiry) including lead type metadata
+
+Client-side tracking logic lives in `src/scripts/analytics.client.ts` and uses helpers from `src/utils/analytics.ts`. Extend the data attributes when adding new CTAs to keep reporting consistent.
+
+Vercel Analytics is enabled globally via `<Analytics />` in `src/layouts/BaseLayout.astro`. Once deployed, view traffic and engagement inside the Vercel project dashboard.
 
 ## 📞 Contact
 

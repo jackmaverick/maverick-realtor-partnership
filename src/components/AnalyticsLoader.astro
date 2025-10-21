@@ -1,0 +1,14 @@
+---
+---
+
+<script type="module">
+  import { initClientAnalytics } from '../scripts/analytics.client.ts';
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      initClientAnalytics();
+    } else {
+      window.addEventListener('DOMContentLoaded', initClientAnalytics, { once: true });
+    }
+  }
+</script>
