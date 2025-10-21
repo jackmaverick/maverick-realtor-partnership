@@ -1,245 +1,340 @@
 ---
-// ROI Calculator - ChatPRD inspired interactive resource
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="ROI Calculator | Realtor Roof"
-  description="Calculate how much a new roof can increase your listing's appraisal value."
+  title="Roof Cost Calculator | Realtor Roof"
+  description="Quickly estimate roof replacement pricing by squares and shingle type so you can price listings with confidence."
 >
-  <!-- Hero Section -->
-  <section class="relative py-16 md:py-24 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-violet-200 via-purple-200 to-pink-200"></div>
-    <div class="absolute inset-0 bg-gradient-to-tr from-violet-300/40 via-transparent to-purple-300/40"></div>
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-200 via-sky-200 to-violet-200"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-white/40 via-transparent to-violet-200/40"></div>
 
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <a href="/resources" class="inline-flex items-center text-violet-600 hover:text-violet-700 font-semibold mb-8 group">
-        <span class="group-hover:-translate-x-1 transition-transform">←</span>
+    <div class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <a href="/resources" class="mb-8 inline-flex items-center font-semibold text-blue-700 transition hover:text-blue-800 group">
+        <span class="transition-transform group-hover:-translate-x-1">←</span>
         <span class="ml-2">Back to Resources</span>
       </a>
 
-      <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 border border-violet-200 rounded-full mb-6">
-        <span class="text-2xl">📊</span>
-        <span class="text-violet-700 font-semibold text-sm">Popular Tool</span>
+      <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-gradient-to-r from-blue-100 to-violet-100 px-4 py-2 mb-6">
+        <span class="text-2xl">📐</span>
+        <span class="text-sm font-semibold text-blue-700">Estimator Tool</span>
       </div>
 
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+      <h1 class="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
         Roof Replacement{' '}
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
-          ROI Calculator
+        <span class="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">
+          Cost Calculator
         </span>
       </h1>
 
-      <p class="text-xl text-gray-700 mb-8">
-        Show your sellers exactly how much value a new roof can add to their home's appraisal. Based on Kansas City market data.
+      <p class="mb-6 text-xl text-gray-700">
+        Enter the roof size (in squares) and choose the shingle system to see real-world cost ranges we use on real estate deals.
+        Need the square count? Call us and we’ll run a measurement report in minutes.
       </p>
+
+      <div class="inline-flex items-center gap-3 rounded-xl bg-white/70 px-5 py-3 text-sm font-semibold text-blue-700 shadow">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        We guarantee a 2-hour response when you call <a href="tel:9132988759" class="ml-1 font-bold text-blue-800 underline underline-offset-2">(913) 298-8759</a> for measurements.
+      </div>
     </div>
   </section>
 
-  <!-- Calculator Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gradient-to-br from-violet-50 to-pink-50 border-2 border-violet-200 rounded-3xl p-8 md:p-12">
-        <div class="grid md:grid-cols-2 gap-12">
-          <!-- Input Side -->
-          <div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Property Details</h2>
+  <!-- Calculator -->
+  <section class="bg-white py-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 rounded-3xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-violet-50 p-8 md:grid-cols-2 md:p-12">
+        <!-- Inputs -->
+        <div>
+          <h2 class="mb-6 text-2xl font-bold text-gray-900">Enter Your Numbers</h2>
 
-            <div class="space-y-6">
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2">Current Home Value</label>
-                <div class="relative">
-                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">$</span>
-                  <input
-                    type="number"
-                    id="homeValue"
-                    value="350000"
-                    class="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:outline-none font-semibold text-lg"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2">Age of Current Roof</label>
-                <select
-                  id="roofAge"
-                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:outline-none font-semibold"
-                >
-                  <option value="15">15-20 years</option>
-                  <option value="12">10-15 years</option>
-                  <option value="8">5-10 years</option>
-                  <option value="3">Less than 5 years</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2">Roof Condition</label>
-                <select
-                  id="roofCondition"
-                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:outline-none font-semibold"
-                >
-                  <option value="poor">Poor (visible damage)</option>
-                  <option value="fair">Fair (aging, minor issues)</option>
-                  <option value="good">Good (normal wear)</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2">Estimated Roof Cost</label>
-                <div class="relative">
-                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">$</span>
-                  <input
-                    type="number"
-                    id="roofCost"
-                    value="15000"
-                    class="w-full pl-8 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:border-violet-500 focus:outline-none font-semibold text-lg"
-                  />
-                </div>
-                <p class="text-sm text-gray-500 mt-2">Average KC roof: $12,000 - $18,000</p>
-              </div>
-
-              <button
-                onclick="calculateROI()"
-                class="w-full py-4 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold text-lg rounded-lg hover:from-violet-700 hover:to-purple-700 transition-all shadow-lg"
-              >
-                Calculate ROI
-              </button>
-            </div>
-          </div>
-
-          <!-- Results Side -->
-          <div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Estimated Impact</h2>
-
-            <div id="results" class="space-y-6">
-              <!-- Results will be populated by JavaScript -->
-              <div class="bg-white border-2 border-violet-200 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-gray-600 font-medium">Appraisal Value Increase</span>
-                  <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-lg flex items-center justify-center text-2xl">
-                    📈
-                  </div>
-                </div>
-                <div id="valueIncrease" class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
-                  $10,500
-                </div>
-                <p class="text-sm text-gray-500 mt-2">+3.0% property value</p>
-              </div>
-
-              <div class="bg-white border-2 border-pink-200 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-gray-600 font-medium">Net Return on Investment</span>
-                  <div class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-500 text-white rounded-lg flex items-center justify-center text-2xl">
-                    💰
-                  </div>
-                </div>
-                <div id="netROI" class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-600">
-                  70%
-                </div>
-                <p class="text-sm text-gray-500 mt-2">Return on $15,000 investment</p>
-              </div>
-
-              <div class="bg-white border-2 border-orange-200 rounded-2xl p-6">
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-gray-600 font-medium">Days on Market Impact</span>
-                  <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-rose-500 text-white rounded-lg flex items-center justify-center text-2xl">
-                    ⚡
-                  </div>
-                </div>
-                <div id="domImpact" class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-rose-600">
-                  -12 days
-                </div>
-                <p class="text-sm text-gray-500 mt-2">Faster sale with new roof</p>
-              </div>
-            </div>
-
-            <div class="mt-6 p-4 bg-violet-100 border border-violet-200 rounded-lg">
-              <p class="text-sm text-gray-700">
-                <strong>💡 Note:</strong> Calculations based on Kansas City metro area data. Actual results vary by neighborhood, home style, and market conditions.
+          <div class="space-y-6">
+            <div>
+              <label for="totalSquares" class="mb-2 block text-sm font-semibold text-gray-700">
+                Total Roof Squares (1 square = 100 sq. ft.)
+              </label>
+              <input
+                type="number"
+                id="totalSquares"
+                min="5"
+                step="0.5"
+                value="28"
+                class="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-lg font-semibold focus:border-blue-500 focus:outline-none"
+              />
+              <p class="mt-2 text-sm text-gray-500">
+                Not sure? Enter home square footage below—divide total square feet by 100—or call us and we’ll measure it for you.
               </p>
             </div>
+
+            <div>
+              <label for="homeSqFt" class="mb-2 block text-sm font-semibold text-gray-700">
+                Optional: Total Home Square Footage
+              </label>
+              <input
+                type="number"
+                id="homeSqFt"
+                min="500"
+                step="50"
+                placeholder="e.g. 2,800"
+                class="w-full rounded-lg border-2 border-gray-200 px-4 py-3 text-lg font-semibold focus:border-blue-500 focus:outline-none"
+              />
+              <p class="mt-2 text-sm text-gray-500">
+                We’ll convert this to squares automatically. Roof geometry can add 10-20%—we’ll refine it once we pull the measurement report.
+              </p>
+            </div>
+
+            <div>
+              <span class="mb-2 block text-sm font-semibold text-gray-700">Pick Your Shingle System</span>
+              <div class="space-y-3 rounded-2xl border border-blue-200 bg-white p-4">
+                <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-transparent p-3 hover:border-blue-300 hover:bg-blue-50">
+                  <input type="radio" name="roofSystem" value="cambridge" class="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500" checked />
+                  <div>
+                    <p class="font-semibold text-gray-900">IKO Cambridge Class 3 Impact Resistant</p>
+                    <p class="text-sm text-gray-600">Lifetime warranty bundle. Everyday price $425/sq — realtor pricing $400/sq.</p>
+                  </div>
+                </label>
+
+                <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-transparent p-3 hover:border-blue-300 hover:bg-blue-50">
+                  <input type="radio" name="roofSystem" value="dynasty" class="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500" />
+                  <div>
+                    <p class="font-semibold text-gray-900">IKO Dynasty Class 4 Impact Resistant</p>
+                    <p class="text-sm text-gray-600">Upgraded hail protection. Everyday price $450/sq — realtor pricing $425/sq.</p>
+                  </div>
+                </label>
+
+                <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-transparent p-3 hover:border-blue-300 hover:bg-blue-50">
+                  <input type="radio" name="roofSystem" value="nordic" class="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500" />
+                  <div>
+                    <p class="font-semibold text-gray-900">IKO Nordic Class 4 Impact Resistant</p>
+                    <p class="text-sm text-gray-600">Premium impact & wind performance. Everyday price $475/sq — realtor pricing $460/sq.</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <label class="flex items-center gap-3 rounded-xl border border-blue-200 bg-white px-4 py-3 text-sm font-medium text-gray-800">
+              <input type="checkbox" id="useRealtorPricing" class="h-4 w-4 text-blue-600 focus:ring-blue-500" checked />
+              Apply realtor deal pricing (what we typically use to get transactions across the finish line).
+            </label>
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div>
+          <h2 class="mb-6 text-2xl font-bold text-gray-900">Cost Snapshot</h2>
+
+          <div class="space-y-6" id="costResults">
+            <div class="rounded-2xl border-2 border-blue-200 bg-white p-6 shadow-sm">
+              <div class="mb-4 flex items-center justify-between">
+                <span class="text-gray-600 font-semibold">Selected System</span>
+                <div id="systemBadge" class="rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 px-3 py-1 text-sm font-semibold text-white">
+                  IKO Cambridge
+                </div>
+              </div>
+              <p class="text-xl font-bold text-gray-900">
+                $<span id="pricePerSquare">400</span> <span class="text-base font-semibold text-gray-500">per square (applied)</span>
+              </p>
+              <p class="mt-1 text-sm text-gray-500">
+                Everyday price $<span id="standardPrice">425</span> /sq • Realtor pricing $<span id="realtorPrice">400</span> /sq
+              </p>
+            </div>
+
+            <div class="rounded-2xl border-2 border-emerald-200 bg-white p-6 shadow-sm">
+              <div class="mb-4 flex items-center justify-between">
+                <span class="text-gray-600 font-semibold">Total Roof Investment</span>
+                <div class="h-10 w-10 rounded-lg bg-gradient-to-br from-emerald-400 to-green-500 text-center text-2xl text-white">
+                  💵
+                </div>
+              </div>
+              <p class="text-3xl font-bold text-emerald-600">
+                $<span id="appliedTotal">11,200</span>
+              </p>
+              <p class="mt-1 text-sm text-gray-500">
+                Standard pricing total: $<span id="standardTotal">11,900</span>
+              </p>
+            </div>
+
+            <div class="rounded-2xl border-2 border-orange-200 bg-white p-6 shadow-sm">
+              <div class="mb-4 flex items-center justify-between">
+                <span class="text-gray-600 font-semibold">Margin & Negotiation Room</span>
+                <div class="h-10 w-10 rounded-lg bg-gradient-to-br from-orange-400 to-pink-500 text-center text-2xl text-white">
+                  🤝
+                </div>
+              </div>
+              <p class="text-lg font-semibold text-gray-900">
+                We routinely trim pricing to meet budget—usually 5-10% (like moving $450/sq down to $400/sq) while protecting quality.
+              </p>
+              <p class="mt-2 text-sm text-gray-500">
+                Let us know what the deal needs. We’ll review scope, check supplier incentives, and adjust margins to get it closed.
+              </p>
+            </div>
+
+            <div class="rounded-xl bg-blue-100 p-4 text-sm text-blue-800">
+              <strong>Pro Tip:</strong> Gutters typically run $12–$16 per linear foot, and window wraps average $300–$450 each.
+              Add those to your estimate as needed—we’ll bundle them so the project is turnkey for your client.
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Why This Matters Section -->
-      <div class="mt-16 grid md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-2xl text-3xl mb-4 shadow-lg">
-            🏆
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">#1 ROI Home Improvement</h3>
-          <p class="text-gray-600">
-            Roof replacement consistently ranks as one of the highest ROI improvements for home sellers.
+      <div class="mt-10 flex flex-col gap-4 rounded-2xl border border-blue-200 bg-white p-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="text-lg font-semibold text-gray-900">Ready for exact numbers?</p>
+          <p class="text-sm text-gray-600">
+            Call with the property address and we’ll deliver a full measurement report, photos, and pricing matrix the same day.
           </p>
         </div>
-
-        <div class="text-center">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-violet-400 to-purple-500 text-white rounded-2xl text-3xl mb-4 shadow-lg">
-            💵
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Appraisers Notice</h3>
-          <p class="text-gray-600">
-            A new roof directly impacts appraisal value, often increasing the appraised value by $8,000-$15,000.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-500 text-white rounded-2xl text-3xl mb-4 shadow-lg">
-            ⏱️
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Faster Sales</h3>
-          <p class="text-gray-600">
-            Homes with new roofs sell 10-15 days faster on average than comparable homes with old roofs.
-          </p>
+        <div class="flex gap-4">
+          <a
+            href="tel:9132988759"
+            class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:from-blue-700 hover:to-indigo-700"
+          >
+            Call Now • (913) 298-8759
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 rounded-xl border border-blue-300 px-6 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-50"
+          >
+            Request Measurement Report →
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-16 bg-gradient-to-r from-violet-600 to-purple-600">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-        Get a Custom ROI Analysis
-      </h2>
-      <p class="text-xl text-white/90 mb-8">
-        We can provide a detailed ROI analysis specific to your listing, including neighborhood comps and market data.
-      </p>
-      <a href="/contact" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg hover:bg-violet-50 transition-colors shadow-xl">
-        Request Analysis
-        <span>→</span>
-      </a>
+  <!-- Education Sections -->
+  <section class="bg-gray-50 py-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900">How Realtors Use This Calculator</h2>
+        <p class="mt-3 text-lg text-gray-600">
+          We keep the math simple so you can talk through costs with confidence—even before we pull the official measurement.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border border-blue-100 bg-white p-6">
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+            📏
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">1. Get the Squares</h3>
+          <p class="mt-2 text-sm text-gray-600">
+            Divide home square footage by 100 for a quick ballpark. Our hover + drone measurements tighten it up for contract work.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-blue-100 bg-white p-6">
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+            🧮
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">2. Choose the System</h3>
+          <p class="mt-2 text-sm text-gray-600">
+            Match the shingle to the buyer's expectations—Cambridge for value, Dynasty for premium hail protection, Nordic for top-tier curb appeal.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-blue-100 bg-white p-6">
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+            🤝
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">3. Call Us to Finalize</h3>
+          <p class="mt-2 text-sm text-gray-600">
+            We’ll align on margins, lock the price per square, and deliver an estimate that works for your buyer, seller, and lender.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
 
 <script>
-  function calculateROI() {
-    const homeValue = parseFloat(document.getElementById('homeValue').value) || 350000;
-    const roofAge = parseFloat(document.getElementById('roofAge').value) || 15;
-    const roofCondition = document.getElementById('roofCondition').value || 'fair';
-    const roofCost = parseFloat(document.getElementById('roofCost').value) || 15000;
+  const roofSystems = {
+    cambridge: {
+      name: 'IKO Cambridge Class 3 Impact Resistant',
+      standardPrice: 425,
+      realtorPrice: 400,
+    },
+    dynasty: {
+      name: 'IKO Dynasty Class 4 Impact Resistant',
+      standardPrice: 450,
+      realtorPrice: 425,
+    },
+    nordic: {
+      name: 'IKO Nordic Class 4 Impact Resistant',
+      standardPrice: 475,
+      realtorPrice: 460,
+    },
+  };
 
-    // Calculate value increase (varies by condition and age)
-    let increasePercentage = 0.03; // Base 3%
+  const squaresInput = document.getElementById('totalSquares');
+  const sqftInput = document.getElementById('homeSqFt');
+  const realtorToggle = document.getElementById('useRealtorPricing');
+  const systemRadios = document.querySelectorAll('input[name="roofSystem"]');
 
-    if (roofCondition === 'poor') increasePercentage = 0.035;
-    if (roofAge >= 15) increasePercentage += 0.005;
+  const systemBadge = document.getElementById('systemBadge');
+  const pricePerSquareEl = document.getElementById('pricePerSquare');
+  const standardPriceEl = document.getElementById('standardPrice');
+  const realtorPriceEl = document.getElementById('realtorPrice');
+  const appliedTotalEl = document.getElementById('appliedTotal');
+  const standardTotalEl = document.getElementById('standardTotal');
 
-    const valueIncrease = homeValue * increasePercentage;
-    const netROI = ((valueIncrease - roofCost) / roofCost) * 100;
-    const domReduction = roofAge >= 15 ? -12 : (roofAge >= 10 ? -8 : -5);
-
-    // Update UI
-    document.getElementById('valueIncrease').textContent =
-      `$${Math.round(valueIncrease).toLocaleString()}`;
-    document.getElementById('netROI').textContent =
-      `${Math.round(netROI)}%`;
-    document.getElementById('domImpact').textContent =
-      `${domReduction} days`;
+  function roundCurrency(value) {
+    return Math.round(value).toLocaleString();
   }
 
-  // Calculate on page load
-  document.addEventListener('DOMContentLoaded', calculateROI);
+  function getSelectedSystem() {
+    const selected = document.querySelector('input[name="roofSystem"]:checked')?.value || 'cambridge';
+    return roofSystems[selected];
+  }
+
+  function updateResults() {
+    const system = getSelectedSystem();
+    const squares = Math.max(parseFloat(squaresInput.value) || 0, 0);
+    const useRealtorPricing = realtorToggle.checked;
+
+    const appliedPrice = useRealtorPricing ? system.realtorPrice : system.standardPrice;
+    const appliedTotal = squares * appliedPrice;
+    const standardTotal = squares * system.standardPrice;
+
+    systemBadge.textContent = system.name.split('IKO ')[1] ? `IKO ${system.name.split('IKO ')[1]}` : system.name;
+    pricePerSquareEl.textContent = appliedPrice.toLocaleString();
+    standardPriceEl.textContent = system.standardPrice.toLocaleString();
+    realtorPriceEl.textContent = system.realtorPrice.toLocaleString();
+    appliedTotalEl.textContent = roundCurrency(appliedTotal);
+    standardTotalEl.textContent = roundCurrency(standardTotal);
+  }
+
+  function syncSquaresFromSqFt() {
+    const sqft = parseFloat(sqftInput.value);
+    if (!sqft || sqft <= 0) return;
+    const estimatedSquares = sqft / 100;
+    squaresInput.value = (Math.round(estimatedSquares * 10) / 10).toString();
+    updateResults();
+  }
+
+  function syncSqFtFromSquares() {
+    const squares = parseFloat(squaresInput.value);
+    if (!squares || squares <= 0) return;
+    sqftInput.value = Math.round(squares * 100).toString();
+  }
+
+  squaresInput.addEventListener('input', () => {
+    syncSqFtFromSquares();
+    updateResults();
+  });
+
+  sqftInput.addEventListener('input', () => {
+    syncSquaresFromSqFt();
+  });
+
+  realtorToggle.addEventListener('change', updateResults);
+  systemRadios.forEach((radio) => radio.addEventListener('change', updateResults));
+
+  document.addEventListener('DOMContentLoaded', () => {
+    syncSqFtFromSquares();
+    updateResults();
+  });
 </script>

@@ -10,7 +10,7 @@ const navigation = [
       { name: 'Learning Resources', href: '/resources/learning' },
       { name: 'FAQ', href: '/resources/faq' },
       { name: 'Partnership Guide', href: '/resources/partnership-guide' },
-      { name: 'ROI Calculator', href: '/resources/roi-calculator' },
+  { name: 'Cost Calculator', href: '/resources/roi-calculator' },
       { name: 'Contract Language', href: '/resources/contract-language' },
     ]
   },
@@ -81,6 +81,9 @@ const currentPath = Astro.url.pathname;
                     ? 'text-primary-600'
                     : 'text-gray-700 hover:text-primary-600'
                 }`}
+                data-analytics-cta={item.name === 'Contact' ? 'true' : undefined}
+                data-analytics-label={item.name === 'Contact' ? 'Header Contact Nav' : undefined}
+                data-analytics-location={item.name === 'Contact' ? 'header-nav' : undefined}
               >
                 {item.name}
               </a>
@@ -95,6 +98,9 @@ const currentPath = Astro.url.pathname;
         <a
           href="/contact"
           class="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors shadow-sm"
+          data-analytics-cta="true"
+          data-analytics-label="Header Get Inspection (Desktop)"
+          data-analytics-location="header-desktop"
         >
           Get Inspection
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,6 +139,9 @@ const currentPath = Astro.url.pathname;
       <a
         href="/contact"
         class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg"
+        data-analytics-cta="true"
+        data-analytics-label="Header Get Inspection (Mobile)"
+        data-analytics-location="header-mobile"
       >
         Get Inspection
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,6 +200,9 @@ const currentPath = Astro.url.pathname;
         <a
           href="tel:9132988759"
           class="block px-3 py-2 rounded-md text-base font-medium bg-primary-600 text-white text-center mt-4"
+          data-analytics-cta="true"
+          data-analytics-label="Header Mobile Call"
+          data-analytics-location="header-mobile"
         >
           Call: (913) 298-8759
         </a>
