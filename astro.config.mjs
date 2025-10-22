@@ -6,7 +6,7 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://realtors.maverickexteriors.com', // Update with actual domain
+  site: 'https://roofkitforrealtors.com',
   output: 'server', // Server mode: enables API routes
   adapter: vercel(),
   integrations: [sitemap()],
