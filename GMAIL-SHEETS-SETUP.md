@@ -1,6 +1,6 @@
 # Gmail & Google Sheets Setup Guide
 
-This guide walks you through setting up Gmail auto-replies and Google Sheets database for the Realtor Roof website.
+This guide walks you through setting up Gmail auto-replies and Google Sheets database for the Roof Kit website.
 
 ---
 
@@ -19,7 +19,7 @@ When someone submits a form, they'll automatically receive a professional "thank
 1. Go to [Google App Passwords](https://myaccount.google.com/apppasswords)
 2. Select **Mail** as the app
 3. Select **Other (Custom name)** as the device
-4. Enter: "Realtor Roof Website"
+4. Enter: "Roof Kit Website"
 5. Click **Generate**
 6. **Copy the 16-character password** (you won't see it again!)
 
@@ -39,7 +39,7 @@ Submitters receive a professional email with:
 - Thank you message specific to their inquiry type
 - What to expect next (response within 24 hours)
 - Your contact info for immediate needs
-- Professional branding with Realtor Roof + Maverick Exteriors
+- Professional branding with Roof Kit + Maverick Exteriors
 
 ---
 
@@ -51,7 +51,7 @@ All form submissions are automatically saved to a Google Sheet, giving you a per
 
 1. Go to [Google Sheets](https://sheets.google.com)
 2. Create a new blank spreadsheet
-3. Name it: **Realtor Roof - Form Submissions**
+3. Name it: **Roof Kit - Form Submissions**
 4. Copy the **Spreadsheet ID** from the URL:
    ```
    https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID_HERE/edit
@@ -67,7 +67,7 @@ All form submissions are automatically saved to a Google Sheet, giving you a per
 4. Create Service Account:
    - Go to **IAM & Admin** → **Service Accounts**
    - Click **Create Service Account**
-   - Name: "Realtor Roof Website"
+   - Name: "Roof Kit Website"
    - Click **Create and Continue**
    - Skip granting access (click Continue)
    - Click **Done**
@@ -117,7 +117,7 @@ Every form submission creates a new row with:
 - Property Address (if provided)
 - Subject (if provided)
 - Message
-- Source (Realtor Roof Website)
+- Source (Roof Kit Website)
 - Priority (HIGH or NORMAL)
 
 The sheet will automatically create headers on first use.

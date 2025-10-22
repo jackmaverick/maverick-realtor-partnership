@@ -42,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
       subject: data.subject || 'General Inquiry',
       message,
       submittedAt: new Date().toISOString(),
-      source: 'Realtor Roof Website',
+      source: 'Roof Kit Website',
     };
 
     console.log('General contact form submission:', formData);

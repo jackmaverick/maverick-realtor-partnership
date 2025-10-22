@@ -46,7 +46,7 @@ export async function appendToGoogleSheets(formData: FormSubmission): Promise<bo
           formData.agentType || '',
           formData.brokerage || '',
           formData.message,
-          formData.source || 'Realtor Roof Website',
+          formData.source || 'Roof Kit Website',
           formData.priority || 'NORMAL',
         ];
         break;
@@ -60,7 +60,7 @@ export async function appendToGoogleSheets(formData: FormSubmission): Promise<bo
           formData.phone,
           formData.propertyAddress || '',
           formData.message,
-          formData.source || 'Realtor Roof Website',
+          formData.source || 'Roof Kit Website',
           formData.priority || 'NORMAL',
         ];
         break;
@@ -75,7 +75,7 @@ export async function appendToGoogleSheets(formData: FormSubmission): Promise<bo
           formData.phone,
           formData.subject || '',
           formData.message,
-          formData.source || 'Realtor Roof Website',
+          formData.source || 'Roof Kit Website',
           formData.priority || 'NORMAL',
         ];
         break;

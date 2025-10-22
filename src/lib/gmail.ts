@@ -29,7 +29,7 @@ export async function sendAutoReplyEmail(formData: FormSubmission): Promise<bool
 
     // Send email
     await transporter.sendMail({
-      from: `Realtor Roof <${gmailUser}>`,
+      from: `Roof Kit <${gmailUser}>`,
       to: formData.email,
       subject: getSubjectLine(formData.formType),
       html: emailContent,
@@ -49,11 +49,11 @@ export async function sendAutoReplyEmail(formData: FormSubmission): Promise<bool
 function getSubjectLine(formType: string): string {
   switch (formType) {
     case 'Partnership Inquiry':
-      return 'Thank You for Your Partnership Inquiry - Realtor Roof';
+      return 'Thank You for Your Partnership Inquiry - Roof Kit';
     case 'Property Inspection Request':
-      return 'Your Property Inspection Request Received - Realtor Roof';
+      return 'Your Property Inspection Request Received - Roof Kit';
     default:
-      return 'Thank You for Contacting Realtor Roof';
+      return 'Thank You for Contacting Roof Kit';
   }
 }
 
@@ -68,7 +68,7 @@ function generateAutoReplyHTML(formData: FormSubmission): string {
   switch (formData.formType) {
     case 'Partnership Inquiry':
       mainMessage = `
-        <p>Thank you for your interest in partnering with Realtor Roof! We're excited to learn more about how we can support your real estate business.</p>
+        <p>Thank you for your interest in partnering with Roof Kit! We're excited to learn more about how we can support your real estate business.</p>
         <p>Our team specializes in helping buyer's and seller's agents provide exceptional roofing services to their clients, including:</p>
         <ul style="margin: 15px 0; padding-left: 20px;">
           <li>Fast property inspections that meet transaction timelines</li>
@@ -82,7 +82,7 @@ function generateAutoReplyHTML(formData: FormSubmission): string {
 
     case 'Property Inspection Request':
       mainMessage = `
-        <p>Thank you for requesting a property inspection through Realtor Roof!</p>
+        <p>Thank you for requesting a property inspection through Roof Kit!</p>
         <p>We understand that timing is critical in real estate transactions. Our inspection team is standing by to provide you with:</p>
         <ul style="margin: 15px 0; padding-left: 20px;">
           <li>Fast, professional roof inspections</li>
@@ -96,8 +96,8 @@ function generateAutoReplyHTML(formData: FormSubmission): string {
 
     default:
       mainMessage = `
-        <p>Thank you for reaching out to Realtor Roof! We've received your message and appreciate your interest.</p>
-        <p>At Realtor Roof, we specialize in partnering with real estate professionals to provide exceptional roofing services for your clients. Whether you're working with buyers or sellers, we have solutions designed specifically for real estate transactions.</p>
+        <p>Thank you for reaching out to Roof Kit! We've received your message and appreciate your interest.</p>
+        <p>At Roof Kit, we specialize in partnering with real estate professionals to provide exceptional roofing services for your clients. Whether you're working with buyers or sellers, we have solutions designed specifically for real estate transactions.</p>
         <p><strong>We'll respond to your inquiry within 24 hours.</strong></p>
       `;
   }
@@ -111,8 +111,8 @@ function generateAutoReplyHTML(formData: FormSubmission): string {
       </head>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="background-color: #1e3a8a; color: white; padding: 30px 20px; border-radius: 8px 8px 0 0; text-align: center;">
-          <h1 style="margin: 0; font-size: 28px;">Realtor Roof</h1>
-          <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9;">Your Trusted Partner in Real Estate Roofing</p>
+          <h1 style="margin: 0; font-size: 28px;">Roof Kit</h1>
+          <p style="margin: 10px 0 0 0; font-size: 14px; opacity: 0.9; letter-spacing: 3px; text-transform: uppercase;">for realtors</p>
         </div>
 
         <div style="background-color: #f9fafb; padding: 30px 20px; border: 1px solid #e5e7eb; border-top: none;">
@@ -130,10 +130,10 @@ function generateAutoReplyHTML(formData: FormSubmission): string {
 
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
             <p style="margin: 0 0 10px 0; font-size: 14px; color: #6b7280;">
-              <strong>About Realtor Roof</strong>
+              <strong>About Roof Kit</strong>
             </p>
             <p style="margin: 0; font-size: 13px; color: #6b7280; line-height: 1.5;">
-              Realtor Roof partners with Maverick Exteriors, Kansas City's trusted roofing contractor with 30+ years of experience.
+              Roof Kit partners with Maverick Exteriors, Kansas City's trusted roofing contractor with 30+ years of experience.
               We specialize in helping real estate professionals provide exceptional roofing services to their clients,
               with fast turnaround times, flexible payment options, and expertise in handling real estate transaction timelines.
             </p>
@@ -141,7 +141,7 @@ function generateAutoReplyHTML(formData: FormSubmission): string {
         </div>
 
         <div style="margin-top: 20px; padding: 20px; text-align: center; color: #6b7280; font-size: 12px;">
-          <p style="margin: 0;">© ${new Date().getFullYear()} Realtor Roof | Powered by Maverick Exteriors</p>
+          <p style="margin: 0;">© ${new Date().getFullYear()} Roof Kit | Powered by Maverick Exteriors</p>
           <p style="margin: 5px 0 0 0;">Kansas City, Kansas | (913) 298-8759</p>
         </div>
       </body>
