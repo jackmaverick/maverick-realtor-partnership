@@ -42,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
       propertyAddress: data.propertyAddress || 'Not provided',
       message,
       submittedAt: new Date().toISOString(),
-      source: 'Realtor Roof Website',
+      source: 'Roof Kit Website',
       priority: 'HIGH', // Inspection requests are high priority
     };
 

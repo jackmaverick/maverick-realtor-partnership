@@ -52,7 +52,7 @@ export const POST: APIRoute = async ({ request }) => {
       brokerage: data.brokerage || 'Not provided',
       message,
       submittedAt: new Date().toISOString(),
-      source: 'Realtor Roof Website',
+      source: 'Roof Kit Website',
       priority: 'HIGH', // Partnership inquiries are high priority
       tags: ['realtor-partnership', `agent-type-${agentType}`],
     };

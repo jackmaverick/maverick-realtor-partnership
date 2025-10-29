@@ -1,202 +1,85 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const blogPosts = [
+const upcomingPosts = [
   {
     title: 'Getting Your Roof Ready to Sell: The Ultimate Guide to Pre-Listing Roof Replacements',
-    excerpt: 'Learn why pre-listing roof replacements boost sale prices, speed up closing times, and remove inspection negotiations. Complete timeline and contractor tips.',
-    date: '2025-10-29',
-    category: 'Seller Strategy',
-    gradient: 'from-emerald-400 to-teal-500',
-    readTime: '12 min read',
-    featured: true
+    blurb: 'Complete guide to pre-listing roof replacements: ROI analysis, timing, material selection, and contractor coordination.',
+    eta: 'Published Oct 2025'
   },
   {
-    title: 'Understanding the 2024 Insurance Policy Changes for Older Roofs',
-    excerpt: 'What Kansas City realtors need to know about ACV vs RCV policies affecting homes with roofs 15+ years old.',
-    date: '2024-03-15',
-    category: 'Insurance',
-    gradient: 'from-blue-400 to-cyan-500',
-    readTime: '5 min read',
-    featured: false
+    title: 'Insurance Policy Changes for 2024',
+    blurb: 'Break down ACV vs RCV updates and give agents the language to use with nervous buyers.',
+    eta: 'Publishing April 2024'
   },
   {
-    title: 'How to Help Buyers Navigate Storm Damage Claims',
-    excerpt: 'A step-by-step guide for realtors supporting clients through the insurance claim process.',
-    date: '2024-03-10',
-    category: 'Education',
-    gradient: 'from-violet-400 to-purple-500',
-    readTime: '7 min read',
-    featured: false
+    title: 'Pre-Listing Roof Playbook',
+    blurb: 'How to scope, price, and position roof work so listings fly through appraisal.',
+    eta: 'Drafting now'
   },
   {
-    title: 'Pre-Listing Roof Inspections: Worth the Investment?',
-    excerpt: 'Why proactive roof assessments can increase property values and speed up closing times.',
-    date: '2024-03-05',
-    category: 'Strategy',
-    gradient: 'from-pink-400 to-rose-500',
-    readTime: '4 min read',
-    featured: false
-  },
-  {
-    title: 'Common Roofing Red Flags During Home Showings',
-    excerpt: 'Visual signs realtors should watch for when walking properties with potential buyers.',
-    date: '2024-02-28',
-    category: 'Tips',
-    gradient: 'from-orange-400 to-amber-500',
-    readTime: '6 min read',
-    featured: false
-  },
-  {
-    title: 'The ROI of Quality Roofing: Data from 50+ KC Listings',
-    excerpt: 'How new or certified roofs impact appraisal values and buyer confidence in the Kansas City market.',
-    date: '2024-02-20',
-    category: 'Market Data',
-    gradient: 'from-green-400 to-emerald-500',
-    readTime: '8 min read',
-    featured: false
-  },
-  {
-    title: 'Winter Storm Preparation: Realtor\'s Client Checklist',
-    excerpt: 'Essential guidance to share with homeowners before severe weather hits Kansas City.',
-    date: '2024-02-15',
-    category: 'Seasonal',
-    gradient: 'from-indigo-400 to-blue-500',
-    readTime: '5 min read',
-    featured: false
+    title: 'Storm Season Field Guide',
+    blurb: 'Templates, timelines, and inspection checklists you can hand to clients the same day storms hit.',
+    eta: 'Coming soon'
   }
 ];
 ---
 
 <BaseLayout
   title="Roofing Insights Blog | Realtor Roof"
-  description="Expert roofing insights, market trends, and practical advice for Kansas City realtors."
+  description="We’re assembling deep-dive roofing content for Kansas City realtors. Jump on the list to be first in line."
 >
-  <!-- Hero Section -->
-  <section class="relative py-20 md:py-32 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-200 via-violet-200 to-pink-200"></div>
-    <div class="absolute inset-0 bg-gradient-to-tr from-blue-300/40 via-transparent to-violet-300/40"></div>
+  <section class="relative overflow-hidden bg-gradient-to-br from-blue-200 via-violet-200 to-pink-200 py-16 md:py-24">
+    <div class="absolute inset-0 bg-gradient-to-tr from-blue-300/50 via-transparent to-violet-400/40"></div>
+    <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <span class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-4 py-2 text-sm font-semibold text-blue-700 backdrop-blur">
+        🛠️ Realtor Resource Build in Progress
+      </span>
+      <h1 class="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
+        Roofing Insights Blog Launching Soon
+      </h1>
+      <p class="mx-auto mb-8 max-w-2xl text-lg text-gray-700">
+        We’re polishing the long-form guides, case studies, and market breakdowns you previewed in the design. They’ll be live shortly—join the list below and we’ll send the first drops straight to you.
+      </p>
+      <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href="/contact?topic=blog-updates"
+          class="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-blue-700 shadow-lg transition hover:bg-blue-50"
+        >
+          Get Early Access Updates
+          <span>→</span>
+        </a>
+        <a
+          href="/resources"
+          class="inline-flex items-center gap-2 rounded-xl border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
+        >
+          Back to Resources
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-violet-100 border border-blue-200 rounded-full mb-6">
-          <span class="text-2xl">📝</span>
-          <span class="text-blue-700 font-semibold text-sm">Insights & Updates</span>
-        </div>
-
-        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-          Roofing Insights for{' '}
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">
-            Kansas City Realtors
-          </span>
-        </h1>
-
-        <p class="text-xl text-gray-700">
-          Stay informed with expert advice, market trends, and practical strategies to better serve your clients.
+  <section class="bg-gray-50 py-16">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-gray-900">What’s Coming First</h2>
+        <p class="mt-3 text-lg text-gray-600">
+          These are the first three releases we’re finishing based on realtor requests during beta interviews.
         </p>
       </div>
-    </div>
-  </section>
 
-  <!-- Blog Posts -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Featured Post -->
-      {blogPosts.filter(post => post.featured).map((post) => (
-        <div class="mb-16">
-          <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
-            <div class={`h-3 bg-gradient-to-r ${post.gradient}`}></div>
-            <div class="p-8 md:p-12">
-              <div class="flex items-center gap-4 mb-6">
-                <span class={`inline-block px-4 py-1.5 bg-gradient-to-r ${post.gradient} text-white text-sm font-bold rounded-full`}>
-                  Featured
-                </span>
-                <span class="text-gray-500 text-sm">{post.date}</span>
-                <span class="text-gray-400">•</span>
-                <span class="text-gray-500 text-sm">{post.readTime}</span>
-                <span class={`inline-block px-3 py-1 bg-gradient-to-r ${post.gradient} bg-opacity-10 text-sm font-semibold rounded-full`}>
-                  {post.category}
-                </span>
-              </div>
-
-              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {post.title}
-              </h2>
-
-              <p class="text-lg text-gray-600 mb-6">
-                {post.excerpt}
-              </p>
-
-              <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-violet-700 transition-all shadow-lg">
-                Read Full Article
-                <span>→</span>
-              </a>
+      <div class="grid gap-6 md:grid-cols-3">
+        {upcomingPosts.map((post) => (
+          <div class="rounded-2xl border border-blue-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-xl">
+              📘
             </div>
+            <h3 class="text-xl font-semibold text-gray-900">{post.title}</h3>
+            <p class="mt-3 text-sm text-gray-600">{post.blurb}</p>
+            <p class="mt-4 text-xs font-semibold uppercase tracking-wide text-blue-500">{post.eta}</p>
           </div>
-        </div>
-      ))}
-
-      <!-- Recent Posts Grid -->
-      <div>
-        <h2 class="text-3xl font-bold text-gray-900 mb-8">Recent Articles</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.filter(post => !post.featured).map((post) => (
-            <a href="#" class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
-              <div class={`h-2 bg-gradient-to-r ${post.gradient}`}></div>
-
-              <div class="p-6">
-                <div class="flex items-center gap-3 mb-4 text-sm">
-                  <span class={`inline-block px-3 py-1 bg-gradient-to-r ${post.gradient} bg-opacity-10 font-semibold rounded-full text-xs`}>
-                    {post.category}
-                  </span>
-                  <span class="text-gray-400">{post.date}</span>
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-violet-600 transition-colors">
-                  {post.title}
-                </h3>
-
-                <p class="text-gray-600 mb-4 leading-relaxed">
-                  {post.excerpt}
-                </p>
-
-                <div class="flex items-center justify-between text-sm">
-                  <span class="text-gray-500">{post.readTime}</span>
-                  <span class="flex items-center gap-1 text-violet-600 font-semibold group-hover:gap-2 transition-all">
-                    Read more
-                    <span class="group-hover:translate-x-1 transition-transform">→</span>
-                  </span>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
+        ))}
       </div>
-    </div>
-  </section>
-
-  <!-- Newsletter CTA -->
-  <section class="py-20 md:py-32 bg-gradient-to-r from-blue-600 to-violet-600">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-        Never Miss an Update
-      </h2>
-      <p class="text-xl text-white/90 mb-10">
-        Get monthly insights on roofing trends, insurance changes, and strategies to serve your clients better.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
-        <input
-          type="email"
-          placeholder="Enter your email address"
-          class="flex-1 px-6 py-4 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white/30"
-        />
-        <button class="px-8 py-4 bg-white text-violet-700 font-semibold text-lg rounded-lg hover:bg-violet-50 transition-colors shadow-xl whitespace-nowrap">
-          Subscribe
-        </button>
-      </div>
-      <p class="text-white/70 text-sm mt-4">
-        No spam. Unsubscribe anytime. We respect your inbox.
-      </p>
     </div>
   </section>
 </BaseLayout>
