@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const post = {
+  id: 'appraisal-required-roof',
+  title: '"Subject To Roof Replacement": When Your Lender Won\'t Fund Without a New Roof',
+  date: '2025-10-29',
+  category: 'Appraisal Crisis',
+  gradient: 'from-red-500 to-pink-600',
+  readTime: '14 min read',
+  excerpt: 'The highest-pressure roofing scenario in real estate. When the appraisal comes back "subject to" roof replacement, your deal depends on speed and precision.',
+};
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.excerpt}
+>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-red-100 via-pink-100 to-rose-100"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-red-200/40 via-transparent to-pink-200/40"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-6">
+        <a href="/resources/blog" class="inline-flex items-center gap-2 text-red-700 hover:text-red-900 font-semibold">
+          <span>←</span> Back to Blog
+        </a>
+      </div>
+
+      <div class="flex items-center gap-4 mb-6 flex-wrap">
+        <span class={`inline-block px-4 py-1.5 bg-gradient-to-r ${post.gradient} text-white text-sm font-bold rounded-full`}>
+          {post.category}
+        </span>
+        <span class="text-gray-600">{post.date}</span>
+        <span class="text-gray-400">•</span>
+        <span class="text-gray-600">{post.readTime}</span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        {post.title}
+      </h1>
+
+      <p class="text-xl text-gray-700 leading-relaxed max-w-3xl">
+        {post.excerpt}
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Content -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">The Call That Changes Everything</h2>
+      <p class="text-gray-700 leading-relaxed">It's 3 PM on a Wednesday. You're 18 days from closing. Everything has been smooth—inspection went well, appraisal was scheduled, you're already booking movers.</p>
+
+      <p class="text-gray-700 leading-relaxed">Then your real estate agent calls with a tone you haven't heard before. Not quite panic, but definitely concern.</p>
+
+      <p class="text-gray-700 leading-relaxed italic bg-red-50 p-4 rounded border-l-4 border-red-500">"So... the appraisal came back. The value is fine, but there's a condition. The appraiser is requiring the roof to be replaced before the lender will fund the loan. Says it's at the end of its useful life."</p>
+
+      <p class="text-gray-700 leading-relaxed">Your heart drops.</p>
+
+      <p class="text-gray-700 leading-relaxed italic bg-red-50 p-4 rounded border-l-4 border-red-500">"Wait, what? We passed the home inspection. Nobody said the roof needed to be replaced. We're closing in 18 days!"</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Welcome to the nightmare scenario: appraisal-required roof replacement.</strong></p>
+
+      <p class="text-gray-700 leading-relaxed">This is different from every other roofing situation in real estate. This isn't negotiable. This isn't optional. This isn't "let's talk about a credit."</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">This is: The loan will not fund—and your sale will not close—unless this roof gets replaced. Period.</strong></p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">What Does "Subject To" Actually Mean?</h2>
+      <p class="text-gray-700 leading-relaxed">When an appraisal comes back "subject to," it means the property is conditionally approved at a certain value, but the lender won't actually fund the loan until specific conditions are met.</p>
+
+      <p class="text-gray-700 leading-relaxed">You'll see language like this in the appraisal report:</p>
+
+      <p class="text-gray-700 leading-relaxed italic bg-gray-50 p-4 rounded border-l-4 border-red-500">"Property appraises at $385,000 subject to completion of roof replacement. Current roof covering has exceeded its useful life and shows significant deterioration. Photos and completion certificate from licensed contractor required before loan funding."</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">What this means in plain English:</strong> The appraiser has determined that the roof is in such poor condition that it represents a risk to the property's value and/or the homeowner's safety. The lender is saying: "We're not giving you money to buy a house with a failing roof."</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Why Lenders Do This</h3>
+      <p class="text-gray-700 leading-relaxed">Banks require that major systems meet minimum standards before they'll take on the risk. Here's their logic:</p>
+
+      <p class="text-gray-700 leading-relaxed">Bank loans you $350,000. Six months later, the roof fails. Water damage destroys the interior. You stop making payments because you can't afford both a mortgage and a $50,000 repair. The bank forecloses. Now the bank owns a destroyed house worth $250,000 instead of $385,000.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">The bank loses money.</strong> That's why they require certain major systems to meet minimum standards before they'll take the risk.</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">Which Loan Types Are Most Strict About Roofs?</h2>
+      <p class="text-gray-700 leading-relaxed">Not all loans are created equal when it comes to property condition requirements.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">FHA Loans (Most Strict)</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Requirements:</strong> Roof must be structurally sound, no missing shingles or damaged areas, gutters must be secure and functional, no water damage or leaks, must have at least 2-3 years of remaining useful life</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Why so strict?</strong> FHA loans are government-backed and designed for first-time homebuyers. The government wants to ensure these buyers aren't purchasing homes that will immediately need expensive repairs. If your roof is 20+ years old, an FHA appraiser will likely require replacement even if it's not actively leaking.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">VA Loans (Very Strict)</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Requirements:</strong> Roof must be free of defects, must have remaining useful life (typically 2+ years minimum), all components must be in good working order, no evidence of leaks or damage</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Why so strict?</strong> These loans are guaranteed by the Department of Veterans Affairs as a benefit to veterans. The VA wants to protect veterans from buying problem properties. VA appraisers take their job seriously.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Conventional Loans (Least Strict... Usually)</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Requirements:</strong> More flexible, typically only flag serious issues, more likely to allow repairs instead of replacement</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">But here's the catch:</strong> Even conventional loans can require roof work if the roof is visibly deteriorating, there's evidence of leaks, the appraiser deems it a safety hazard, or it's affecting the property value.</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">The Timeline Crisis: Why This Is So Stressful</h2>
+      <p class="text-gray-700 leading-relaxed">Let's map out what usually happens:</p>
+
+      <div class="bg-red-50 p-4 rounded space-y-2 text-gray-700 leading-relaxed text-sm">
+        <p><strong class="font-bold">Day 0:</strong> Offer accepted, 30-day close</p>
+        <p><strong class="font-bold">Day 10:</strong> Home inspection (passed with minor issues)</p>
+        <p><strong class="font-bold">Day 14:</strong> Appraisal ordered</p>
+        <p><strong class="font-bold">Day 18:</strong> Appraisal completed</p>
+        <p><strong class="font-bold">Day 21:</strong> Appraisal report received — <strong class="font-bold">ROOF ISSUE DISCOVERED</strong></p>
+        <p><strong class="font-bold">Day 30:</strong> Supposed closing date</p>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mt-4"><strong class="font-bold">You now have 9 days to complete a job that realistically takes 14-18 days.</strong></p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">The Emergency Response Plan</h2>
+      <p class="text-gray-700 leading-relaxed">You just got the news. Appraisal came back subject to roof replacement. Closing is in 2-3 weeks. What do you do RIGHT NOW?</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Hour 1: Information Gathering</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Get these documents immediately:</strong></p>
+
+      <ul class="text-gray-700 leading-relaxed space-y-2 ml-4">
+        <li class="flex gap-2"><span class="font-bold">1.</span> <span><strong class="font-bold">Full appraisal report</strong> - Not just the summary, the whole thing. Read the roof section carefully.</span></li>
+        <li class="flex gap-2"><span class="font-bold">2.</span> <span><strong class="font-bold">Photos from the appraisal</strong> - These will help contractors understand what's required.</span></li>
+        <li class="flex gap-2"><span class="font-bold">3.</span> <span><strong class="font-bold">Lender's exact requirements</strong> - Call directly and ask specific questions about what needs to be done.</span></li>
+        <li class="flex gap-2"><span class="font-bold">4.</span> <span><strong class="font-bold">Contract review</strong> - Who is responsible for this? What does your purchase agreement say?</span></li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Hour 2-4: Emergency Contractor Search</h3>
+      <p class="text-gray-700 leading-relaxed">Call multiple roofing contractors and say this exact phrase:</p>
+
+      <p class="text-gray-700 leading-relaxed italic bg-gray-50 p-4 rounded border-l-4 border-red-500">"I have an emergency situation. We're under contract with closing in [X] days. The appraisal came back requiring roof replacement. I need someone who can inspect TODAY or tomorrow and provide an estimate within 24 hours. Can you help?"</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Red flags to avoid:</strong> "We can start today!" (without even seeing it), prices way below everyone else, "We don't need permits" (if they're required), unlicensed/uninsured contractors</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 1-2: Assessment and Estimates</h3>
+      <p class="text-gray-700 leading-relaxed">The contractor needs to understand this is an appraisal-required replacement with tight timelines. Ask critical questions:</p>
+
+      <ul class="text-gray-700 leading-relaxed space-y-2 ml-4">
+        <li class="flex gap-2"><span class="font-bold">•</span> <span>"If we approve this today, when can you start?"</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span>"What's the material lead time? Can it be expedited?"</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span>"How many days of actual installation?"</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span>"What happens if it rains?"</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span>"What documentation will you provide for the lender?"</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span>"Have you done appraisal-required work before?"</span></li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 2-3: The Money Conversation</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Scenario A: Seller Pays (Most Common)</strong> - The seller is trying to sell the house. If the roof prevents the sale, they don't get paid. Usually sellers bite the bullet.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Scenario B: Split the Cost</strong> - Sometimes parties negotiate, but only if the lender allows post-closing work, which most don't.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Scenario C: Buyer Backs Out</strong> - If the buyer can't afford it and seller refuses to pay, the deal might fall apart.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 3-5: Making the Decision</h3>
+      <p class="text-gray-700 leading-relaxed">Choose a contractor. Sign the agreement. Pay the deposit. Order the materials.</p>
+
+      <p class="text-gray-700 leading-relaxed">Send an email to all parties:</p>
+
+      <p class="text-gray-700 leading-relaxed italic bg-gray-50 p-4 rounded border-l-4 border-red-500">"Update: Roof replacement is approved. [Contractor] has been hired. Materials ordered today, delivery [date]. Installation scheduled [dates]. Expected completion [date]. Requesting 5-day closing extension to [new date]."</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 6-10: Material Wait Time</h3>
+      <p class="text-gray-700 leading-relaxed">Materials aren't here yet. Use this time to coordinate re-inspection with the appraiser, notify lender of progress, extend closing formally, and pray for good weather.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 11-13: Installation</h3>
+      <p class="text-gray-700 leading-relaxed">The work begins. Be available, take photos, communicate progress, and prepare for surprises (like discovered decking damage).</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 14: Completion and Documentation</h3>
+      <p class="text-gray-700 leading-relaxed">Get completion certificate, final invoice, warranty information, final photos, and permit sign-off if required.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 15: Re-Inspection</h3>
+      <p class="text-gray-700 leading-relaxed">Appraiser returns, inspects new roof, takes photos, verifies work was completed per requirements, prepares updated report (1-3 business days).</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 16-17: Lender Review</h3>
+      <p class="text-gray-700 leading-relaxed">Underwriter reviews updated appraisal. If everything looks good, they issue Clear to Close.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 18+: Actually Closing</h3>
+      <p class="text-gray-700 leading-relaxed">Finally. You can breathe.</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">Real Stories: When Appraisals Require Roof Work</h2>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Success Story: The Hernandez Home</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Situation:</strong> FHA appraisal required full roof replacement. 23-year-old roof. Closing in 22 days.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Result:</strong> Sellers agreed to pay, we inspected Day 2, contract signed Day 3, materials delivered Day 7, installation Day 8-10, re-inspection Day 11, updated appraisal Day 12, closing extended 8 days, deal closed successfully.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Key to success:</strong> Everyone communicated clearly, moved fast, and worked together.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Disaster Story: The Miller Property</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Situation:</strong> VA appraisal required roof replacement. 28-year-old roof. Closing in 21 days.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">What went wrong:</strong> Sellers argued with the appraiser for 5 days, couldn't get contractor to commit to timeline, materials delayed, weather turned bad, buyers' rate lock expired, buyers got angry and demanded price reduction, sellers refused, deal fell apart.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Lesson:</strong> Delays compound. Every day of debate is a day lost from the installation timeline.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Horror Story: The Davis Drama</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Situation:</strong> FHA appraisal required roof work. Sellers hired the cheapest contractor.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">What went wrong:</strong> Contractor was unlicensed, did shoddy work, appraiser refused to approve, sellers had to pay twice to have it done correctly, closing delayed 3 weeks, buyers almost walked.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Lesson:</strong> Don't cheap out on appraisal-required work. Appraisers and lenders scrutinize everything.</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">Documentation Required for Lenders</h2>
+      <p class="text-gray-700 leading-relaxed">When work is complete, have this ready BEFORE the appraiser returns:</p>
+
+      <ul class="text-gray-700 leading-relaxed space-y-2 ml-4">
+        <li class="flex gap-2"><span class="font-bold">✅</span> <span>Completion certificate from contractor (on company letterhead)</span></li>
+        <li class="flex gap-2"><span class="font-bold">✅</span> <span>Final paid invoice (proof of payment)</span></li>
+        <li class="flex gap-2"><span class="font-bold">✅</span> <span>Before and after photos</span></li>
+        <li class="flex gap-2"><span class="font-bold">✅</span> <span>Warranty documentation including transferability</span></li>
+        <li class="flex gap-2"><span class="font-bold">✅</span> <span>Proof of contractor licensing and insurance</span></li>
+        <li class="flex gap-2"><span class="font-bold">✅</span> <span>Permit documentation and sign-offs</span></li>
+        <li class="flex gap-2"><span class="font-bold">✅</span> <span>Updated appraisal photos from re-inspection</span></li>
+      </ul>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">How to Prevent This Nightmare</h2>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">For Sellers:</strong> If you know your roof is old, replace it before listing. Proactive roof replacement will save you so much stress. (See Blog Post #1)</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">For Buyers:</strong> If you're using FHA or VA loans and the home has an older roof, ask about it during the inspection period. Don't wait for the appraisal surprise.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">For Agents:</strong> Set expectations early. If you're listing a home with a 20+ year old roof and buyers will likely use FHA/VA, warn the sellers this might come up.</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">The Bottom Line: How to Survive</h2>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">DO:</strong> Act immediately, communicate clearly, hire reputable contractors, be prepared to extend closing, document everything, stay solution-focused, follow lender requirements exactly, build in buffer time for weather</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">DON'T:</strong> Argue with the appraiser, cut corners with cheap contractors, assume repairs will work when they say "replacement," underestimate the timeline, forget to communicate with lender, skip required permits, panic (okay, panic a little, then take action)</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">Final Thoughts</h2>
+      <p class="text-gray-700 leading-relaxed">The appraisal-required roof replacement is the most stressful roofing scenario in real estate. But it's survivable. Most of these deals do close.</p>
+
+      <p class="text-gray-700 leading-relaxed">It requires fast action, clear communication, reasonable expectations, professional help, and maybe some antacids.</p>
+
+      <p class="text-gray-700 leading-relaxed">If you're in this situation right now, take a deep breath. You're not the first person this has happened to. With the right approach, you'll get through it.</p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-24 bg-gradient-to-r from-red-600 to-pink-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Appraisal Emergency? We Specialize in This.
+      </h2>
+      <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+        We've successfully completed over 200 appraisal-required roof replacements. We know how to work with lenders, appraisers, and tight timelines. Let us help you get to the closing table.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-white text-pink-700 font-semibold text-lg rounded-lg hover:bg-red-50 transition-colors shadow-xl"
+      >
+        Call For Emergency Response
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Back to Blog -->
+  <section class="py-8 bg-gray-50 text-center">
+    <a href="/resources/blog" class="inline-flex items-center gap-2 text-red-700 hover:text-red-900 font-semibold">
+      <span>←</span> Back to All Articles
+    </a>
+  </section>
+</BaseLayout>
