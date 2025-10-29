@@ -1,0 +1,278 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const post = {
+  id: 'post-inspection-roof-repairs',
+  title: '"Your Inspector Found WHAT?" Navigating Roof Repairs After the Home Inspection',
+  date: '2025-10-29',
+  category: 'Inspection Crisis',
+  gradient: 'from-orange-400 to-red-500',
+  readTime: '15 min read',
+  excerpt: 'How to handle the 14-day scramble when the inspection report comes back with roof concerns. Expert guidance on negotiation, timelines, and solutions.',
+};
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.excerpt}
+>
+  <!-- Hero Section -->
+  <section class="relative py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-orange-100 via-red-100 to-pink-100"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-orange-200/40 via-transparent to-red-200/40"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-6">
+        <a href="/resources/blog" class="inline-flex items-center gap-2 text-orange-700 hover:text-orange-900 font-semibold">
+          <span>←</span> Back to Blog
+        </a>
+      </div>
+
+      <div class="flex items-center gap-4 mb-6 flex-wrap">
+        <span class={`inline-block px-4 py-1.5 bg-gradient-to-r ${post.gradient} text-white text-sm font-bold rounded-full`}>
+          {post.category}
+        </span>
+        <span class="text-gray-600">{post.date}</span>
+        <span class="text-gray-400">•</span>
+        <span class="text-gray-600">{post.readTime}</span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        {post.title}
+      </h1>
+
+      <p class="text-xl text-gray-700 leading-relaxed max-w-3xl">
+        {post.excerpt}
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Content -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">The Phone Call Every Seller Dreads</h2>
+      <p class="text-gray-700 leading-relaxed">You listed your home. You got an offer. You're excited. The inspection is scheduled for Tuesday, and you figure it'll be fine—after all, you've lived here for years and haven't noticed any major problems.</p>
+
+      <p class="text-gray-700 leading-relaxed">Then Thursday afternoon, your agent calls.</p>
+
+      <p class="text-gray-700 leading-relaxed italic bg-gray-50 p-4 rounded border-l-4 border-orange-500">"So... the inspection report came back. The roof has some issues. The buyers are requesting a $12,000 credit or want us to replace it before closing."</p>
+
+      <p class="text-gray-700 leading-relaxed">Your stomach drops. Closing is in 30 days. You don't have $12,000 sitting around. And honestly, you thought the roof was fine.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Welcome to the most common—and most stressful—roofing scenario in real estate transactions.</strong></p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">Why Post-Inspection Roof Issues Are So Stressful</h2>
+      <p class="text-gray-700 leading-relaxed">Let's be real about why this scenario is nobody's favorite:</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">For Sellers:</h3>
+      <ul class="text-gray-700 leading-relaxed space-y-2 ml-4">
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Surprise factor</strong> - You didn't budget for this</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Time pressure</strong> - Inspection contingency periods are typically 7-14 days</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Negotiation leverage</strong> - You're now negotiating from a defensive position</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Risk of losing the deal</strong> - Buyers can walk away if you don't address it</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Decision paralysis</strong> - Repair? Replace? Give credit? How much?</span></li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">For Buyers:</h3>
+      <ul class="text-gray-700 leading-relaxed space-y-2 ml-4">
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Trust issues</strong> - "What else is wrong with this house that we haven't found?"</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Budget concerns</strong> - They've already maxed out their down payment</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Timeline anxiety</strong> - Can it get fixed before closing?</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Quality concerns</strong> - Will the seller cheap out on repairs?</span></li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">For Contractors (That's Us):</h3>
+      <ul class="text-gray-700 leading-relaxed space-y-2 ml-4">
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Tight deadlines</strong> - "Can you do this in 2 weeks?" Maybe. Depends.</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Payment uncertainty</strong> - Who's paying? When? How?</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Weather stress</strong> - No buffer for rain delays</span></li>
+        <li class="flex gap-2"><span class="font-bold">•</span> <span><strong class="font-bold">Scope ambiguity</strong> - Is it repair or replacement? Everyone has a different interpretation</span></li>
+      </ul>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">Let's Break Down What Actually Happens</h2>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 1: The Inspection (You're Not There)</h3>
+      <p class="text-gray-700 leading-relaxed">A home inspector spends 2-4 hours crawling around your property. They're on the roof with their camera, taking photos of missing or damaged shingles, worn areas, moss or algae growth, flashing issues, signs of previous repairs, leak indicators, and overall age and condition.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">What they're NOT doing:</strong> They're not roofing experts. They're generalists. They might flag something as a "concern" that's actually cosmetic, or they might miss something significant that a roofing professional would catch.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 2-3: The Report Comes Out</h3>
+      <p class="text-gray-700 leading-relaxed">The buyers receive a 40-80 page inspection report. The roof section might say things like:</p>
+
+      <p class="text-gray-700 leading-relaxed italic bg-gray-50 p-4 rounded border-l-4 border-orange-500">"The roof covering is past its expected service life and is showing signs of wear. Recommend evaluation by a qualified roofing contractor."</p>
+
+      <p class="text-gray-700 leading-relaxed">Or:</p>
+
+      <p class="text-gray-700 leading-relaxed italic bg-gray-50 p-4 rounded border-l-4 border-orange-500">"Multiple shingles are curling and several are missing. Evidence of previous repairs noted. Recommend replacement."</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Here's the problem:</strong> These statements are vague. They don't tell you if this is urgent or cosmetic, a $500 repair or a $15,000 replacement, whether it will pass a lender's appraisal, or if it can wait.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 3-5: The Negotiation Begins</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Buyers' initial request</strong> (usually aggressive): "We want a $15,000 credit at closing, OR the roof completely replaced before we close, OR we're walking away."</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Sellers' gut reaction</strong> (defensive): "The roof is fine! We haven't had any leaks! That inspector is being dramatic!"</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Agents in the middle</strong> (trying to keep the deal together): "Let's get a professional roofing contractor out there to assess the situation and provide an estimate. Then we can negotiate from facts, not feelings."</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Day 5-7: Enter the Roofing Contractor</h3>
+      <p class="text-gray-700 leading-relaxed">This is where we get the call with an urgent voicemail from the seller's agent: "Hi, we have a home inspection that flagged the roof. Closing is in 28 days. Can you get out there ASAP to assess it and provide an estimate? Buyers are waiting on this to decide whether to move forward."</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">What we need immediately:</strong></p>
+      <ul class="text-gray-700 leading-relaxed space-y-2 ml-4">
+        <li class="flex gap-2"><span class="font-bold">1.</span> <span>Copy of the inspection report (specifically the roof section)</span></li>
+        <li class="flex gap-2"><span class="font-bold">2.</span> <span>Address and access information</span></li>
+        <li class="flex gap-2"><span class="font-bold">3.</span> <span>Closing date (this drives everything)</span></li>
+        <li class="flex gap-2"><span class="font-bold">4.</span> <span>Who's paying (seller, buyer, or split?)</span></li>
+        <li class="flex gap-2"><span class="font-bold">5.</span> <span>Contact info for all parties involved</span></li>
+      </ul>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">The Roofing Contractor's Assessment: What We're Actually Looking For</h2>
+      <p class="text-gray-700 leading-relaxed">When we come out for a post-inspection evaluation, we're doing something different than the home inspector did. We're answering specific questions:</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Question 1: Is this a safety/functionality issue, or cosmetic?</h3>
+      <p class="text-gray-700 leading-relaxed">Not all "roof issues" are created equal. We categorize them:</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">🔴 Critical (Replace Immediately):</strong> Active leaks, structural damage, widespread granule loss, extensive curling/buckling, storm damage, roof at end of life (25+ years old)</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">🟡 Concerning (Repair or Replace Soon):</strong> Isolated damaged areas, minor leak evidence, flashing problems, moderate wear patterns, 15-20 years old with wear</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">🟢 Minor (Repairs Sufficient):</strong> A few missing shingles, isolated wear, cosmetic issues, moss/algae (cleanable), 10-15 years old, well-maintained</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Question 2: Repair or Replace?</h3>
+      <p class="text-gray-700 leading-relaxed">This is the $10,000 question (literally).</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">When repairs make sense:</strong> Isolated damage in one area, roof is less than 15 years old, damage is storm-related and covered by insurance, budget is extremely tight, repairs will legitimately extend the roof's life by 5+ years</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">When replacement is the better call:</strong> Roof is 20+ years old, widespread damage across multiple areas, repairs would cost more than 30% of replacement cost, lender requires it, repairs are just kicking the can down the road</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Question 3: What will satisfy the buyers AND pass lender requirements?</h3>
+      <p class="text-gray-700 leading-relaxed">This is crucial. Sometimes the buyers are fine with repairs, but their lender won't approve the loan unless the roof is replaced. We always ask: "Is this a conventional loan, FHA, VA?" because different lenders have different requirements.</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">The Four Payment Scenarios</h2>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Scenario 1: Seller Pays for Work Before Closing</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">How it works:</strong> Seller pays us directly, work gets completed before closing, buyers' final walkthrough confirms completion, closing proceeds normally</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Pros:</strong> Cleanest scenario, buyers see the work is done, no escrow complications, sellers maintain control</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Cons:</strong> Seller has to come up with cash now, risk if buyer backs out after work is done, tight timeline pressure</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Scenario 2: Credit at Closing (Buyer Pays After)</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">How it works:</strong> Seller gives buyer a credit, closing happens, buyer owns the house and hires contractor</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Pros:</strong> Seller doesn't have to manage the project, no timeline pressure, buyer chooses their own contractor</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Cons:</strong> Buyers might choose cheap contractor, seller has no control over quality, credit amount might not cover actual cost</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Scenario 3: Seller Pays But Work Happens After Closing</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">How it works:</strong> Seller agrees to pay for work, closing happens first, seller pays us after closing to do work on home they no longer own</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Pros:</strong> Removes timeline pressure, seller maintains contractor choice, can handle complexity better</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Cons:</strong> Coordination nightmare, liability issues, payment collection can be messy, buyers are nervous about this arrangement</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Scenario 4: Escrow Holdback (Title Company Holds Money)</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">How it works:</strong> Title company holds back funds in escrow, work gets completed after closing, contractor provides documentation, title company releases funds</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Pros:</strong> Protects both parties, work can happen after closing without seller risk, formal process ensures completion</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Cons:</strong> Delays seller getting their proceeds, requires lender approval, can take 30-60 days to get funds released</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">The Timeline Crunch: Can We Actually Get This Done?</h2>
+      <p class="text-gray-700 leading-relaxed">Here's a realistic timeline from "inspection report comes back" to "roof is done":</p>
+
+      <div class="bg-gray-50 p-4 rounded space-y-2 text-gray-700 leading-relaxed">
+        <p><strong class="font-bold">Day 0:</strong> Inspection report delivered</p>
+        <p><strong class="font-bold">Day 1-2:</strong> Parties review and discuss</p>
+        <p><strong class="font-bold">Day 3:</strong> Roofing contractor called for assessment</p>
+        <p><strong class="font-bold">Day 4:</strong> Contractor inspects property</p>
+        <p><strong class="font-bold">Day 5-6:</strong> Estimate provided and reviewed</p>
+        <p><strong class="font-bold">Day 7:</strong> Negotiation concludes, work approved</p>
+        <p><strong class="font-bold">Day 8:</strong> Materials ordered</p>
+        <p><strong class="font-bold">Day 11-13:</strong> Materials delivered (3-5 business days for standard stuff)</p>
+        <p><strong class="font-bold">Day 14-16:</strong> Installation (1-3 days depending on home size)</p>
+        <p><strong class="font-bold">Day 17:</strong> Final cleanup and documentation</p>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mt-4"><strong class="font-bold">That's 17 days minimum,</strong> assuming no weather delays, materials in stock, contractor availability, no hidden damage, and good communication from everyone.</p>
+
+      <p class="text-gray-700 leading-relaxed">Most inspection contingencies are 7-14 days. See the problem?</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Red Flags That Might Kill the Timeline:</h3>
+      <p class="text-gray-700 leading-relaxed">🚩 Materials take 2+ weeks | 🚩 Weather is uncooperative | 🚩 Significant deck damage discovered mid-job | 🚩 Permitting required | 🚩 Contractor unavailable</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">How to Negotiate When the Inspection Flags Your Roof</h2>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Step 1: Don't Panic or Get Defensive</h3>
+      <p class="text-gray-700 leading-relaxed">Your gut reaction might be dismissive. Breathe. Even if the inspector is being overly cautious, the damage is done. The buyers now have concerns. You can't un-ring that bell. Your job is to address it professionally.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Step 2: Get a Professional Opinion FAST</h3>
+      <p class="text-gray-700 leading-relaxed">Call a reputable roofing contractor (or two) and get them out ASAP. You need a second professional opinion, an actual estimate, a realistic timeline, and options (repair vs. replace).</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Step 3: Understand What the Buyers Really Need</h3>
+      <p class="text-gray-700 leading-relaxed">Are they genuinely concerned about functionality? Using this as a negotiation tactic? Required by their lender to address it? First-time buyers who are nervous about any issues? Your agent should have this conversation to understand the motivation.</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Step 4: Come Back with Facts</h3>
+      <p class="text-gray-700 leading-relaxed">Don't just say "the roof is fine." Provide: "We've had [Roofing Company] inspect the roof. They've determined that [specific findings]. They estimate [repair/replacement] will cost $X and can be completed in [timeline]. We propose [specific solution]."</p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-6 mb-3 pt-2">Step 5: Negotiate Smartly</h3>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">If the inspector's report is overblown:</strong> Offer to make specific repairs and provide documentation. This is usually $1,000-$3,000.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">If replacement is legitimately needed:</strong> Reduce the sale price by the cost, split the cost, complete the work yourself, or offer a credit.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">If you're in a seller's market:</strong> You have more leverage. You might say, "We'll credit $5,000 toward the roof, take it or leave it."</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">If you're in a buyer's market:</strong> You have less leverage. You might need to replace the roof or offer a substantial credit to keep the deal together.</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">Common Mistakes in the Post-Inspection Scramble</h2>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Mistake #1: Delayed Decision Making</strong> - Every day you waste debating what to do is a day you lose from the timeline to actually get work done. Solution: Make decisions quickly, even if they're uncomfortable.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Mistake #2: Trying to Hide or Minimize Issues</strong> - If the inspector flagged it, the buyers are concerned. Solution: Take concerns seriously and address them professionally.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Mistake #3: Getting Lowball Estimates</strong> - You present the cheapest estimate and buyers get their own at higher cost. Now they don't trust you. Solution: Get legitimate estimates and be honest about costs.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Mistake #4: Not Reading the Fine Print</strong> - Hidden costs like decking repairs appear mid-job. Solution: Ask about potential additional costs upfront.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Mistake #5: Choosing Speed Over Quality</strong> - You hire the cheapest contractor and they do shoddy work. Solution: Hire reputable contractors even if it takes a few extra days.</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">The Bottom Line: How to Survive</h2>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">For Sellers:</strong> Act quickly, get professional estimates ASAP, be reasonable in negotiations, understand that buyers have legitimate concerns, don't let pride kill your deal.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">For Buyers:</strong> Don't panic over every minor issue, understand the difference between cosmetic and critical, be reasonable in your requests, remember that older homes need maintenance.</p>
+
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">For Both Parties:</strong> Communicate through your agents, make decisions based on facts not emotions, be flexible when possible, remember that you both want the deal to close, use professionals to guide you.</p>
+
+      <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4 pt-4">Ready to Handle a Roof Crisis?</h2>
+      <p class="text-gray-700 leading-relaxed"><strong class="font-bold">Got a post-inspection roof crisis?</strong> We provide fast assessments and honest estimates. We'll tell you exactly what needs to be done and whether your timeline is realistic. No pressure, no BS, just straight answers when you need them most.</p>
+
+      <p class="text-gray-700 leading-relaxed">Contact us today for a free evaluation. We work with sellers, buyers, and agents throughout the Kansas City area and understand the unique pressures of real estate transactions.</p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-24 bg-gradient-to-r from-orange-600 to-red-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        In the Middle of an Inspection Crisis?
+      </h2>
+      <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+        We can help. Fast inspections, honest estimates, realistic timelines. Let's keep your deal on track.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-white text-red-700 font-semibold text-lg rounded-lg hover:bg-orange-50 transition-colors shadow-xl"
+      >
+        Get Immediate Assessment
+        <span>→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Back to Blog -->
+  <section class="py-8 bg-gray-50 text-center">
+    <a href="/resources/blog" class="inline-flex items-center gap-2 text-orange-700 hover:text-orange-900 font-semibold">
+      <span>←</span> Back to All Articles
+    </a>
+  </section>
+</BaseLayout>
