@@ -16,8 +16,16 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Validate required fields
-    const { name, email, phone, agentType, message } = data;
-    if (!name || !email || !phone || !agentType || !message) {
+    const { name, email, phone, annualRoofVolume, message } = data;
+    if (
+      !name ||
+      !email ||
+      !phone ||
+      annualRoofVolume === undefined ||
+      annualRoofVolume === null ||
+      annualRoofVolume === '' ||
+      !message
+    ) {
       return new Response(
         JSON.stringify({ error: 'Missing required fields' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
@@ -33,31 +41,31 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Validate agent type
-    const validAgentTypes = ['buyers', 'sellers', 'both'];
-    if (!validAgentTypes.includes(agentType)) {
+    const roofVolumeNumber = Number(annualRoofVolume);
+    if (Number.isNaN(roofVolumeNumber) || roofVolumeNumber < 0) {
       return new Response(
-        JSON.stringify({ error: 'Invalid agent type' }),
+        JSON.stringify({ error: 'Invalid roof volume' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
     const cleanedData = { ...data };
     delete cleanedData.honeypot;
+    cleanedData.annualRoofVolume = roofVolumeNumber;
 
-    const normalizedAgentType =
-      agentType === 'buyers' ? "Buyer's Agent" : agentType === 'sellers' ? "Seller's Agent" : 'Both';
+    const volumeTag =
+      roofVolumeNumber >= 24 ? 'roof-volume-high' : roofVolumeNumber >= 12 ? 'roof-volume-mid' : 'roof-volume-low';
 
     const submission = {
       ...cleanedData,
       formKey: 'partnership',
       formType: 'Partnership Inquiry',
-      agentType: normalizedAgentType,
+      annualRoofVolume: roofVolumeNumber,
       brokerage: data.brokerage || 'Not provided',
       submittedAt: new Date().toISOString(),
       source: data.source || 'realtor-partnership-site/partners',
       priority: 'HIGH',
-      tags: ['realtor-partnership', `agent-type-${agentType}`],
+      tags: ['realtor-partnership', volumeTag],
     };
 
     const delivery = await dispatchFormSubmission(submission);

@@ -16,8 +16,8 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // Validate required fields
-    const { name, email, phone, message } = data;
-    if (!name || !email || !phone || !message) {
+    const { name, email, phone, agentType, message } = data;
+    if (!name || !email || !phone || !agentType || !message) {
       return new Response(
         JSON.stringify({ error: 'Missing required fields' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
@@ -33,17 +33,29 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    const validAgentTypes = ['buyers', 'sellers', 'both'];
+    if (!validAgentTypes.includes(agentType)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid agent type' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     const cleanedData = { ...data };
     delete cleanedData.honeypot;
+    const normalizedAgentType =
+      agentType === 'buyers' ? "Buyer's Agent" : agentType === 'sellers' ? "Seller's Agent" : 'Both';
 
     const submission = {
       ...cleanedData,
       formKey: 'inspection',
       formType: 'Property Inspection Request',
       propertyAddress: data.propertyAddress || 'Not provided',
+      agentType: normalizedAgentType,
       submittedAt: new Date().toISOString(),
       source: data.source || 'realtor-partnership-site/inspection',
       priority: 'HIGH',
+      tags: ['inspection-request', `agent-type-${agentType}`],
     };
 
     const delivery = await dispatchFormSubmission(submission);
