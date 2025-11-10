@@ -1,7 +1,50 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
 
 export const prerender = true;
+
+const formHiddenFields = {
+  partnership: {
+    source: 'contact-page',
+    intent: 'realtor-partnership',
+  },
+  inspection: {
+    source: 'contact-page',
+    intent: 'inspection-request',
+  },
+  general: {
+    source: 'contact-page',
+    intent: 'general-inquiry',
+  },
+};
+
+const formTabs = [
+  {
+    id: 'partnership',
+    label: 'Partnership Form',
+    eyebrow: 'Realtor Partners',
+    title: 'Partnership Program Inquiry',
+    description: 'Share referral volume, brokerage info, and how we can support your clients.',
+    hiddenFields: formHiddenFields.partnership,
+  },
+  {
+    id: 'inspection',
+    label: 'Inspection Request',
+    eyebrow: 'Request An Inspection',
+    title: 'Property Inspection & Repair Scope',
+    description: 'Send the address and transaction details so we can deliver photos, pricing, and documentation.',
+    hiddenFields: formHiddenFields.inspection,
+  },
+  {
+    id: 'general',
+    label: 'General Questions',
+    eyebrow: 'General Questions',
+    title: 'Need Something Else?',
+    description: 'Use this form for training requests, co-branded marketing, or anything outside inspections.',
+    hiddenFields: formHiddenFields.general,
+  },
+];
 ---
 
 <BaseLayout
@@ -118,6 +161,49 @@ export const prerender = true;
             </a>
           </div>
         </div>
+        <div class="mt-12 space-y-10">
+          <div class="space-y-6">
+            <div class="grid gap-4 md:grid-cols-3" role="tablist" aria-label="Select a contact form">
+              {formTabs.map((tab, index) => (
+                <button
+                  id={`${tab.id}-tab`}
+                  type="button"
+                  role="tab"
+                  aria-selected={index === 0 ? 'true' : 'false'}
+                  aria-controls={`${tab.id}-panel`}
+                  data-tab-button
+                  data-tab-target={tab.id}
+                  class={`rounded-2xl border bg-white px-4 py-5 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 ${
+                    index === 0 ? 'border-blue-500 shadow-lg shadow-blue-100' : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <p class="text-xs font-semibold uppercase tracking-wide text-blue-600">{tab.eyebrow}</p>
+                  <p class="mt-2 text-lg font-semibold text-gray-900">{tab.label}</p>
+                  <p class="mt-1 text-sm text-gray-500">{tab.description}</p>
+                </button>
+              ))}
+            </div>
+
+            <div>
+              {formTabs.map((tab, index) => (
+                <div
+                  id={`${tab.id}-panel`}
+                  role="tabpanel"
+                  aria-labelledby={`${tab.id}-tab`}
+                  data-tab-panel={tab.id}
+                  class={`border border-gray-100 rounded-2xl p-6 shadow-sm ${index === 0 ? '' : 'hidden'}`}
+                >
+                  <div class="mb-6 text-center">
+                    <p class="text-sm font-semibold text-blue-600 tracking-wide uppercase">{tab.eyebrow}</p>
+                    <h3 class="text-2xl font-bold text-gray-900 mt-2">{tab.title}</h3>
+                    <p class="text-gray-600 mt-2">{tab.description}</p>
+                  </div>
+                  <ContactForm formType={tab.id as 'partnership' | 'inspection' | 'general'} hiddenFields={tab.hiddenFields} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -172,4 +258,48 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <script>
+    const initContactTabs = () => {
+      const tabButtons = Array.from(document.querySelectorAll('[data-tab-button]'));
+      const tabPanels = Array.from(document.querySelectorAll('[data-tab-panel]'));
+      if (!tabButtons.length || !tabPanels.length) return;
+
+      const activeClasses = ['border-blue-500', 'shadow-lg', 'shadow-blue-100'];
+      const inactiveClasses = ['border-gray-200'];
+
+      const toggleButtonStyles = (button, isActive) => {
+        button.setAttribute('aria-selected', String(isActive));
+        button.dataset.active = isActive ? 'true' : 'false';
+        activeClasses.forEach((cls) => button.classList.toggle(cls, isActive));
+        inactiveClasses.forEach((cls) => button.classList.toggle(cls, !isActive));
+      };
+
+      const activateTab = (targetId) => {
+        if (!targetId) return;
+        tabButtons.forEach((button) => {
+          const isActive = button.dataset.tabTarget === targetId;
+          toggleButtonStyles(button, isActive);
+        });
+
+        tabPanels.forEach((panel) => {
+          const isActive = panel.dataset.tabPanel === targetId;
+          panel.classList.toggle('hidden', !isActive);
+        });
+      };
+
+      const defaultButton = document.querySelector('[data-tab-button][aria-selected="true"]');
+      activateTab(defaultButton?.dataset.tabTarget || tabButtons[0]?.dataset.tabTarget);
+
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => activateTab(button.dataset.tabTarget));
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initContactTabs, { once: true });
+    } else {
+      initContactTabs();
+    }
+  </script>
 </BaseLayout>
