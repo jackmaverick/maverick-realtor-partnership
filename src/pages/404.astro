@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
+
+const requestedPath = Astro.url?.pathname || '/';
+const pathSegments = requestedPath.split('/').filter(Boolean);
+const focusSegment = pathSegments.at(-1) || 'page';
+const friendlyName = focusSegment
+  .replace(/[-_]/g, ' ')
+  .replace(/\b\w/g, (char) => char.toUpperCase());
+
+const headline =
+  friendlyName && friendlyName.toLowerCase() !== 'page'
+    ? `${friendlyName} Page Coming Soon`
+    : 'This Page Is Coming Soon';
+
+const formHiddenFields = {
+  source: 'coming-soon-page',
+  intent: 'coming-soon-interest',
+  requestedPath,
+};
+---
+
+<BaseLayout
+  title="Coming Soon"
+  description="This page is coming soon. Let us know what you were looking for and we'll keep you updated."
+>
+  <section class="bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-900 text-white">
+    <div class="max-w-5xl mx-auto px-6 py-20 text-center space-y-6">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Maverick Exteriors</p>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        {headline}
+      </h1>
+      <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+        You're ahead of the curve&mdash;this section of our realtor partnership platform is still in production.
+        Let us know what you were hoping to find on <span class="font-semibold text-white">{requestedPath}</span> and
+        we’ll send the details the moment it launches.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="tel:9132988759"
+          class="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-6 py-3 text-white font-semibold border border-white/30 hover:bg-white/20 transition"
+        >
+          Call (913) 298-8759
+        </a>
+        <a
+          href="mailto:info@maverickexteriors.com"
+          class="inline-flex items-center gap-2 rounded-2xl bg-white text-blue-700 px-6 py-3 font-semibold shadow-md hover:shadow-lg transition"
+        >
+          Email Our Team
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="bg-white border border-gray-200 rounded-3xl shadow-xl overflow-hidden">
+        <div class="px-8 py-10 space-y-6">
+          <p class="text-sm font-semibold text-blue-600 uppercase tracking-wide">Priority Alert</p>
+          <h2 class="text-3xl font-bold text-gray-900">Want first access when this page goes live?</h2>
+          <p class="text-lg text-gray-600">
+            Drop your info below and reference what you needed from <span class="font-semibold text-gray-900">{requestedPath}</span>.
+            Our team will email or text you the exact resource as soon as it’s published&mdash;whether that’s a pricing matrix,
+            neighborhood playbook, or a new set of co-branded marketing assets.
+          </p>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-blue-600"></span>
+              <span>Get notified the moment the content launches</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-blue-600"></span>
+              <span>Request coaching or collateral while it’s in production</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 rounded-full bg-blue-600"></span>
+              <span>Optional text updates for urgent inspection or roofing support</span>
+            </li>
+          </ul>
+        </div>
+        <div class="border-t border-gray-100 px-8 py-10 bg-gray-50">
+          <ContactForm formType="general" hiddenFields={formHiddenFields} />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
