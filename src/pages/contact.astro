@@ -216,14 +216,15 @@ const formTabs = [
         <p class="text-lg text-gray-600">Proudly serving the entire Kansas City metropolitan area</p>
       </div>
 
-      <div class="bg-gray-200 rounded-2xl aspect-video flex items-center justify-center">
-        <div class="text-center p-8">
-          <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-          </svg>
-          <p class="text-gray-500">Service area map placeholder</p>
-          <p class="text-sm text-gray-400 mt-2">Kansas & Missouri sides of Kansas City metro</p>
-        </div>
+      <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+        <iframe
+          title="Maverick Exteriors Google Map"
+          src="https://www.google.com/maps?q=38.9339391,-94.8334457&z=15&output=embed"
+          class="w-full h-[420px] md:h-[520px]"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </div>
   </section>
