@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { createJobNimbusContact } from '../../lib/jobnimbus';
+import { dispatchFormSubmission } from '../../lib/formSubmission';
 
 export const prerender = false;
 
@@ -42,38 +42,45 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Prepare form data for submission
-    const formData = {
+    const cleanedData = { ...data };
+    delete cleanedData.honeypot;
+
+    const normalizedAgentType =
+      agentType === 'buyers' ? "Buyer's Agent" : agentType === 'sellers' ? "Seller's Agent" : 'Both';
+
+    const submission = {
+      ...cleanedData,
+      formKey: 'partnership',
       formType: 'Partnership Inquiry',
-      name,
-      email,
-      phone,
-      agentType: agentType === 'buyers' ? "Buyer's Agent" : agentType === 'sellers' ? "Seller's Agent" : 'Both',
+      agentType: normalizedAgentType,
       brokerage: data.brokerage || 'Not provided',
-      message,
       submittedAt: new Date().toISOString(),
-      source: 'Roof Kit Website',
-      priority: 'HIGH', // Partnership inquiries are high priority
+      source: data.source || 'realtor-partnership-site/partners',
+      priority: 'HIGH',
       tags: ['realtor-partnership', `agent-type-${agentType}`],
     };
 
-    console.log('Partnership inquiry form submission:', formData);
-
-    // Create JobNimbus contact with partnership tags & workflow automation
-    const jobNimbusResult = await createJobNimbusContact(formData);
-
-    if (!jobNimbusResult) {
-      console.error('JobNimbus contact creation failed for partnership inquiry');
+    const delivery = await dispatchFormSubmission(submission);
+    if (!delivery.success) {
       return new Response(
         JSON.stringify({ error: 'Unable to record partnership inquiry at this time.' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
+        { status: 502, headers: { 'Content-Type': 'application/json' } }
       );
+    }
+
+    if (!delivery.n8nDelivered && delivery.details.n8nError) {
+      console.warn('Partnership submission delivered without n8n:', delivery.details.n8nError);
     }
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: 'Partnership inquiry submitted successfully. We look forward to working with you!'
+        message: 'Partnership inquiry submitted successfully. We look forward to working with you!',
+        delivery: {
+          n8n: delivery.n8nDelivered,
+          email: delivery.emailDelivered,
+          sheets: delivery.sheetsDelivered,
+        },
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );

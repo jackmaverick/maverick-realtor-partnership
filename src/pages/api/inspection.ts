@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { createJobNimbusContact } from '../../lib/jobnimbus';
+import { dispatchFormSubmission } from '../../lib/formSubmission';
 
 export const prerender = false;
 
@@ -33,36 +33,40 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Prepare form data for submission
-    const formData = {
+    const cleanedData = { ...data };
+    delete cleanedData.honeypot;
+
+    const submission = {
+      ...cleanedData,
+      formKey: 'inspection',
       formType: 'Property Inspection Request',
-      name,
-      email,
-      phone,
       propertyAddress: data.propertyAddress || 'Not provided',
-      message,
       submittedAt: new Date().toISOString(),
-      source: 'Roof Kit Website',
-      priority: 'HIGH', // Inspection requests are high priority
+      source: data.source || 'realtor-partnership-site/inspection',
+      priority: 'HIGH',
     };
 
-    console.log('Inspection request form submission:', formData);
-
-    // Create JobNimbus contact with HIGH priority and inspection tags
-    const jobNimbusResult = await createJobNimbusContact(formData);
-
-    if (!jobNimbusResult) {
-      console.error('JobNimbus contact creation failed for inspection request');
+    const delivery = await dispatchFormSubmission(submission);
+    if (!delivery.success) {
       return new Response(
         JSON.stringify({ error: 'Unable to record inspection request at this time.' }),
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
+        { status: 502, headers: { 'Content-Type': 'application/json' } }
       );
+    }
+
+    if (!delivery.n8nDelivered && delivery.details.n8nError) {
+      console.warn('Inspection request delivered without n8n:', delivery.details.n8nError);
     }
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: 'Inspection request submitted successfully. We will contact you within 24 hours.'
+        message: 'Inspection request submitted successfully. We will contact you within 24 hours.',
+        delivery: {
+          n8n: delivery.n8nDelivered,
+          email: delivery.emailDelivered,
+          sheets: delivery.sheetsDelivered,
+        },
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
