@@ -4,92 +4,53 @@ This guide explains how to set up the integrations for the Realtor Partnership W
 
 ## Overview
 
-The website includes three main integrations:
+The website includes two primary integrations:
 
-1. **Email Notifications** - Instant email alerts to jack@maverickexteriorskc.com when forms are submitted
-2. **JobNimbus CRM** - Automatic contact and job creation in JobNimbus
-3. **Google Analytics 4** - Conversion tracking and user behavior analytics
+1. **Automation via n8n** - Central webhook that fans out to JobNimbus, OpenPhone, Google Sheets, Slack, etc.
+2. **Google Analytics 4** - Conversion tracking and user behavior analytics
 
----
-
-## 1. Email Notifications (Resend)
-
-### Setup Steps
-
-1. **Create a Resend account** at [resend.com](https://resend.com)
-2. **Add your domain** (optional but recommended for production)
-   - Go to Domains → Add Domain
-   - Add DNS records to verify your domain
-   - This allows emails to come from `@maverickexteriorskc.com` instead of `@resend.dev`
-3. **Get your API key**
-   - Go to API Keys → Create API Key
-   - Copy the API key
-4. **Add to Vercel environment variables**
-   - Go to your Vercel project settings
-   - Navigate to Environment Variables
-   - Add: `RESEND_API_KEY` = `your_api_key_here`
-
-### What Gets Emailed
-
-All form submissions automatically send an email to **jack@maverickexteriorskc.com** with:
-- Form type (Partnership, Inspection, or General Contact)
-- All form field data in a formatted table
-- Quick action links (click to call, click to email)
-- Timestamp of submission
+> Need Gmail auto-replies or a Google Sheets archive? See `GMAIL-SHEETS-SETUP.md` for optional add-ons.
 
 ---
 
-## 2. JobNimbus CRM Integration
+## 1. Automation via n8n (JobNimbus/OpenPhone/etc.)
 
 ### Setup Steps
 
-1. **Get your JobNimbus API key**
-   - Log into JobNimbus
-   - Go to Settings → Integrations → API
-   - Generate an API key
+1. **Open your n8n workflow**
+   - Identify the webhook node that should receive website leads
+   - Copy the production webhook URL into `.env.local` (`N8N_WEBHOOK_URL=...`) and Vercel
 
-2. **Create the Realtor Partnership workflow** (if not already created)
-   - Go to Settings → Workflows
-   - Create a new workflow called "Realtor Partnership"
-   - Note the workflow ID from the URL
+2. **Map Payload Fields**
+   - `name`, `firstName`, `lastName`
+   - `email`, `phone`
+   - `agentType`, `brokerage`, `message`
+   - `address`, `city`, `state`, `postalCode`, `addressSource`
+   - `formKey` / `formType` (`general`, `inspection`, `partnership`)
+   - `priority`, `submittedAt`, `source`, plus any hidden fields you pass in the component
 
-3. **Add to Vercel environment variables**
-   - `JOBNIMBUS_API_KEY` = `your_api_key_here`
-   - `JOBNIMBUS_REALTOR_WORKFLOW_ID` = `your_workflow_id_here`
+3. **Branch for Downstream Systems**
+   - Example: `Switch` on `formKey` to decide which JobNimbus workflow, OpenPhone number, or database table to hit
+   - Add nodes to:
+     - Create/Update JobNimbus contacts or jobs
+     - Send OpenPhone SMS/voice notifications
+     - Append to Google Sheets or Airtable
+     - Trigger Slack/Teams alerts or email sequences
 
-### How It Works
-
-#### All Form Submissions
-- **Creates a contact** in JobNimbus with:
-  - Name (first and last parsed automatically)
-  - Email address
-  - Phone number
-  - Contact Type: "Realtor/Real Estate Agent"
-  - Tags: `realtor-website`, form type, agent type, priority
-  - Source: "Realtor Partnership Website"
-
-#### Inspection Requests with Address
-When someone submits an inspection request AND provides a property address:
-1. **Creates the contact** (as above)
-2. **Creates a new job** under that contact with:
-   - Job address = property address
-   - Job name = "Inspection - [Name] - [Address]"
-   - Linked to the contact
-3. **Adds the job to the Realtor Partnership workflow**
-
-#### Partnership Inquiries
-- Creates the contact
-- Creates a follow-up task (due in 24 hours)
+4. **Tagging / Metadata**
+   - Use `formKey`, `priority`, and `source` to set tags like `"website-partnership"`, `"high-priority"`, etc.
+   - Add `priority: HIGH` when `formKey === 'inspection'` (already set by the API route)
 
 ### Testing the Integration
 
-1. Submit a test form on the website
-2. Check JobNimbus for the new contact
-3. If it's an inspection with an address, verify the job was created
+1. Submit a test form on the website (local or staging)
+2. In n8n, open **Executions** and inspect the payload
+3. Confirm downstream nodes ran (JobNimbus contact, OpenPhone message, Sheets row, etc.)
+4. Re-run the execution as needed while tweaking your workflow—no code changes required
 
 ---
 
-## 3. Google Analytics 4
+## 2. Google Analytics 4
 
 ### Setup Steps
 
@@ -137,10 +98,10 @@ All events include useful parameters like:
 Add these to your Vercel project:
 
 ```
+N8N_WEBHOOK_URL=https://your-workflow-url
+GOOGLE_PLACES_API_KEY=your_google_places_api_key
 PUBLIC_GA4_ID=G-XXXXXXXXXX
-RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
-JOBNIMBUS_API_KEY=your_jobnimbus_api_key
-JOBNIMBUS_REALTOR_WORKFLOW_ID=your_workflow_id
+PUBLIC_CLARITY_ID=clarity-project-id
 ```
 
 ### How to Add Variables in Vercel
@@ -158,9 +119,9 @@ JOBNIMBUS_REALTOR_WORKFLOW_ID=your_workflow_id
 
 After setting up all integrations, test the following:
 
-- [ ] Submit general contact form → Receive email
-- [ ] Submit partnership inquiry → Receive email + JobNimbus contact created
-- [ ] Submit inspection request with address → Receive email + JobNimbus contact + job created
+- [ ] Submit general contact form → n8n execution shows `formKey: general`
+- [ ] Submit partnership inquiry → n8n tags `agent-type-*` and `priority: HIGH`
+- [ ] Submit inspection request with address → n8n payload shows structured address + `priority: HIGH`
 - [ ] Check GA4 Realtime report to see page views and events
 - [ ] Click phone number → GA4 tracks phone_click event
 - [ ] Submit any form → GA4 tracks form_submit event
@@ -169,15 +130,10 @@ After setting up all integrations, test the following:
 
 ## Troubleshooting
 
-### Email notifications not working
-- Check Resend dashboard for failed sends
-- Verify `RESEND_API_KEY` is set in Vercel
-- Check Vercel deployment logs for errors
-
-### JobNimbus integration not working
-- Verify API key has correct permissions
-- Check Vercel deployment logs for API errors
-- Test API key directly using Postman or curl
+### n8n automation not working
+- Verify `N8N_WEBHOOK_URL` is set (local + Vercel)
+- Check Vercel deployment logs for `/api/general|inspection|partnership`
+- Review n8n → Executions for failures (re-run with edits if needed)
 
 ### GA4 not tracking
 - Verify `PUBLIC_GA4_ID` starts with `PUBLIC_` prefix
@@ -190,6 +146,5 @@ After setting up all integrations, test the following:
 ## Support
 
 For integration issues:
-- Email notifications: [Resend Documentation](https://resend.com/docs)
-- JobNimbus API: [JobNimbus API Docs](https://documenter.getpostman.com/view/3919598/S1ETRGzt)
+- Automation workflows: [n8n Documentation](https://docs.n8n.io)
 - Google Analytics: [GA4 Documentation](https://support.google.com/analytics/answer/9304153)

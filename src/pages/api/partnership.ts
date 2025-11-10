@@ -78,7 +78,6 @@ export const POST: APIRoute = async ({ request }) => {
         message: 'Partnership inquiry submitted successfully. We look forward to working with you!',
         delivery: {
           n8n: delivery.n8nDelivered,
-          email: delivery.emailDelivered,
           sheets: delivery.sheetsDelivered,
         },
       }),

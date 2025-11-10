@@ -1,5 +1,5 @@
 import { google } from 'googleapis';
-import type { FormSubmission } from './email';
+import type { FormSubmission } from './formTypes';
 
 /**
  * Append form submission data to Google Sheets

@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import type { FormSubmission } from './email';
+import type { FormSubmission } from './formTypes';
 
 /**
  * Send auto-reply email to form submitter using Gmail

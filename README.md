@@ -84,30 +84,34 @@ See [DESIGN-SYSTEM.md](./DESIGN-SYSTEM.md) for details.
 
 > 🔁 **Tip:** The root project also tracks everything at `git@github.com:jackmaverick/maverick-exteriors.git`. Push there too whenever you want the umbrella repo to stay current.
 
-## 🧩 Form + CRM Configuration
+## 🧩 Form Automation Flow
 
-The contact, partnership, and inspection forms now push leads **directly into JobNimbus**—no Google Sheets or Gmail dependencies.
+Every form on the site (general, inspection, partnership) uses the shared `ContactForm` component and posts JSON to `/api/{formType}`. Each API route:
 
-Set these environment variables in Vercel (and in your local `.env.local` if you want to test locally):
+1. Validates + normalizes the payload
+2. Adds metadata (formKey, priority, submittedAt, hidden fields)
+3. Forwards everything to your **n8n webhook** (`N8N_WEBHOOK_URL`)
+
+From n8n you can branch into JobNimbus, OpenPhone, Google Sheets, Gmail, Slack, etc. The Astro app no longer needs direct JobNimbus credentials—the webhook decides what systems are triggered.
+
+**Environment variables**
 
 | Variable | Purpose |
 | --- | --- |
-| `JOBNIMBUS_API_KEY` | Personal access token for the JobNimbus API |
-| `JOBNIMBUS_REALTOR_WORKFLOW_ID` *(optional)* | Workflow UUID/ID to auto-assign new inspection jobs |
-| `JOBNIMBUS_TASK_ASSIGNEE_ID` *(optional)* | User ID to assign follow-up tasks (useful for automation/notifications) |
+| `N8N_WEBHOOK_URL` | Main automation endpoint (receives every submission) |
+| `GOOGLE_PLACES_API_KEY` | Powers address autocomplete + structured address metadata |
+| `PUBLIC_GA4_ID` | Client-side Google Analytics 4 tracking |
+| `PUBLIC_CLARITY_ID` *(optional)* | Microsoft Clarity session recording |
 
-When a form is submitted:
-- a JobNimbus contact is created with realtor-specific tags (`realtor-website`, form type, agent type, priority)
-- inspection requests create a JobNimbus job (with address if provided) and are added to the realtor workflow if `JOBNIMBUS_REALTOR_WORKFLOW_ID` is set
-- partnership inquiries get an automatic follow-up task (so you can trigger JobNimbus automations to email the lead and notify internal stakeholders)
+> Still want to hit JobNimbus directly from Astro? `src/lib/jobnimbus.ts` remains available—wire it into the API routes or invoke it from n8n. The default path is webhook-first.
 
-Use JobNimbus Automations (Settings → Automations) to send the confirmation email and internal notifications when a contact or task with the `realtor-website` tag is created.
+For a deeper dive into component usage, API handlers, and downstream routing, see `../forms-routing-overview.md`.
 
 ## 📊 Next Steps (TODO)
 
-- [ ] Add environment variables for API keys
-- [ ] Integrate JobNimbus CRM
-- [ ] Set up email notifications (SendGrid/Resend)
+- [ ] Add `N8N_WEBHOOK_URL` + `GOOGLE_PLACES_API_KEY` to `.env.local` and Vercel
+- [ ] Build/confirm the n8n workflow (JobNimbus, OpenPhone, Sheets, Gmail, Slack)
+- [ ] Configure notifications inside n8n (OpenPhone, Slack, email, etc.) or enable Gmail auto replies as needed
 - [x] Add Google Analytics 4 *(set `PUBLIC_GA4_ID` in `.env` or Vercel)*
 - [x] Add Microsoft Clarity for heatmaps *(set `PUBLIC_CLARITY_ID`)*
 - [ ] Upload real images (replace placeholders)

@@ -63,7 +63,6 @@ export const POST: APIRoute = async ({ request }) => {
         message: 'Form submitted successfully',
         delivery: {
           n8n: delivery.n8nDelivered,
-          email: delivery.emailDelivered,
           sheets: delivery.sheetsDelivered,
         },
       }),

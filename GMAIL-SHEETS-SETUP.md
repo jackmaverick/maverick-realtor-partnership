@@ -172,8 +172,8 @@ The sheet will automatically create headers on first use.
 When a form is submitted:
 
 1. **Validation** - Server validates all required fields
-2. **Team Notification** - Resend sends email to jack@maverickexteriorskc.com
-3. **Auto-Reply** - Gmail sends thank you email to submitter
+2. **Team Notification** - n8n workflow sends Slack/Email/OpenPhone alerts
+3. **Auto-Reply** - Gmail sends thank you email to submitter (optional)
 4. **Google Sheets** - Row added to spreadsheet
 5. **JobNimbus** - Contact (and job if inspection with address) created
 6. **Analytics** - GA4 tracks conversion event

@@ -1,4 +1,4 @@
-import type { FormSubmission } from './email';
+import type { FormSubmission } from './formTypes';
 
 export interface JobNimbusContact {
   first_name: string;

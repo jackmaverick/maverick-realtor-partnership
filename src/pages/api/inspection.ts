@@ -64,7 +64,6 @@ export const POST: APIRoute = async ({ request }) => {
         message: 'Inspection request submitted successfully. We will contact you within 24 hours.',
         delivery: {
           n8n: delivery.n8nDelivered,
-          email: delivery.emailDelivered,
           sheets: delivery.sheetsDelivered,
         },
       }),
