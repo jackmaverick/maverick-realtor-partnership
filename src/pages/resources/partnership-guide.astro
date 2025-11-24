@@ -1,21 +1,74 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const testimonials = [
+  {
+    name: 'Sarah Johnson',
+    title: 'Broker, Johnson Realty',
+    text: 'Working with Maverick Exteriors as a Gold partner has transformed how we handle client roofing needs. The database access and co-branded events have brought us closer to our clients.',
+    tier: 'Gold'
+  },
+  {
+    name: 'Mike Chen',
+    title: 'Real Estate Agent, Prairie Living',
+    text: 'The price matching and priority scheduling at the Silver level means my clients always get the best value. Maverick treats us like true partners.',
+    tier: 'Silver'
+  },
+  {
+    name: 'Jennifer Martinez',
+    title: 'Team Lead, Midwest Homes',
+    text: 'As a Bronze partner, we appreciate the fast inspections and clean communication. It makes closing deals easier and keeps our clients happy.',
+    tier: 'Bronze'
+  },
+  {
+    name: 'David Williams',
+    title: 'Broker Owner, Williams Group',
+    text: 'The co-op funds program has been incredible for our marketing efforts. The Gold partnership has definitely paid for itself multiple times over.',
+    tier: 'Gold'
+  },
+  {
+    name: 'Amanda Rodriguez',
+    title: 'Senior Agent, Kansas City Realty',
+    text: 'The luncheon learns and educational approach from Maverick helps me advise clients better. Silver partnership was the right choice for our volume.',
+    tier: 'Silver'
+  }
+];
+
 const partnershipTiers = [
   {
     tier: 'Bronze',
-    blurb: 'Fast inspections, clean communication, and marketing assets for new partners.',
-    status: 'Application waitlist open'
+    subtitle: '0 to 5 roofs annually',
+    blurb: 'Fast inspections and clean communication.',
+    features: [
+      { name: 'Discounted Pricing', checked: true },
+      { name: 'Price Match', checked: true },
+      { name: 'Priority Scheduling', checked: true }
+    ]
   },
   {
     tier: 'Silver',
-    blurb: 'Dedicated partner manager, expedited crews, and quarterly strategy reviews.',
-    status: 'Curating founding partners'
+    subtitle: '6 to 10 roofs annually',
+    blurb: 'Dedicated partner manager and expedited crews.',
+    features: [
+      { name: 'Discounted Pricing', checked: true },
+      { name: 'Price Match', checked: true },
+      { name: 'Priority Scheduling', checked: true },
+      { name: 'Luncheon Learns', checked: true },
+      { name: 'Co-op Funds for Charity, Donations, Gift Cards, Marketing', checked: true, value: '$100 per roof installed' }
+    ]
   },
   {
     tier: 'Gold',
-    blurb: 'Priority scheduling, co-branded campaigns, and client appreciation events.',
-    status: 'Launching with 5 brokerages'
+    subtitle: '11+ roofs annually',
+    blurb: 'Co-branded campaigns and client appreciation events.',
+    features: [
+      { name: 'Discounted Pricing', checked: true },
+      { name: 'Price Match', checked: true },
+      { name: 'Luncheon Learns', checked: true },
+      { name: 'Co-op Funds for Charity, Donations, Gift Cards, Marketing', checked: true, value: '$100 per roof installed' },
+      { name: 'Co-branded Events', checked: true },
+      { name: 'Access to Maverick Client Database - 500+ KC Area Homes', checked: true }
+    ]
   }
 ];
 ---
@@ -31,11 +84,8 @@ const partnershipTiers = [
         🤝 Partnership Program Refresh
       </span>
       <h1 class="mb-4 text-4xl font-bold text-gray-900 sm:text-5xl">
-        New Partner Tiers Launching Soon
+        Maverick Exteriors Real Estate Broker Partnership Program
       </h1>
-      <p class="mx-auto mb-8 max-w-2xl text-lg text-gray-700">
-        The full Bronze, Silver, and Gold tier experience—pricing guidance, task automations, marketing perks—is in final polish. We’re onboarding the first cohort now.
-      </p>
       <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
         <a
           href="/contact?topic=partnership-waitlist"
@@ -60,24 +110,138 @@ const partnershipTiers = [
   <section class="bg-white py-16">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <div class="mb-8 text-center">
-        <h2 class="text-3xl font-bold text-gray-900">Snapshot of the Tiers</h2>
-        <p class="mt-3 text-lg text-gray-600">
-          The cards below mirror the partner matrix design you saw—we’re keeping your favorite pieces while we wire up the onboarding workflow.
-        </p>
+        <h2 class="text-3xl font-bold text-gray-900">Partnership Options</h2>
       </div>
 
       <div class="grid gap-6 md:grid-cols-3">
-        {partnershipTiers.map((tier) => (
+        {partnershipTiers.map((tier, index) => {
+          const iconBgColors = [
+            'bg-gradient-to-br from-amber-600 to-amber-700',
+            'bg-gradient-to-br from-gray-400 to-gray-500',
+            'bg-gradient-to-br from-yellow-500 to-yellow-600'
+          ];
+          return (
           <div class="rounded-3xl border border-amber-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-rose-400 text-xl text-white">
+            <div class={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl ${iconBgColors[index]} text-xl text-white`}>
               ⭐
             </div>
             <h3 class="text-2xl font-semibold text-gray-900">{tier.tier} Partner</h3>
+            <p class="mt-1 text-xs font-semibold text-amber-600">{tier.subtitle}</p>
             <p class="mt-3 text-sm text-gray-600">{tier.blurb}</p>
-            <p class="mt-5 text-xs font-semibold uppercase tracking-wide text-amber-600">{tier.status}</p>
+
+            <div class="mt-6 space-y-3 border-t border-gray-200 pt-6">
+              {tier.features?.map((feature) => (
+                <div class="flex gap-3">
+                  <div class="flex-shrink-0 mt-1">
+                    {feature.checked ? (
+                      <svg class="h-5 w-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                    ) : (
+                      <svg class="h-5 w-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    )}
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-sm font-medium text-gray-900">{feature.name}</p>
+                    {feature.value && (
+                      <p class="text-xs text-amber-600 font-semibold mt-1">{feature.value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
+
+  {/*
+  TESTIMONIALS SECTION - Ready to add back in with real contacts
+  Includes infinite scroll animation with pause on hover
+
+  <section class="bg-gradient-to-br from-gray-50 to-gray-100 py-16 md:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center">
+        <h2 class="text-3xl font-bold text-gray-900">What Partner Brokers Are Saying</h2>
+        <p class="mt-3 text-lg text-gray-600">Join successful real estate partners who are already benefiting from Maverick Exteriors</p>
+      </div>
+
+      <style>
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-50% - 12px));
+          }
+        }
+        .scroll-container {
+          animation: scroll 40s linear infinite;
+        }
+        .scroll-container:hover {
+          animation-play-state: paused;
+        }
+      </style>
+
+      <div class="relative overflow-hidden">
+        <div class="scroll-container flex gap-6 pb-4">
+          {testimonials.map((testimonial) => (
+            <div class="flex-shrink-0 w-96 rounded-2xl bg-white p-8 shadow-md border border-gray-200">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
+                  <p class="text-sm text-gray-600">{testimonial.title}</p>
+                </div>
+                <span class={`px-3 py-1 rounded-full text-xs font-semibold ${
+                  testimonial.tier === 'Gold' ? 'bg-yellow-100 text-yellow-700' :
+                  testimonial.tier === 'Silver' ? 'bg-gray-100 text-gray-700' :
+                  'bg-amber-100 text-amber-700'
+                }`}>
+                  {testimonial.tier}
+                </span>
+              </div>
+              <p class="text-gray-700 leading-relaxed">{testimonial.text}</p>
+              <div class="flex gap-1 mt-4">
+                {[...Array(5)].map(() => (
+                  <svg class="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+            </div>
+          ))}
+          {testimonials.map((testimonial) => (
+            <div class="flex-shrink-0 w-96 rounded-2xl bg-white p-8 shadow-md border border-gray-200">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
+                  <p class="text-sm text-gray-600">{testimonial.title}</p>
+                </div>
+                <span class={`px-3 py-1 rounded-full text-xs font-semibold ${
+                  testimonial.tier === 'Gold' ? 'bg-yellow-100 text-yellow-700' :
+                  testimonial.tier === 'Silver' ? 'bg-gray-100 text-gray-700' :
+                  'bg-amber-100 text-amber-700'
+                }`}>
+                  {testimonial.tier}
+                </span>
+              </div>
+              <p class="text-gray-700 leading-relaxed">{testimonial.text}</p>
+              <div class="flex gap-1 mt-4">
+                {[...Array(5)].map(() => (
+                  <svg class="w-4 h-4 text-amber-400 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+  */}
 </BaseLayout>
