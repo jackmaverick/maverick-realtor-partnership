@@ -9,6 +9,7 @@ import Analytics from '@vercel/analytics/astro';
 interface Props extends SEOProps {}
 
 const seoMeta = generateSEOMeta(Astro.props);
+const googlePlacesApiKey = import.meta.env.GOOGLE_PLACES_API_KEY;
 ---
 
 <!doctype html>
@@ -67,6 +68,90 @@ const seoMeta = generateSEOMeta(Astro.props);
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, 'clarity', 'script');
       </script>
+    )}
+
+    {googlePlacesApiKey && (
+      <>
+        <script is:inline>
+          (() => {
+            const pending = [];
+
+            const parsePlace = (place) => {
+              if (!place || !place.address_components) {
+                return {
+                  street: '',
+                  city: '',
+                  state: '',
+                  postalCode: '',
+                  formattedAddress: ''
+                };
+              }
+
+              const find = (type) => {
+                const component = place.address_components.find((item) => item.types.includes(type));
+                return component ? component.long_name : '';
+              };
+
+              return {
+                street: [find('street_number'), find('route')].filter(Boolean).join(' ').trim(),
+                city: find('locality') || find('sublocality') || '',
+                state: find('administrative_area_level_1') || '',
+                postalCode: find('postal_code') || '',
+                formattedAddress: place.formatted_address || ''
+              };
+            };
+
+            const initAutocomplete = (config) => {
+              const input =
+                typeof config.inputSelector === 'string'
+                  ? document.querySelector(config.inputSelector)
+                  : config.inputElement;
+
+              if (!input) return;
+
+              const autocomplete = new google.maps.places.Autocomplete(input, {
+                fields: ['address_components', 'formatted_address'],
+                componentRestrictions: { country: config.country || 'us' }
+              });
+
+              autocomplete.addListener('place_changed', () => {
+                const place = autocomplete.getPlace();
+                const data = parsePlace(place);
+                if (typeof config.onChange === 'function') {
+                  config.onChange(data, input);
+                }
+              });
+
+              if (typeof config.onInit === 'function') {
+                config.onInit(input);
+              }
+            };
+
+            window.MaverickAddressAutocomplete = {
+              register(config) {
+                if (window.google?.maps?.places) {
+                  initAutocomplete(config);
+                } else {
+                  pending.push(config);
+                }
+              }
+            };
+
+            window.__maverickInitPlaces = () => {
+              while (pending.length > 0) {
+                initAutocomplete(pending.shift());
+              }
+            };
+
+            window.dispatchEvent(new CustomEvent('maverick-address-helper-ready'));
+          })();
+        </script>
+        <script
+          src={`https://maps.googleapis.com/maps/api/js?key=${googlePlacesApiKey}&libraries=places&callback=__maverickInitPlaces`}
+          async
+          defer
+        ></script>
+      </>
     )}
   </head>
   <body>

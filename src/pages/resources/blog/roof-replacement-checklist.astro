@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const post = {
+  id: 'roof-replacement-checklist',
+  title: 'Buyer & Seller Talking Points When the Roof Has to Go',
+  date: '2025-11-10',
+  category: 'Deal Triage',
+  gradient: 'from-blue-500 to-violet-600',
+  readTime: '10 min read',
+  excerpt:
+    'Use this checklist to brief buyers and sellers when the only way to keep the transaction alive is a new roof. Cover cost ceilings, contingencies, scheduling hazards, and client expectations in one conversation.',
+};
+---
+
+<BaseLayout title={post.title} description={post.excerpt}>
+  <!-- Hero -->
+  <section class="relative py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-100 via-indigo-100 to-violet-100"></div>
+    <div class="absolute inset-0 bg-gradient-to-tr from-white/40 via-transparent to-violet-200/40"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-6">
+        <a href="/resources/blog" class="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-semibold">
+          <span>←</span> Back to Blog
+        </a>
+      </div>
+
+      <div class="flex items-center gap-4 mb-6 flex-wrap">
+        <span class={`inline-block px-4 py-1.5 bg-gradient-to-r ${post.gradient} text-white text-sm font-bold rounded-full`}>
+          {post.category}
+        </span>
+        <span class="text-gray-600">{post.date}</span>
+        <span class="text-gray-400">•</span>
+        <span class="text-gray-600">{post.readTime}</span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">{post.title}</h1>
+      <p class="text-xl text-gray-700 leading-relaxed">{post.excerpt}</p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold text-gray-900">Start with cost clarity</h2>
+        <p class="text-gray-700 leading-relaxed">
+          The fastest way to calm nerves is to put numbers on the table. Use the Realtor Cost Calculator or the quick math below so everyone
+          understands the ceiling—not just the bid on the contract.
+        </p>
+        <div class="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-6 space-y-3">
+          <p class="text-sm font-semibold text-blue-700 uppercase tracking-wide">Rapid estimate checklist</p>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-3">
+              <span class="text-blue-600 mt-1">1.</span>
+              Confirm total roof squares (100 sq. ft. = 1 square). Run a measurement report if you don’t already have one.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-600 mt-1">2.</span>
+              Multiply squares by the shingle system your buyer/seller prefers. Our realtor pricing ranges from $400–$460 per square.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-600 mt-1">3.</span>
+              Add decking contingency. Plan on <strong>$75 per sheet of plywood</strong> with an average of <strong>3.2 sheets per square</strong>.
+              That’s ~$240 per square in the worst case (e.g., 30 squares → $7,200 max exposure).
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-blue-600 mt-1">4.</span>
+              Review accessories (gutters, skylights, ventilation) and note they can be bundled so there’s one invoice and one closing credit.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold text-gray-900">Script the conversation</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Whether you represent the buyer or the seller, your job is to make the path obvious. Use these talking points as a checklist.
+        </p>
+
+        <div class="rounded-2xl border border-gray-200 p-6 space-y-5">
+          <div>
+            <p class="text-sm font-semibold text-gray-500 uppercase tracking-[0.3em]">For Buyers</p>
+            <ul class="mt-3 space-y-3 text-gray-700">
+              <li>☑️ “Here’s the roof cost with all contingencies. Let’s request the seller credit or negotiate dealer pricing through Maverick.”</li>
+              <li>☑️ “If we inherit the roof, we control materials, warranty registration, and scheduling with your move-in date.”</li>
+              <li>☑️ “We’ll keep $240/sq reserved for deck replacement so there’s no panic if the plywood is damaged.”</li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-gray-500 uppercase tracking-[0.3em]">For Sellers</p>
+            <ul class="mt-3 space-y-3 text-gray-700">
+              <li>☑️ “New roof paperwork becomes a marketing asset. We’ll showcase materials, warranty, and completion date in the MLS remarks.”</li>
+              <li>☑️ “You’re approving a not-to-exceed number. Anything under goes back to you at closing.”</li>
+              <li>☑️ “Tell us when movers or cleaners are scheduled—roof crews can’t work while people are carrying furniture out of the house.”</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold text-gray-900">Coordinate schedules before signing anything</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Roofing is a construction zone. If the homeowner is moving out, staging, or running estate sales, you must build a clean calendar so
+          the crew isn’t working over people or vehicles.
+        </p>
+        <div class="grid gap-4 md:grid-cols-2">
+          <div class="rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
+            <p class="text-sm font-semibold text-emerald-700 uppercase tracking-wide">Before install</p>
+            <ul class="mt-3 space-y-2 text-gray-700">
+              <li>• Confirm when movers, cleaners, or junk haulers are onsite.</li>
+              <li>• Reserve driveway access for dump trailers and material drops.</li>
+              <li>• Relocate pets, vehicles, and patio items 24 hours ahead.</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-rose-100 bg-rose-50 p-5">
+            <p class="text-sm font-semibold text-rose-700 uppercase tracking-wide">During install</p>
+            <ul class="mt-3 space-y-2 text-gray-700">
+              <li>• No moving trucks, PODs, or furniture crews under active tear-off.</li>
+              <li>• Keep residents out of the attic and garage ceiling areas.</li>
+              <li>• Provide the roofer with daily access windows and alarm codes if needed.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-gray-700 leading-relaxed">
+          Communicate this to both parties early: <strong>you cannot execute a roof replacement while people are physically moving out.</strong>
+          It’s unsafe for the homeowners and slows the crew to a crawl. Schedule move-out either before the tear-off or after final inspection.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold text-gray-900">Document everything</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Keep a shared folder or email thread that tracks scope, invoices, photos, and warranties. When questions pop up at underwriting or
+          final walkthrough, you won’t be scrambling for proof.
+        </p>
+        <ul class="space-y-3 text-gray-700">
+          <li>☑️ Written bid with materials, labor, and contingencies.</li>
+          <li>☑️ Proof of payment or assignment of proceeds so title knows who gets the funds.</li>
+          <li>☑️ Photo log of tear-off, decking repairs, and final roof for buyer confidence.</li>
+          <li>☑️ Manufacturer + workmanship warranty documents scanned to PDF.</li>
+        </ul>
+      </div>
+
+      <div class="rounded-3xl border border-violet-200 bg-gradient-to-br from-violet-50 to-white p-8 space-y-4">
+        <p class="text-sm uppercase tracking-[0.3em] text-violet-500">Need backup?</p>
+        <h3 class="text-2xl font-bold text-gray-900">Loop us in before the inspection response expires.</h3>
+        <p class="text-gray-700 leading-relaxed">
+          We’ll run the measurement, supply an estimate with max contingencies, and coordinate with buyers, sellers, and title so you can move on to appraisal.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/resources/roi-calculator"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-violet-600 text-white font-semibold rounded-xl shadow-lg hover:bg-violet-700 transition-colors"
+          >
+            Use the Cost Calculator
+            <span>→</span>
+          </a>
+          <a
+            href="/contact?topic=roof-checklist"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-violet-200 text-violet-700 font-semibold rounded-xl hover:bg-white/70 transition-colors"
+          >
+            Request a Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

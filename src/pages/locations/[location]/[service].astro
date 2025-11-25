@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ContactForm from '../../../components/forms/ContactForm.astro';
 import locations from '../../../data/locations.json';
 import services from '../../../data/services.json';
 
@@ -24,6 +25,14 @@ export async function getStaticPaths() {
 }
 
 const { location, service } = Astro.props;
+const formHiddenFields = {
+  pageType: 'Service',
+  locationSlug: location.slug,
+  locationName: location.name,
+  serviceSlug: service.slug,
+  serviceName: service.name,
+};
+const serviceFormType = service.slug === 'roof-inspections' ? 'inspection' : 'general';
 ---
 
 <BaseLayout
@@ -199,6 +208,48 @@ const { location, service } = Astro.props;
               ))}
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Request Service CTA -->
+  <section class="py-16 md:py-24 bg-gradient-to-br from-violet-50 via-white to-blue-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-start">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.3em] text-violet-500">White glove support</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">
+            Need {service.name.toLowerCase()} help in {location.name}?
+          </h2>
+          <p class="text-lg text-gray-600 mb-6">
+            Tell us which property you are representing and we will follow up within one business day with inspection times, pricing,
+            documentation, and next steps tailored to {location.name}.
+          </p>
+          <ul class="space-y-3 text-gray-700 text-base">
+            <li class="flex gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-violet-500"></span>
+              24–48 hour inspection windows plus same-day photo packets.
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-violet-500"></span>
+              Payment-at-closing and financing language you can drop into contracts.
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1.5 h-2 w-2 rounded-full bg-violet-500"></span>
+              Dedicated point of contact who texts/calls with updates until the job is done.
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-lg">
+          <p class="text-sm font-semibold text-blue-600 tracking-wide uppercase mb-2">Request support</p>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">
+            {service.slug === 'roof-inspections' ? 'Schedule an inspection' : 'Get service details'}
+          </h3>
+          <p class="text-gray-600 mb-6">
+            We’ll respond with timing, pricing, and a direct contact so you always know who is showing up on site.
+          </p>
+          <ContactForm formType={serviceFormType} hiddenFields={formHiddenFields} />
         </div>
       </div>
     </div>
